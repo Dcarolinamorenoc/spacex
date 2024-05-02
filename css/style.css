@@ -296,3 +296,40 @@ body{
 .info2 h3 {
     font-size: 14px;
 }
+
+.parte {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.parte h3 {
+    margin-left: -20px
+}
+
+div.parte h3 {
+    margin-left: 20px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+div.parte h1 {
+    margin-left: 5px;
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.colorescohetess{
+    background-color: #668564;
+}
+
+.inf2 {
+    text-align: justify;
+}
+
+.inf2 .id-heading {
+    font-size: 14px;
+    margin-left: 20px;
+    margin-right: 15px;
+}
+
