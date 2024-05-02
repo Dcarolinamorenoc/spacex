@@ -211,3 +211,74 @@ body{
     display: flex;
     align-items: flex-end;
 }
+
+.description__item {
+    text-align: center;
+}
+
+.cohetes {
+    margin-top: 15px;
+    text-align: left;
+}
+
+.imagen-pequena {
+    width: 280px;
+    height: 200px; 
+}
+
+.informacion {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.id-heading {
+    font-weight: normal; 
+    font-size: 15px;
+}
+
+.info1{
+    display: flex;
+    width: 50px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.info2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 230px;
+    height: 50px;
+}
+
+.informacio{
+    display: flex;
+    flex-direction: row;
+    height: 120px;
+    margin-top: 20px;
+
+}
+
+
+.inf1{
+    display: flex;
+    width: 50px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 35px;
+
+}
+
+.inf2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 230px;
+    height: 50px;
+    margin-top: 35px;
+}
