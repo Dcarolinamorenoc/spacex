@@ -219,7 +219,9 @@ body{
 .cohetes {
     margin-top: 15px;
     text-align: left;
+    
 }
+
 
 .imagen-pequena {
     width: 280px;
@@ -281,4 +283,8 @@ body{
     width: 230px;
     height: 50px;
     margin-top: 35px;
+}
+
+.cohetes h3 {
+    margin-left: 20px; 
 }
