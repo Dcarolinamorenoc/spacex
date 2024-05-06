@@ -12,6 +12,10 @@ import {
     informationWebRocket
 } from "./information.js";
 import { 
+    tableRocketColum1, 
+    tableRocketColum2
+} from "./tables.js";
+import { 
     informRocketEngineThrustSeaLevel, 
     informRocketEngineThrustVacuum
 } from "./inform.js";
@@ -26,6 +30,7 @@ import {
     progressSecondStageDiameterRocket,
     progressSecondStageHeightRocket,
 } from "../modulesComponents/progressBar.js";
+
 
 
 const getRocketsId = async(e)=>{
@@ -56,6 +61,9 @@ const getRocketsId = async(e)=>{
     await informRocketEngineThrustVacuum(Rocket.engines.thrust_vacuum);
     await imageRockets(Rocket.flickr_images);
 
+    await tableRocketColum1(Rocket)
+    await tableRocketColum2(Rocket)
+
     await progressRocketWeight(Rocket)
     await progressPayloadWeights(Rocket)
     await progressHeightRocket(Rocket)
@@ -77,7 +85,7 @@ export const paginationRockets = async()=>{
         div.appendChild(a);
     });
     let [a1,a2,a3,a4] = div.children
-    a1.click();
+    a3.click();
     // <div class="buttom__paginacion">
     //     <a href="#">&laquo;</a> 
     //     <a href="#" class="activo">1</a>
