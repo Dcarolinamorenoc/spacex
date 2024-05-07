@@ -6,7 +6,7 @@
     <title>SpaceX</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="shortcut icon" href="storage/img/icons/space .png" type="image/png">
+    <link rel="shortcut icon" href="storage/img/icons/navecita.png" type="image/png">
     <link rel="stylesheet" href="css/style.css">
     <script type="module" src="js/main.js" defer></script>
 </head>
@@ -154,15 +154,15 @@
             </article>
             <footer class="footer">
                 <ul>
-                    <li>
-                        <a href="#">
-                            <img src="storage/img/icons/MdiRocket.png" alt="">
+                    <li id="rocket">
+                        <a class="select" href="#">
+                            <img src="storage/img/icons/rocket.svg">
                             <span>Rockets</span>
                         </a>
                     </li>
-                    <li>
+                    <li id="capsules">
                         <a href="#">
-                            <img src="storage/img/icons/capsule.svg" alt="">
+                            <img src="storage/img/icons/capsule.svg">
                             <span>Capsules</span>
                         </a>
                     </li>
@@ -219,9 +219,7 @@
                 <div class="load"></div>
                 <div class="load"></div>
             </div>
-            <div id="paginacion" class="information__buttom">
-                <div class="load"></div>
-            </div>
+            <div id="paginacion" class="information__buttom"></div>
         </nav>
     </main>
 
