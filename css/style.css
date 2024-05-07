@@ -318,7 +318,7 @@
 
 
 .footer {
-    background: coral;
+    background: rgb(18, 23, 31);
     grid-area: section__footer;
     display: grid;
     grid-template-columns: 1fr 8fr 1fr;
@@ -808,7 +808,6 @@ progress[value]::-moz-progress-bar {
 footer {
             position: relative;
             width: 100%;
-            background-color: #f0f0f0;
             padding: 20px;
             gap: 8%;
             clip-path: polygon(0 0, 100% 0, 85% 50%, 100% 100%, 0 100%, 15% 50%);
@@ -825,5 +824,31 @@ footer {
 
         a {
             text-decoration: none;
-            color: black;
+            color: white;
         }
+
+
+
+        li a img {
+          width: 40px;
+          position: absolute;
+          margin-top: -15px;
+          height: 40px;
+      }
+
+      li a {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    li a span {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-top: 15px;
+        font-size: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
