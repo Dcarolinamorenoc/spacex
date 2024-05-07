@@ -935,3 +935,20 @@ footer {
       transform: scale(1);
     }
   }
+
+/* 
+  .buttom__paginacion a:nth-child(1) {
+    background: linear-gradient(to bottom, #247070, #330867);
+}
+
+.buttom__paginacion a:nth-child(2) {
+    background: linear-gradient(to bottom, #7a294f, #5c3634);
+}
+
+.buttom__paginacion a:nth-child(3) {
+    background: linear-gradient(to bottom, #4153a5, #482c64);
+}
+
+.buttom__paginacion a:nth-child(4) {
+    background: linear-gradient(to bottom, #928b4c, #214e49);
+} */

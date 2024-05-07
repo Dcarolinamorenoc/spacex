@@ -170,6 +170,8 @@ export const paginationRockets = async () => {
     a1.click(); // Hacer clic en el tercer enlace por defecto
 
     return div;
+
+    
 }
 
 const getCapsulesId = async(e)=>{
@@ -207,6 +209,7 @@ export const paginationCapsules = async(page=1, limit=4)=>{
     start.setAttribute("data-page", (page==1) ? totalPages : page-1)
     start.addEventListener("click", getCapsulesId)
     div.appendChild(start);
+
     docs.forEach((val,id) => {
         let a = document.createElement("a");
         a.setAttribute("href","#");
@@ -216,6 +219,7 @@ export const paginationCapsules = async(page=1, limit=4)=>{
         div.appendChild(a);
         pagingCounter++
     });
+    
     let end = document.createElement("a");
     end.setAttribute("href","#");
     end.innerHTML = "&raquo;";
