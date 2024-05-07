@@ -9,7 +9,7 @@
 }
 
 body {
-    background: linear-gradient(var(--color--one), var(--color--one--rgba));
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
 *::-webkit-scrollbar {
@@ -244,7 +244,7 @@ body {
 }
 
 .section__image>.carousel__item img {
-    width: 305px;
+    width: 300px;
     height: 190px;
     border-radius: 10px;
     object-fit: cover;
@@ -485,8 +485,8 @@ progress[value]::-moz-progress-bar {
     top: 0;
     transform: translateY(0px);
     height: 100px;
-    margin-top: -80px;
-    margin-left: -200px;
+    margin-top: -200px;
+    margin-left: -550px;
   }
   
   .box-of-star1 {
@@ -584,7 +584,8 @@ progress[value]::-moz-progress-bar {
     top: calc(50% - 150px);
     left: calc(50% - 125px);
     animation: astronaut 5s linear infinite;
-    margin-top: -240px;
+    margin-top: -200px;
+    margin-left: -10px;
   }
   
   .schoolbag {
