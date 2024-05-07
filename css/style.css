@@ -8,9 +8,12 @@
     font-family: "Roboto-Regular";
 }
 
-body {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-}
+/* body {
+    background: linear-gradient(to top, #307979 0%, #330867 100%)
+} */
+
+
+
 
 *::-webkit-scrollbar {
     height: 12px;
@@ -585,7 +588,7 @@ progress[value]::-moz-progress-bar {
     left: calc(50% - 125px);
     animation: astronaut 5s linear infinite;
     margin-top: -200px;
-    margin-left: -10px;
+    margin-left: -1px;
   }
   
   .schoolbag {
@@ -783,10 +786,21 @@ progress[value]::-moz-progress-bar {
 
 
 
+  .background-color1 {
+    background: linear-gradient(to bottom, #247070, #330867);
+}
 
+.background-color2 {
+    background: linear-gradient(to bottom, #7a294f, #5c3634);
+}
 
+.background-color3 {
+    background: linear-gradient(to bottom, #4153a5, #482c64);
+}
 
-
+.background-color4 {
+    background: linear-gradient(to bottom,#928b4c , #214e49);
+}
 
 
 

@@ -71,28 +71,70 @@ const getRocketsId = async(e)=>{
     await progressSecondStageDiameterRocket(Rocket)
     await progressSecondStageHeightRocket(Rocket)
 }
-export const paginationRockets = async()=>{
+export const paginationRockets = async () => {
     let rockets = await getAllRockets();
     let div = document.createElement("div");
-    div.classList.add("buttom__paginacion")
-  
-    rockets.forEach((val,id) => {
+    div.classList.add("buttom__paginacion");
+
+    rockets.forEach((val, id) => {
         let a = document.createElement("a");
-        a.setAttribute("href","#");
+        a.setAttribute("href", "#");
         a.id = val.id;
-        a.textContent = id+1;
-        a.addEventListener("click", getRocketsId)
+        a.textContent = id + 1;
+        a.addEventListener("click", getRocketsId);
+        a.addEventListener("click", function() {
+            // Remover todas las clases de color de fondo del cuerpo
+            document.body.classList.remove("background-color1", "background-color2", "background-color3", "background-color4");
+            // Agregar la clase correspondiente al color de fondo según el índice
+            if (id === 0) {
+                document.body.classList.add("background-color1");
+            } else if (id === 1) {
+                document.body.classList.add("background-color2");
+            } else if (id === 2) {
+                document.body.classList.add("background-color3");
+            } else if (id === 3) {
+                document.body.classList.add("background-color4");
+            }
+        });
         div.appendChild(a);
     });
-    let [a1,a2,a3,a4] = div.children
-    a3.click();
-    // <div class="buttom__paginacion">
-    //     <a href="#">&laquo;</a> 
-    //     <a href="#" class="activo">1</a>
-    //     <a href="#">2</a>
-    //     <a href="#">3</a>
-    //     <a href="#">4</a>
-    //     <a href="#">&raquo;</a>
-    // </div>
+
+    let [a1, a2, a3, a4] = div.children;
+    a1.click(); // Hacer clic en el tercer enlace por defecto
+
     return div;
 }
+
+// export const paginationRockets = async () => {
+//     let rockets = await getAllRockets();
+//     let div = document.createElement("div");
+//     div.classList.add("button__pagination");
+
+//     rockets.forEach((val, id) => {
+//         let a = document.createElement("a");
+//         a.setAttribute("href", "#");
+//         a.id = val.id;
+//         a.textContent = id + 1;
+//         a.addEventListener("click", getRocketsId);
+//         a.addEventListener("click", function() {
+//             // Remover todas las clases de gradiente del cuerpo
+//             document.body.classList.remove("gradient1", "gradient2", "gradient3", "gradient4");
+//             // Agregar la clase correspondiente al gradiente según el índice
+//             if (id === 0) {
+//                 document.body.classList.add("gradient1");
+//             } else if (id === 1) {
+//                 document.body.classList.add("gradient2");
+//             } else if (id === 2) {
+//                 document.body.classList.add("gradient3");
+//             } else if (id === 3) {
+//                 document.body.classList.add("gradient4");
+//             }
+//         });
+//         div.appendChild(a);
+//     });
+
+//     let [a1, a2, a3, a4] = div.children;
+//     a3.click(); // Hacer clic en el tercer enlace por defecto
+
+//     return div;
+// }
