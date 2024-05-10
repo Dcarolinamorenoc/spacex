@@ -954,3 +954,15 @@ footer {
 .buttom__paginacion a:nth-child(4) {
     background: linear-gradient(to bottom, #928b4c, #214e49);
 } */
+
+
+
+/* Estilos para la barra de progreso en espacio */
+.progress-space {
+  background: radial-gradient(closest-side, #1d1f38 85%, transparent 85% 100%), conic-gradient(var(--color--three) 85%, transparent 0);
+}
+
+/* Estilos para la barra de progreso en aceleración atmosférica */
+.progress-atmosphere {
+  background: radial-gradient(closest-side, #1d1f38 85%, transparent 85% 100%), conic-gradient(var(--color--three) 85%, transparent 0);
+}
