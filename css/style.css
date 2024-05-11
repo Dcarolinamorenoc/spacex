@@ -9,8 +9,8 @@
 }
 
 body {
-    background: linear-gradient(to top, #811032 0%, #330867 100%)
-}
+  background-image: url("../storage/img/icons/space.gif");
+} 
 
 
 
@@ -1061,3 +1061,5 @@ footer {
   width: 150px;
   margin-left: 740px;
 }
+
+

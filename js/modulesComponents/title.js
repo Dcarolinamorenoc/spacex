@@ -9,7 +9,14 @@ export const nameRockets = async (name) => {
     }
 
     // Colores del arcoíris
-    const rainbowColors = ['#152432', '#251532', '#231023', '#162137', '#10102A', '#200D27'];
+    const rainbowColors = [
+        '#FF0000', // Rojo
+        '#FF7F00', // Naranja
+        '#FFFF00', // Amarillo
+        '#00FF00', // Verde
+        '#0000FF', // Azul
+        '#4B0082', // Violeta
+      ];
 
     // Función para generar el efecto arcoíris
     function applyRainbowEffect(element) {
