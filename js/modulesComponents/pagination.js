@@ -28,6 +28,9 @@ import {
     capsulesLaunches,
     capsulesType,
     capsulesStatus,
+    crewIdPage,
+    crewLaunches,
+    crewWikipedia
 } from "./information.js";
 import { 
     tableRocketColum1, 
@@ -485,7 +488,6 @@ export const paginationCapsules = async(page=1, limit=4)=>{
 }
 
 
-
 export const getCrewId = async (e) => {
     e.preventDefault();
     if (e.target.dataset.page) {
@@ -498,6 +500,15 @@ export const getCrewId = async (e) => {
     
     await nameCrew(Crew.name);
     await imageCrew([{ name: Crew.name, image: Crew.image }]);
+
+    let crewIdPageElement = await crewIdPage(Crew.id);
+    let descriptionItem = document.querySelector(".description__item");
+    descriptionItem.innerHTML = "";
+    descriptionItem.append(crewIdPageElement);
+
+    // Llamamos a crewLaunches y lo añadimos al mismo contenedor
+    let crewLaunchesElement = await crewLaunches(Crew.launches);
+    descriptionItem.append(crewLaunchesElement);
 }
 
 
