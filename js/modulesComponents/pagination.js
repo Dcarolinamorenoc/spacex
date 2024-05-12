@@ -26,11 +26,13 @@ import {
     capsulesIdPage,
     capsulesLaunches,
     capsulesType,
-    capsulesStatus
+    capsulesStatus,
 } from "./information.js";
 import { 
     tableRocketColum1, 
-    tableRocketColum2
+    tableRocketColum2,
+    tableCapsulesColum1,
+    tableCapsulesColum2
 } from "./tables.js";
 import { 
     informRocketEngineThrustSeaLevel, 
@@ -329,45 +331,105 @@ export const paginationRockets = async()=>{
 
 const getCapsulesId = async (e) => {
     e.preventDefault();
-
+  
     if (e.target.dataset.page) {
-        let paginacion = document.querySelector("#paginacion");
-        paginacion.innerHTML = "";
-        paginacion.append(await paginationCapsules(Number(e.target.dataset.page)));
+      let paginacion = document.querySelector("#paginacion");
+      paginacion.innerHTML = "";
+      paginacion.append(await paginationCapsules(Number(e.target.dataset.page)));
     }
-
+  
     let a = e.target.parentElement.children;
     for (let val of a) {
-        val.classList.remove('activo');
+      val.classList.remove('activo');
     }
     e.target.classList.add('activo');
-
+  
     let capsules = await getAllCapsulesId(e.target.id);
     console.log(capsules);
-
+  
     let description__item = document.querySelector("#description__item");
     description__item.innerHTML = "";
-
+  
     await nameCapsules(capsules.serial);
     let lastUpdateElement = await lastUpdate(capsules.last_update);
     description__item.append(lastUpdateElement);
-
+  
     let capsulesIdPageElement = await capsulesIdPage(capsules.id);
     description__item.append(capsulesIdPageElement);
-
+  
     let capsulesLaunchesElement = await capsulesLaunches(capsules.launches);
     description__item.append(capsulesLaunchesElement);
-
+  
     // Asegurarse de que capsulesTypeElement se agregue al lugar correcto
     let capsulesTypeElement = await capsulesType(capsules.type);
     let information__2 = document.getElementById('information__2'); // Asegúrate de que este sea el contenedor correcto
     information__2.innerHTML = ""; // Limpia el contenido actual si es necesario
     information__2.appendChild(capsulesTypeElement); // Adjunta el elemento generado por capsulesType a information__2
-
+  
     // Asegurarse de que capsulesStatusElement se agregue al lugar correcto
     let capsulesStatusElement = await capsulesStatus(capsules.status);
     information__2.appendChild(capsulesStatusElement); // Adjunta el elemento generado por capsulesStatus a information__2
-}
+  
+  // Mostrar información de cápsulas en la tabla
+  let information__table__1 = document.querySelector("#information__table__1");
+  information__table__1.innerHTML = "";
+  let h3 = document.createElement("h3");
+  h3.textContent = "Capsule information";
+  let hr = document.createElement("hr");
+  information__table__1.append(h3, hr);
+
+  let div = document.createElement("div");
+  div.classList.add("table__container__1");
+
+  let div1 = document.createElement("div");
+  let span1 = document.createElement("span");
+  span1.textContent = "Type";
+  let strong1 = document.createElement("strong");
+  strong1.textContent = `${capsules.type}`;
+  div1.append(span1, strong1);
+
+  let div2 = document.createElement("div");
+  let span2 = document.createElement("span");
+  span2.textContent = "Reuse count";
+  let strong2 = document.createElement("strong");
+  strong2.textContent = `${capsules.reuse_count}`;
+  div2.append(span2, strong2);
+
+  div.append(div1, div2);
+  information__table__1.append(div);
+
+  // Obtener y mostrar información de water_landings y land_landings
+  const { water_landings, land_landings } = await tableCapsulesColum2(capsules);
+
+  let information__table__2 = document.querySelector("#information__table__2");
+  information__table__2.innerHTML = "";
+  let h3_2 = document.createElement("h3");
+  h3_2.textContent = "Capsule Landings Information";
+  let hr_2 = document.createElement("hr");
+  information__table__2.append(h3_2, hr_2);
+
+  let div_2 = document.createElement("div");
+  div_2.classList.add("table__container__1");
+
+  let div1_2 = document.createElement("div");
+  let span1_2 = document.createElement("span");
+  span1_2.textContent = "Water Landings";
+  let strong1_2 = document.createElement("strong");
+  strong1_2.textContent = water_landings;
+  div1_2.append(span1_2, strong1_2);
+
+  let div2_2 = document.createElement("div");
+  let span2_2 = document.createElement("span");
+  span2_2.textContent = "Land Landings";
+  let strong2_2 = document.createElement("strong");
+  strong2_2.textContent = land_landings;
+  div2_2.append(span2_2, strong2_2);
+
+  div_2.append(div1_2, div2_2);
+  information__table__2.append(div_2);
+};
+
+
 
 
 

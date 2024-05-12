@@ -143,3 +143,66 @@ export const tableRocketColum2 = async (Rocket)=>{
         
     // </div>
 }
+
+
+export const tableCapsulesColum1 = async (capsules) => {
+    let information__table__1 = document.querySelector("#information__table__1");
+    information__table__1.innerHTML = "";
+    let h3 = document.createElement("h3");
+    h3.textContent = "Capsule information";
+    let hr = document.createElement("hr");
+    information__table__1.append(h3, hr);
+  
+    capsules.forEach(capsule => {
+      let div = document.createElement("div");
+      div.classList.add("table__container__1");
+  
+      let div1 = document.createElement("div");
+      let span1 = document.createElement("span");
+      span1.textContent = "Type";
+      let strong1 = document.createElement("strong");
+      strong1.textContent = `${capsule.type}`;
+      div1.append(span1, strong1);
+  
+      let div2 = document.createElement("div");
+      let span2 = document.createElement("span");
+      span2.textContent = "Reuse count";
+      let strong2 = document.createElement("strong");
+      strong2.textContent = `${capsule.reuse_count}`;
+      div2.append(span2, strong2);
+  
+      div.append(div1, div2);
+      information__table__1.append(div);
+    });
+  };
+
+
+
+  export const tableCapsulesColum2 = async (capsules) => {
+    let information__table__2 = document.querySelector("#information__table__2");
+    information__table__2.innerHTML = "";
+    let h3 = document.createElement("h3");
+    h3.textContent = "Capsule Landings Information";
+    let hr = document.createElement("hr");
+    information__table__2.append(h3, hr);
+  
+    let div = document.createElement("div");
+    div.classList.add("table__container__1");
+  
+    let div1 = document.createElement("div");
+    let span1 = document.createElement("span");
+    span1.textContent = "Water Landings";
+    let strong1 = document.createElement("strong");
+    strong1.textContent = `${(capsules.water_landings) ? capsules.water_landings : 0}`;
+    div1.append(span1, strong1);
+  
+    let div2 = document.createElement("div");
+    let span2 = document.createElement("span");
+    span2.textContent = "Land Landings";
+    let strong2 = document.createElement("strong");
+    strong2.textContent = `${(capsules.land_landings) ? capsules.land_landings : 0}`;
+    div2.append(span2, strong2);
+  
+    div.append(div1, div2);
+    information__table__2.append(div);
+  };

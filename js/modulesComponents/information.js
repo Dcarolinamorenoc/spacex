@@ -375,14 +375,19 @@ export const capsulesType = async (type) => {
 
     
 
+
+// codigos del lado izquierdo
+
+
     let divWrapper = document.createElement('div');
     divWrapper.style.display = "flex"; // Utilizar flexbox
     divWrapper.style.alignItems = "center"; // Alinear elementos verticalmente al centro
     divWrapper.style.marginBottom = "20px"; // Agregar espacio inferior
+    divWrapper.style.marginLeft = "20px";
 
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/icons/cohete.svg");
+    img.setAttribute("src", "storage/img/icons/type.svg");
     img.setAttribute("width", "50"); 
     img.setAttribute("height", "40");
     divFirst.appendChild(img);
@@ -392,11 +397,13 @@ export const capsulesType = async (type) => {
     let h3 = document.createElement('h3');
     h3.textContent = "Type:";
     h3.style.color = "white"; // Establecer el color del texto en blanco
+    h3.style.marginLeft = "20px";
     divLast.appendChild(h3);
 
     let small = document.createElement('small');
     small.textContent = type;
-    small.style.color = "white"; // Establecer el color del texto en blanco
+    small.style.color = "white"; 
+    small.style.marginLeft = "20px";// Establecer el color del texto en blanco
     divLast.appendChild(small);
 
     divWrapper.appendChild(divFirst);
@@ -416,10 +423,11 @@ export const capsulesStatus = async (status) => {
     divWrapper.style.display = "flex"; // Utilizar flexbox
     divWrapper.style.alignItems = "center"; // Alinear elementos verticalmente al centro
     divWrapper.style.marginBottom = "20px"; 
+    divWrapper.style.marginLeft = "20px";
 
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/icons/cohete.svg");
+    img.setAttribute("src", "storage/img/icons/star.svg");
     img.setAttribute("width", "50"); 
     img.setAttribute("height", "40");
     divFirst.appendChild(img);
@@ -429,11 +437,13 @@ export const capsulesStatus = async (status) => {
     let h3 = document.createElement('h3');
     h3.textContent = "Status:";
     h3.style.color = "white"; // Establecer el color del texto en blanco
+    h3.style.marginLeft = "20px";
     divLast.appendChild(h3);
 
     let small = document.createElement('small');
     small.textContent = status;
     small.style.color = "white"; // Establecer el color del texto en blanco
+    small.style.marginLeft = "20px";
     divLast.appendChild(small);
 
     divWrapper.appendChild(divFirst);
@@ -443,3 +453,6 @@ export const capsulesStatus = async (status) => {
 
     return div;
 }
+
+
+// informacion de la mitad
