@@ -17,9 +17,9 @@ export const informRocketEngineThrustSeaLevel = async (thrust_sea_level) => {
     if (percentage < 30) {
         color = 'red';
     } else if (percentage < 70) {
-        color = 'blue';
+        color = 'yellow';
     } else {
-        color = 'green';
+        color = 'purple';
     }
     divFirst.style = `background: radial-gradient(closest-side, #1d1f38 85%, transparent 85% 100%), conic-gradient(${color} ${percentage}%, transparent 0)`;
     let divFirstChildren = document.createElement('div');

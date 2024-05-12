@@ -2,8 +2,15 @@ import {
     getAllRockets, 
     getAllRocketsId
 } from "../modules/rockets.js";
+
+import{
+    getAllCapsulesId,
+    getCapsules
+} from "../modules/capsules.js"
+
 import { 
-    nameRockets 
+    nameRockets,
+    nameCapsules 
 } from "./title.js";
 import { 
     informationRockets,
@@ -324,10 +331,10 @@ const getCapsulesId = async(e)=>{
     e.target.classList.add('activo');
     
 
-    // let Rocket = await getAllRocketsId(e.target.id);
-    // console.log(Rocket);
+    let capsules = await getAllCapsulesId(e.target.id);
+    console.log(capsules);
 
-    // await informationRockets(Rocket.country, Rocket.description)
+    await nameCapsules (capsules.serial)
     
 }
 
