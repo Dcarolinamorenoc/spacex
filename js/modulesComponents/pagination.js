@@ -36,7 +36,8 @@ import {
     tableRocketColum1, 
     tableRocketColum2,
     tableCapsulesColum1,
-    tableCapsulesColum2
+    tableCapsulesColum2,
+    tableCrewColum1
 } from "./tables.js";
 import { 
     informRocketEngineThrustSeaLevel, 
@@ -509,8 +510,42 @@ export const getCrewId = async (e) => {
     // Llamamos a crewLaunches y lo añadimos al mismo contenedor
     let crewLaunchesElement = await crewLaunches(Crew.launches);
     descriptionItem.append(crewLaunchesElement);
-}
 
+    // Ahora, agregamos crewWikipedia a un contenedor diferente
+    let crewWikipediaElement = await crewWikipedia(Crew.wikipedia);
+    let information__2 = document.getElementById('information__2'); // Este es el nuevo contenedor
+    information__2.innerHTML = ""; // Limpia el contenido actual si es necesario
+    information__2.appendChild(crewWikipediaElement); // Adjunta el elemento generado por crewWikipedia a information__2
+
+
+    let information__table__2 = document.querySelector("#information__table__2");
+    information__table__2.innerHTML = "";
+    let h3 = document.createElement("h3");
+    h3.textContent = "Information crew"
+    let hr = document.createElement("hr");
+    information__table__2.append(h3, hr)
+
+    let div = document.createElement("div");
+    div.classList.add("table__container__2");
+    
+    let div1 = document.createElement("div");
+    let span1 = document.createElement("span");
+    span1.textContent = "Agency"
+    let strong1 = document.createElement("strong");
+    strong1.textContent = `${Crew.agency}`
+    div1.append(span1, strong1)
+
+    let div2 = document.createElement("div");
+    let span2 = document.createElement("span");
+    span2.textContent = "Status"
+    let strong2 = document.createElement("strong");
+    strong2.textContent = `${Crew.status}`
+    div2.append(span2, strong2)
+
+    div.append(div1, div2)
+    information__table__2.append(div)
+    
+}
 
 
 

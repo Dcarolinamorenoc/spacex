@@ -538,7 +538,7 @@ export const crewWikipedia = async (wikipedia) => {
 
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/icons/star.svg");
+    img.setAttribute("src", "storage/img/icons/wiki.svg");
     img.setAttribute("width", "50"); 
     img.setAttribute("height", "40");
     divFirst.appendChild(img);
@@ -551,11 +551,19 @@ export const crewWikipedia = async (wikipedia) => {
     h3.style.marginLeft = "20px";
     divLast.appendChild(h3);
 
-    let small = document.createElement('small');
-    small.textContent = wikipedia;
-    small.style.color = "white"; // Establecer el color del texto en blanco
-    small.style.marginLeft = "20px";
-    divLast.appendChild(small);
+    // Crear un enlace (<a>) para el texto de Wikipedia
+    let wikipediaLink = document.createElement('a');
+    wikipediaLink.textContent = wikipedia;
+    wikipediaLink.style.color = "white"; // Establecer el color del texto en blanco
+    wikipediaLink.style.marginLeft = "20px";
+    wikipediaLink.style.textDecoration = "underline"; // Subrayar el enlace
+    wikipediaLink.href = wikipedia; // Establecer el atributo href con el enlace de Wikipedia
+    wikipediaLink.style.fontSize = "9px";
+    // Abrir el enlace en una nueva pestaña
+    wikipediaLink.target = "_blank";
+
+    // Agregar el enlace al contenedor
+    divLast.appendChild(wikipediaLink);
 
     divWrapper.appendChild(divFirst);
     divWrapper.appendChild(divLast);

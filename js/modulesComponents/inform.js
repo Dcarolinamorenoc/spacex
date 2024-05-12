@@ -163,3 +163,45 @@ export const informRocketEngineThrustVacuum = async (thrust_vacuum) => {
 // };
 
 
+// export const informActiveCrewPercentage = async (crewData) => {
+//     let activeCount = crewData.filter(crew => crew.status === "active").length;
+//     let totalCrewCount = crewData.length;
+//     let activePercentage = (activeCount / totalCrewCount) * 100;
+
+//     let div = document.createElement('div');
+//     div.classList.add("carousel__item");
+
+//     let divFirst = document.createElement('div');
+//     divFirst.classList.add("item__progress__bar");
+
+//     let color = '';
+//     if (activePercentage < 30) {
+//         color = 'red';
+//     } else if (activePercentage < 70) {
+//         color = 'yellow';
+//     } else {
+//         color = 'purple';
+//     }
+
+//     divFirst.style = `background: radial-gradient(closest-side, #1d1f38 85%, transparent 85% 100%), conic-gradient(${color} ${activePercentage}%, transparent 0)`;
+
+//     let divFirstChildren = document.createElement('div');
+//     divFirstChildren.classList.add("progress__value");
+
+//     let strong = document.createElement('strong');
+//     strong.textContent = "Active Crew Percentage";
+
+//     let smallFirst = document.createElement('small');
+//     smallFirst.textContent = `${activePercentage.toFixed(2)} %`;
+
+//     let smallLast = document.createElement('small');
+//     smallLast.textContent = `${activeCount} Active / ${totalCrewCount} Total`;
+
+//     divFirstChildren.append(strong, smallFirst, smallLast);
+//     divFirst.append(divFirstChildren);
+//     div.append(divFirst);
+
+//     let section__information__1 = document.querySelector("#section__information__1");
+//     section__information__1.innerHTML = "";
+//     section__information__1.append(div);
+// };
