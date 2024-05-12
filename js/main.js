@@ -1,7 +1,8 @@
 import { 
     load,
     paginationCapsules,
-    paginationRockets
+    paginationRockets,
+    paginationCrew
 } from "./modulesComponents/pagination.js";
 
 let footerSelect = async(e, id)=>{
@@ -35,4 +36,14 @@ capsules.addEventListener("click", async(e)=>{
 
 //pagina a mostrar primero cuando se carga 
 
+let Crew = document.querySelector("#Crew")
+Crew.addEventListener("click", async(e)=>{
+    await footerSelect(e, Crew)
+    let paginacion = document.querySelector("#paginacion");
+    paginacion.innerHTML = ""
+    paginacion.append(await paginationCrew())
+})
+
 rocket.click();
+
+
