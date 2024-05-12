@@ -10,7 +10,8 @@ import{
 
 import { 
     nameRockets,
-    nameCapsules 
+    nameCapsules,
+    nameCrew 
 } from "./title.js";
 import { 
     informationRockets,
@@ -485,24 +486,23 @@ export const paginationCapsules = async(page=1, limit=4)=>{
 
 
 
-const getCrewId = async(e)=>{
+export const getCrewId = async (e) => {
     e.preventDefault();
-    if(e.target.dataset.page){
+    if (e.target.dataset.page) {
         let paginacion = document.querySelector("#paginacion");
-        paginacion.innerHTML = ""
-        paginacion.append(await paginationCrew(Number(e.target.dataset.page)))
+        paginacion.innerHTML = "";
+        paginacion.append(await paginationCrew(Number(e.target.dataset.page)));
     }
     let a = e.target.parentElement.children;
-    for(let val of a){
+    for (let val of a) {
         val.classList.remove('activo');
     }
     e.target.classList.add('activo');
-    
 
     let Crew = await getAllCrewId(e.target.id);
     console.log(Crew);
 
-    
+    await nameCrew(Crew.name); // Establece el nombre de la tripulación como el título
 }
 
 
