@@ -169,6 +169,7 @@ export const getAllRocketEngineTotal  = async() =>{
     let {docs:[{engines} = maxEnginesRocket]} = await res.json();
     return engines.thrust_sea_level;
 }
+
 export const getAllRocketEngineThrustVacuumTotal  = async() =>{
     let config = {
         headers:{
@@ -191,3 +192,65 @@ export const getAllRocketEngineThrustVacuumTotal  = async() =>{
     let {docs:[{engines} = maxEnginesRocket]} = await res.json();
     return engines.thrust_vacuum;
 }
+
+// aca va uno
+
+
+// export const getAllRocketData = async () => {
+//     let config = {
+//         headers: {
+//             "Content-Type": "application/json"
+//         },
+//         method: "POST",
+//         body: JSON.stringify({
+//             "query": {
+//                 "options": {
+//                     "select": {
+//                         "rocket_name": 1,
+//                         "first_flight": 1
+//                     },
+//                     "sort": {
+//                         "first_flight": "asc"
+//                     }
+//                 }
+//             }
+//         })
+//     };
+//     let res = await fetch("https://api.spacexdata.com/v4/rockets/query", config);
+//     let { docs: rockets } = await res.json();
+//     let totalData = {
+//         totalRockets: rockets.length,
+//         upcomingRockets: rockets.filter(rocket => new Date(rocket.first_flight) > new Date()).length,
+//         activeRockets: rockets.filter(rocket => rocket.active === true).length
+//     };
+//     return totalData;
+// };
+
+
+// export const fetchRocketData = async () => {
+//     let config = {
+//         headers: {
+//             "Content-Type": "application/json"
+//         },
+//         method: "POST",
+//         body: JSON.stringify({
+//             "query": {
+//                 "options": {
+//                     "select": {
+//                         "rocket_name": 1,
+//                         "stages": 1,
+//                         "boosters": 1
+//                     }
+//                 }
+//             }
+//         })
+//     };
+//     let response = await fetch("https://api.spacexdata.com/v4/rockets/query", config);
+//     let { docs: rockets } = await response.json();
+//     let rocketInformation = rockets.map(rocket => ({
+//         name: rocket.rocket_name,
+//         stages: rocket.stages,
+//         boosters: rocket.boosters
+//     }));
+//     return rocketInformation;
+// };

@@ -22,7 +22,10 @@ import {
 } from "./tables.js";
 import { 
     informRocketEngineThrustSeaLevel, 
-    informRocketEngineThrustVacuum
+    informRocketEngineThrustVacuum,
+    // aca va uno
+    // informRocketData,
+    // displayRocketData
 } from "./inform.js";
 import { 
     imageRockets 
@@ -56,6 +59,7 @@ export const load = async()=>{
         <div class="load"></div>
     `;
 
+    // aca va uno
     let section__information__1 = document.querySelector("#section__information__1")
     section__information__1.innerHTML = `
         <div class="load" style="height: 150px;"></div>
@@ -85,7 +89,30 @@ export const load = async()=>{
         <div class="load"></div>
         <div class="load"></div>
     `;
+
+
+//     let section__information__q = document.querySelector("#section__information__q");
+//     section__information__q.innerHTML = `
+//     <div class="load" style="height: 150px;"></div>
+// `;
+    
+//     let section__information__s = document.querySelector("#section__information__s");
+//     section__information__s.innerHTML = `
+//     <div class="load" style="height: 150px;"></div>
+// `;
+    
+//     let section__information__w = document.querySelector("#section__information__w");
+//     section__information__w.innerHTML = `
+//     <div class="load" style="height: 150px;"></div>
+// `;
+    
+//     let section__information__d = document.querySelector("#section__information__d");
+//     section__information__d.innerHTML = `
+//     <div class="load" style="height: 150px;"></div>
+// `;
 }
+
+
 export const clear = async()=>{
     let header__title = document.querySelector("#header__title");
     header__title.innerHTML = ``;
@@ -137,6 +164,9 @@ const getRocketsId = async(e)=>{
 
     await informRocketEngineThrustSeaLevel(Rocket.engines.thrust_sea_level);
     await informRocketEngineThrustVacuum(Rocket.engines.thrust_vacuum);
+    // aca va uno
+    // await informRocketData();
+    // await displayRocketData();
     await imageRockets(Rocket.flickr_images);
 
     await tableRocketColum1(Rocket)
