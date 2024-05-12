@@ -278,3 +278,168 @@ export const informationWebRocket = async(wikipedia)=>{
     //     </div>
     // </div>
 }
+
+
+
+
+export const lastUpdate  = async(last_update)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/first.svg")
+
+    img.setAttribute("width", "50"); 
+     img.setAttribute("height", "40");
+
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Last update of the capsule"
+    let small = document.createElement('small');
+    small.textContent = last_update
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    return div; // Devuelve el elemento div en lugar de agregarlo directamente al DOM
+}
+
+export const capsulesIdPage  = async(id)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/cohete.svg")
+
+    img.setAttribute("width", "50"); 
+     img.setAttribute("height", "40");
+
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "ID:"
+    let small = document.createElement('small');
+    small.textContent = id
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    return div; // Devuelve el elemento div en lugar de agregarlo directamente al DOM
+}
+
+export const capsulesLaunches = async (launches) => {
+    let div = document.createElement('div');
+    div.classList.add('description__container');
+
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/launches.png");
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Launches:";
+    divLast.appendChild(h3);
+
+    // Verificamos si hay más de una launch
+    if (Array.isArray(launches) && launches.length > 0) {
+        let ul = document.createElement('ul');
+        launches.forEach((launchId) => {
+            let li = document.createElement('li');
+            let small = document.createElement('small');
+            small.textContent = launchId;
+            li.appendChild(small);
+            ul.appendChild(li);
+        });
+        divLast.appendChild(ul);
+    } else {
+        // Si solo hay una launch
+        let small = document.createElement('small');
+        small.textContent = launches;
+        divLast.appendChild(small);
+    }
+
+    div.appendChild(divFirst);
+    div.appendChild(divLast);
+
+    return div;
+};
+
+
+export const capsulesType = async (type) => {
+    let div = document.createElement('div');
+    div.classList.add('description__container2');
+
+    
+
+    let divWrapper = document.createElement('div');
+    divWrapper.style.display = "flex"; // Utilizar flexbox
+    divWrapper.style.alignItems = "center"; // Alinear elementos verticalmente al centro
+    divWrapper.style.marginBottom = "20px"; // Agregar espacio inferior
+
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/cohete.svg");
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+    divFirst.appendChild(img);
+
+    let divLast = document.createElement('div');
+
+    let h3 = document.createElement('h3');
+    h3.textContent = "Type:";
+    h3.style.color = "white"; // Establecer el color del texto en blanco
+    divLast.appendChild(h3);
+
+    let small = document.createElement('small');
+    small.textContent = type;
+    small.style.color = "white"; // Establecer el color del texto en blanco
+    divLast.appendChild(small);
+
+    divWrapper.appendChild(divFirst);
+    divWrapper.appendChild(divLast);
+
+    div.appendChild(divWrapper);
+
+    return div;
+}
+
+
+export const capsulesStatus = async (status) => {
+    let div = document.createElement('div');
+    div.classList.add('description__container2');
+
+    let divWrapper = document.createElement('div');
+    divWrapper.style.display = "flex"; // Utilizar flexbox
+    divWrapper.style.alignItems = "center"; // Alinear elementos verticalmente al centro
+    divWrapper.style.marginBottom = "20px"; 
+
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/cohete.svg");
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+    divFirst.appendChild(img);
+
+    let divLast = document.createElement('div');
+
+    let h3 = document.createElement('h3');
+    h3.textContent = "Status:";
+    h3.style.color = "white"; // Establecer el color del texto en blanco
+    divLast.appendChild(h3);
+
+    let small = document.createElement('small');
+    small.textContent = status;
+    small.style.color = "white"; // Establecer el color del texto en blanco
+    divLast.appendChild(small);
+
+    divWrapper.appendChild(divFirst);
+    divWrapper.appendChild(divLast);
+
+    div.appendChild(divWrapper);
+
+    return div;
+}

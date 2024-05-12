@@ -22,6 +22,11 @@ import {
     countryofrocket,
     massofrocket,
     diameterofrocket,
+    lastUpdate,
+    capsulesIdPage,
+    capsulesLaunches,
+    capsulesType,
+    capsulesStatus
 } from "./information.js";
 import { 
     tableRocketColum1, 
@@ -317,26 +322,56 @@ export const paginationRockets = async()=>{
     return div;
 }
 
-const getCapsulesId = async(e)=>{
+
+
+
+
+
+const getCapsulesId = async (e) => {
     e.preventDefault();
-    if(e.target.dataset.page){
+
+    if (e.target.dataset.page) {
         let paginacion = document.querySelector("#paginacion");
-        paginacion.innerHTML = ""
-        paginacion.append(await paginationCapsules(Number(e.target.dataset.page)))
+        paginacion.innerHTML = "";
+        paginacion.append(await paginationCapsules(Number(e.target.dataset.page)));
     }
+
     let a = e.target.parentElement.children;
-    for(let val of a){
+    for (let val of a) {
         val.classList.remove('activo');
     }
     e.target.classList.add('activo');
-    
 
     let capsules = await getAllCapsulesId(e.target.id);
     console.log(capsules);
 
-    await nameCapsules (capsules.serial)
-    
+    let description__item = document.querySelector("#description__item");
+    description__item.innerHTML = "";
+
+    await nameCapsules(capsules.serial);
+    let lastUpdateElement = await lastUpdate(capsules.last_update);
+    description__item.append(lastUpdateElement);
+
+    let capsulesIdPageElement = await capsulesIdPage(capsules.id);
+    description__item.append(capsulesIdPageElement);
+
+    let capsulesLaunchesElement = await capsulesLaunches(capsules.launches);
+    description__item.append(capsulesLaunchesElement);
+
+    // Asegurarse de que capsulesTypeElement se agregue al lugar correcto
+    let capsulesTypeElement = await capsulesType(capsules.type);
+    let information__2 = document.getElementById('information__2'); // Asegúrate de que este sea el contenedor correcto
+    information__2.innerHTML = ""; // Limpia el contenido actual si es necesario
+    information__2.appendChild(capsulesTypeElement); // Adjunta el elemento generado por capsulesType a information__2
+
+    // Asegurarse de que capsulesStatusElement se agregue al lugar correcto
+    let capsulesStatusElement = await capsulesStatus(capsules.status);
+    information__2.appendChild(capsulesStatusElement); // Adjunta el elemento generado por capsulesStatus a information__2
 }
+
+
+
+
 
 export const paginationCapsules = async(page=1, limit=4)=>{  
      
