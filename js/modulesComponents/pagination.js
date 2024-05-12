@@ -43,7 +43,8 @@ import {
     // displayRocketData
 } from "./inform.js";
 import { 
-    imageRockets 
+    imageRockets,
+    imageCrew
 } from "./card.js";
 import { 
     progressRocketWeight,
@@ -485,7 +486,6 @@ export const paginationCapsules = async(page=1, limit=4)=>{
 
 
 
-
 export const getCrewId = async (e) => {
     e.preventDefault();
     if (e.target.dataset.page) {
@@ -493,17 +493,14 @@ export const getCrewId = async (e) => {
         paginacion.innerHTML = "";
         paginacion.append(await paginationCrew(Number(e.target.dataset.page)));
     }
-    let a = e.target.parentElement.children;
-    for (let val of a) {
-        val.classList.remove('activo');
-    }
-    e.target.classList.add('activo');
-
+    
     let Crew = await getAllCrewId(e.target.id);
-    console.log(Crew);
-
-    await nameCrew(Crew.name); // Establece el nombre de la tripulación como el título
+    
+    await nameCrew(Crew.name);
+    await imageCrew([{ name: Crew.name, image: Crew.image }]);
 }
+
+
 
 
 export const paginationCrew = async(page=1, limit=4)=>{  
@@ -538,13 +535,6 @@ export const paginationCrew = async(page=1, limit=4)=>{
     console.log(div);
     let [back, a1,a2,a3,a4, next] = div.children
     a1.click();
-    // <div class="buttom__paginacion">
-    //     <a href="#">&laquo;</a> 
-    //     <a href="#" class="activo">1</a>
-    //     <a href="#">2</a>
-    //     <a href="#">3</a>
-    //     <a href="#">4</a>
-    //     <a href="#">&raquo;</a>
-    // </div>
+
     return div;
 }
