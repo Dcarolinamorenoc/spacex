@@ -942,7 +942,7 @@ export const CoreStatusPage  = async(status)=>{
     div.classList.add('description__container')
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/icons/cohete.svg")
+    img.setAttribute("src", "storage/img/icons/status.svg")
 
     img.setAttribute("width", "50"); 
      img.setAttribute("height", "40");
@@ -974,7 +974,7 @@ export const coresreuse_count = async (reuse_count) => {
 
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/icons/star.svg");
+    img.setAttribute("src", "storage/img/icons/Reuse.svg");
     img.setAttribute("width", "50"); 
     img.setAttribute("height", "40");
     divFirst.appendChild(img);
@@ -1014,7 +1014,7 @@ export const coresrtls_attempts = async (rtls_attempts) => {
 
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/icons/star.svg");
+    img.setAttribute("src", "storage/img/icons/Rtls.svg");
     img.setAttribute("width", "50"); 
     img.setAttribute("height", "40");
     divFirst.appendChild(img);
@@ -1054,7 +1054,7 @@ export const coresrtls_landingss = async (rtls_landings) => {
 
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/icons/star.svg");
+    img.setAttribute("src", "storage/img/icons/Rtls.svg");
     img.setAttribute("width", "50"); 
     img.setAttribute("height", "40");
     divFirst.appendChild(img);
@@ -1095,7 +1095,7 @@ export const coresasds_attempts = async (asds_attempts) => {
 
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/icons/star.svg");
+    img.setAttribute("src", "storage/img/icons/maritime.svg");
     img.setAttribute("width", "50"); 
     img.setAttribute("height", "40");
     divFirst.appendChild(img);
@@ -1103,7 +1103,7 @@ export const coresasds_attempts = async (asds_attempts) => {
     let divLast = document.createElement('div');
 
     let h3 = document.createElement('h3');
-    h3.textContent = "Rtls Attempts:";
+    h3.textContent = "Asds Attempts:";
     h3.style.color = "white"; // Establecer el color del texto en blanco
     h3.style.marginLeft = "20px";
     divLast.appendChild(h3);
@@ -1135,7 +1135,7 @@ export const coresasds_landings = async (asds_landings) => {
 
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/icons/star.svg");
+    img.setAttribute("src", "storage/img/icons/maritime.svg");
     img.setAttribute("width", "50"); 
     img.setAttribute("height", "40");
     divFirst.appendChild(img);
@@ -1143,7 +1143,7 @@ export const coresasds_landings = async (asds_landings) => {
     let divLast = document.createElement('div');
 
     let h3 = document.createElement('h3');
-    h3.textContent = "Rtls Attempts:";
+    h3.textContent = "Asds Landings:";
     h3.style.color = "white"; // Establecer el color del texto en blanco
     h3.style.marginLeft = "20px";
     divLast.appendChild(h3);
