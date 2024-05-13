@@ -11,7 +11,8 @@ import{
 import { 
     nameRockets,
     nameCapsules,
-    nameCrew 
+    nameCrew,
+    nameLaunches
 } from "./title.js";
 import { 
     informationRockets,
@@ -30,8 +31,10 @@ import {
     capsulesStatus,
     crewIdPage,
     crewLaunches,
-    crewWikipedia
+    crewWikipedia,
+    LaunchesIdPage
 } from "./information.js";
+
 import { 
     tableRocketColum1, 
     tableRocketColum2,
@@ -67,6 +70,15 @@ import {
     getAllCrew,
     getAllCrewId
 } from "../modules/crew.js";
+
+
+import { 
+    getAllLaunches,
+    getAllLaunchesId
+} from "../modules/launches.js";
+
+
+
 
 export const load = async()=>{
     let header__title = document.querySelector("#header__title");
@@ -582,5 +594,74 @@ export const paginationCrew = async(page=1, limit=4)=>{
     let [back, a1,a2,a3,a4, next] = div.children
     a1.click();
 
+    return div;
+}
+
+const getLaunchesId = async(e)=>{
+    e.preventDefault();
+    if(e.target.dataset.page){
+        let paginacion = document.querySelector("#paginacion");
+        paginacion.innerHTML = ""
+        paginacion.append(await paginationLaunches(Number(e.target.dataset.page)))
+    }
+    let a = e.target.parentElement.children;
+    for(let val of a){
+        val.classList.remove('activo');
+    }
+    e.target.classList.add('activo');
+    
+
+    let Launch = await getAllLaunchesId(e.target.id);
+    console.log(Launch);
+
+    await nameLaunches(Launch.name)
+    await LaunchesIdPage (Launch.id)
+    
+    
+}
+
+
+
+
+export const paginationLaunches = async(page=1, limit=4)=>{  
+     
+    let {docs, pagingCounter, totalPages, nextPage} = await getAllLaunches(page, limit)
+
+    let div = document.createElement("div");
+    div.classList.add("buttom__paginacion")
+
+    
+    let start = document.createElement("a");
+    start.setAttribute("href","#");
+    start.innerHTML = "&laquo";
+    start.setAttribute("data-page", (page==1) ? totalPages : page-1)
+    start.addEventListener("click", getLaunchesId)
+    div.appendChild(start);
+    docs.forEach((val,id) => {
+        let a = document.createElement("a");
+        a.setAttribute("href","#");
+        a.id = val.id;
+        a.textContent = pagingCounter;
+        a.addEventListener("click", getLaunchesId)
+        div.appendChild(a);
+        pagingCounter++
+    });
+    let end = document.createElement("a");
+    end.setAttribute("href","#");
+    end.innerHTML = "&raquo;";
+    end.setAttribute("data-page", (page && nextPage) ? page+1 : 1)
+    end.addEventListener("click", getLaunchesId)
+    div.appendChild(end);
+    console.log(div);
+    let [back, a1,a2,a3,a4, next] = div.children
+    a1.click();
+    // <div class="buttom__paginacion">
+    //     <a href="#">&laquo;</a> 
+    //     <a href="#" class="activo">1</a>
+    //     <a href="#">2</a>
+    //     <a href="#">3</a>
+    //     <a href="#">4</a>
+    //     <a href="#">&raquo;</a>
+    // </div>
     return div;
 }
