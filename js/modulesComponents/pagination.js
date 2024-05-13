@@ -794,10 +794,9 @@ const getAllCoreById = async (e) => {
     descriptionItem.append(CoreStatusPageElement);
 
     let coresreuse_countElement = await coresreuse_count(core.reuse_count);
-    let information__2 = document.getElementById('information__2'); // Este es el nuevo contenedor
-    information__2.innerHTML = ""; // Limpia el contenido actual si es necesario
+    let information__2 = document.getElementById('information__2');
+    information__2.innerHTML = "";
     information__2.appendChild(coresreuse_countElement);
-
 
     let coresrtls_attemptsElement = await coresrtls_attempts(core.rtls_attempts);
     information__2.appendChild(coresrtls_attemptsElement);
@@ -808,7 +807,51 @@ const getAllCoreById = async (e) => {
     let coresasds_landingsElement = await coresasds_landings(core.asds_landings);
     information__2.appendChild(coresasds_landingsElement);
 
+    let information__table__2 = document.querySelector("#information__table__2");
+    information__table__2.innerHTML = "";
+    let h3Details = document.createElement("h3");
+    h3Details.textContent = "Cores Details";
+    let hrDetails = document.createElement("hr");
+    information__table__2.append(h3Details, hrDetails);
 
+    let divDetails = document.createElement("div");
+    divDetails.classList.add("table__container__2");
+
+    let div1Details = document.createElement("div");
+    let span1Details = document.createElement("span");
+    span1Details.textContent = "Last Update";
+    let strong1Details = document.createElement("strong");
+    strong1Details.textContent = `${core.last_update}`;
+    div1Details.append(span1Details, strong1Details);
+    divDetails.append(div1Details);
+    information__table__2.append(divDetails);
+
+    let information__table__1 = document.querySelector("#information__table__1");
+    information__table__1.innerHTML = "";
+    let h3LaunchData = document.createElement("h3");
+    h3LaunchData.textContent = "Cores Data";
+    let hrLaunchData = document.createElement("hr");
+    information__table__1.append(h3LaunchData, hrLaunchData);
+
+    let divLaunchData = document.createElement("div");
+    divLaunchData.classList.add("table__container__1");
+
+    let div1Data = document.createElement("div");
+    let span1Data = document.createElement("span");
+    span1Data.textContent = "Block";
+    let strong1Data = document.createElement("strong");
+    strong1Data.textContent = `${core.block}`;
+    div1Data.append(span1Data, strong1Data);
+
+    let div2Data = document.createElement("div");
+    let span2Data = document.createElement("span");
+    span2Data.textContent = "Reuse Count";
+    let strong2Data = document.createElement("strong");
+    strong2Data.textContent = `${core.reuse_count}`;
+    div2Data.append(span2Data, strong2Data);
+
+    divLaunchData.append(div1Data, div2Data);
+    information__table__1.append(divLaunchData);
 };
 
 
