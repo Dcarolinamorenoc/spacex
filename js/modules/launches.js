@@ -1,6 +1,6 @@
-export const getAllLaunches = async (page,limit)=>{
+export const getAllLaunches = async (page, limit) => {
     let config = {
-        headers:{
+        headers: {
             "content-type": "application/json"
         },
         method: "POST",
@@ -17,8 +17,8 @@ export const getAllLaunches = async (page,limit)=>{
     return data;
 }
 
-export const getAllLaunchesId = async (id)=>{
-    let res = await fetch(`https://api.spacexdata.com/v4/launches/${id}`)
-    let data = await res.json();
+export const getAllLaunchesId = async (launchId) => {
+    const response = await fetch(`https://api.spacexdata.com/v4/launches/${launchId}`);
+    const data = await response.json();
     return data;
 }

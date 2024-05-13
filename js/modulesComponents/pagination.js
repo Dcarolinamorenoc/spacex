@@ -32,7 +32,10 @@ import {
     crewIdPage,
     crewLaunches,
     crewWikipedia,
-    LaunchesIdPage
+    launchesIdPage,
+    launchesCorePage,
+    launchesRocketPage,
+    launchesFirePage
 } from "./information.js";
 
 import { 
@@ -613,10 +616,25 @@ const getLaunchesId = async(e)=>{
 
     let Launch = await getAllLaunchesId(e.target.id);
     console.log(Launch);
+    
 
     await nameLaunches(Launch.name)
-    await LaunchesIdPage (Launch.id)
+
+    let launchesIdPageElement = await launchesIdPage(Launch.id);
+    let descriptionItem = document.querySelector(".description__item");
+    descriptionItem.innerHTML = "";
+    descriptionItem.append(launchesIdPageElement);
     
+    let launchesCorePageElement = await launchesCorePage(Launch.launchpad);
+    descriptionItem.append(launchesCorePageElement);
+
+
+    let launchesRocketPageElement = await launchesRocketPage(Launch.rocket);
+    descriptionItem.append(launchesRocketPageElement);
+
+    let launchesFirePageElement = await launchesFirePage(Launch.static_fire_date_utc);
+    descriptionItem.append(launchesFirePageElement);
+
     
 }
 
@@ -655,13 +673,5 @@ export const paginationLaunches = async(page=1, limit=4)=>{
     console.log(div);
     let [back, a1,a2,a3,a4, next] = div.children
     a1.click();
-    // <div class="buttom__paginacion">
-    //     <a href="#">&laquo;</a> 
-    //     <a href="#" class="activo">1</a>
-    //     <a href="#">2</a>
-    //     <a href="#">3</a>
-    //     <a href="#">4</a>
-    //     <a href="#">&raquo;</a>
-    // </div>
     return div;
 }

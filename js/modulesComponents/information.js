@@ -576,7 +576,7 @@ export const crewWikipedia = async (wikipedia) => {
 
 // iformacion de Launches
 
-export const LaunchesIdPage  = async(id)=>{
+export const launchesIdPage  = async(id)=>{
     let div = document.createElement('div');
     div.classList.add('description__container')
     let divFirst = document.createElement('div');
@@ -593,6 +593,76 @@ export const LaunchesIdPage  = async(id)=>{
     h3.textContent = "ID:"
     let small = document.createElement('small');
     small.textContent = id
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    return div; // Devuelve el elemento div en lugar de agregarlo directamente al DOM
+}
+
+
+export const launchesCorePage  = async(launchpad)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/laun.svg")
+
+    img.setAttribute("width", "50"); 
+     img.setAttribute("height", "40");
+
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Launchpad:"
+    let small = document.createElement('small');
+    small.textContent = launchpad
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    return div; // Devuelve el elemento div en lugar de agregarlo directamente al DOM
+}
+
+export const launchesRocketPage  = async(rocket)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/rocke.svg")
+
+    img.setAttribute("width", "50"); 
+     img.setAttribute("height", "40");
+
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Rocket:"
+    let small = document.createElement('small');
+    small.textContent = rocket
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    return div; // Devuelve el elemento div en lugar de agregarlo directamente al DOM
+}
+
+export const launchesFirePage  = async(static_fire_date_utc)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/fire.svg")
+
+    img.setAttribute("width", "50"); 
+     img.setAttribute("height", "40");
+
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Static fire date utc:"
+    let small = document.createElement('small');
+    small.textContent = static_fire_date_utc
     divLast.append(h3, small);
     div.append(divFirst, divLast);
 
