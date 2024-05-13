@@ -960,6 +960,7 @@ export const CoreStatusPage  = async(status)=>{
     return div; // Devuelve el elemento div en lugar de agregarlo directamente al DOM
 }
 
+// informacion lado izquierdo
 
 export const coresreuse_count = async (reuse_count) => {
     let div = document.createElement('div');
@@ -981,13 +982,174 @@ export const coresreuse_count = async (reuse_count) => {
     let divLast = document.createElement('div');
 
     let h3 = document.createElement('h3');
-    h3.textContent = "Status:";
+    h3.textContent = "Reuse:";
     h3.style.color = "white"; // Establecer el color del texto en blanco
     h3.style.marginLeft = "20px";
     divLast.appendChild(h3);
 
     let small = document.createElement('small');
     small.textContent = reuse_count;
+    small.style.color = "white"; // Establecer el color del texto en blanco
+    small.style.marginLeft = "20px";
+    divLast.appendChild(small);
+
+    divWrapper.appendChild(divFirst);
+    divWrapper.appendChild(divLast);
+
+    div.appendChild(divWrapper);
+
+    return div;
+}
+
+
+export const coresrtls_attempts = async (rtls_attempts) => {
+    let div = document.createElement('div');
+    div.classList.add('description__container2');
+
+    let divWrapper = document.createElement('div');
+    divWrapper.style.display = "flex"; // Utilizar flexbox
+    divWrapper.style.alignItems = "center"; // Alinear elementos verticalmente al centro
+    divWrapper.style.marginBottom = "20px"; 
+    divWrapper.style.marginLeft = "20px";
+
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/star.svg");
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+    divFirst.appendChild(img);
+
+    let divLast = document.createElement('div');
+
+    let h3 = document.createElement('h3');
+    h3.textContent = "Rtls Attempts:";
+    h3.style.color = "white"; // Establecer el color del texto en blanco
+    h3.style.marginLeft = "20px";
+    divLast.appendChild(h3);
+
+    let small = document.createElement('small');
+    small.textContent = rtls_attempts;
+    small.style.color = "white"; // Establecer el color del texto en blanco
+    small.style.marginLeft = "20px";
+    divLast.appendChild(small);
+
+    divWrapper.appendChild(divFirst);
+    divWrapper.appendChild(divLast);
+
+    div.appendChild(divWrapper);
+
+    return div;
+}
+
+
+export const coresrtls_landingss = async (rtls_landings) => {
+    let div = document.createElement('div');
+    div.classList.add('description__container2');
+
+    let divWrapper = document.createElement('div');
+    divWrapper.style.display = "flex"; // Utilizar flexbox
+    divWrapper.style.alignItems = "center"; // Alinear elementos verticalmente al centro
+    divWrapper.style.marginBottom = "20px"; 
+    divWrapper.style.marginLeft = "20px";
+
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/star.svg");
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+    divFirst.appendChild(img);
+
+    let divLast = document.createElement('div');
+
+    let h3 = document.createElement('h3');
+    h3.textContent = "Rtls Attempts:";
+    h3.style.color = "white"; // Establecer el color del texto en blanco
+    h3.style.marginLeft = "20px";
+    divLast.appendChild(h3);
+
+    let small = document.createElement('small');
+    small.textContent = rtls_landings;
+    small.style.color = "white"; // Establecer el color del texto en blanco
+    small.style.marginLeft = "20px";
+    divLast.appendChild(small);
+
+    divWrapper.appendChild(divFirst);
+    divWrapper.appendChild(divLast);
+
+    div.appendChild(divWrapper);
+
+    return div;
+}
+
+
+
+export const coresasds_attempts = async (asds_attempts) => {
+    let div = document.createElement('div');
+    div.classList.add('description__container2');
+
+    let divWrapper = document.createElement('div');
+    divWrapper.style.display = "flex"; // Utilizar flexbox
+    divWrapper.style.alignItems = "center"; // Alinear elementos verticalmente al centro
+    divWrapper.style.marginBottom = "20px"; 
+    divWrapper.style.marginLeft = "20px";
+
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/star.svg");
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+    divFirst.appendChild(img);
+
+    let divLast = document.createElement('div');
+
+    let h3 = document.createElement('h3');
+    h3.textContent = "Rtls Attempts:";
+    h3.style.color = "white"; // Establecer el color del texto en blanco
+    h3.style.marginLeft = "20px";
+    divLast.appendChild(h3);
+
+    let small = document.createElement('small');
+    small.textContent = asds_attempts;
+    small.style.color = "white"; // Establecer el color del texto en blanco
+    small.style.marginLeft = "20px";
+    divLast.appendChild(small);
+
+    divWrapper.appendChild(divFirst);
+    divWrapper.appendChild(divLast);
+
+    div.appendChild(divWrapper);
+
+    return div;
+}
+
+
+export const coresasds_landings = async (asds_landings) => {
+    let div = document.createElement('div');
+    div.classList.add('description__container2');
+
+    let divWrapper = document.createElement('div');
+    divWrapper.style.display = "flex"; // Utilizar flexbox
+    divWrapper.style.alignItems = "center"; // Alinear elementos verticalmente al centro
+    divWrapper.style.marginBottom = "20px"; 
+    divWrapper.style.marginLeft = "20px";
+
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/star.svg");
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+    divFirst.appendChild(img);
+
+    let divLast = document.createElement('div');
+
+    let h3 = document.createElement('h3');
+    h3.textContent = "Rtls Attempts:";
+    h3.style.color = "white"; // Establecer el color del texto en blanco
+    h3.style.marginLeft = "20px";
+    divLast.appendChild(h3);
+
+    let small = document.createElement('small');
+    small.textContent = asds_landings;
     small.style.color = "white"; // Establecer el color del texto en blanco
     small.style.marginLeft = "20px";
     divLast.appendChild(small);

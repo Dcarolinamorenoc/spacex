@@ -44,7 +44,11 @@ import {
     CoreIdPage,
     coresLaunches,
     CoreStatusPage,
-    coresreuse_count
+    coresreuse_count,
+    coresrtls_attempts,
+    coresrtls_landingss,
+    coresasds_attempts,
+    coresasds_landings
 } from "./information.js";
 
 import { 
@@ -793,6 +797,16 @@ const getAllCoreById = async (e) => {
     let information__2 = document.getElementById('information__2'); // Este es el nuevo contenedor
     information__2.innerHTML = ""; // Limpia el contenido actual si es necesario
     information__2.appendChild(coresreuse_countElement);
+
+
+    let coresrtls_attemptsElement = await coresrtls_attempts(core.rtls_attempts);
+    information__2.appendChild(coresrtls_attemptsElement);
+
+    let coresasds_attemptsElement = await coresasds_attempts(core.rtls_landings);
+    information__2.appendChild(coresasds_attemptsElement);
+
+    let coresasds_landingsElement = await coresasds_landings(core.asds_landings);
+    information__2.appendChild(coresasds_landingsElement);
 
 
 };
