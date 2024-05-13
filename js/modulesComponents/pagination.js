@@ -655,6 +655,34 @@ const getLaunchesId = async (e) => {
 
     let LaunchesPresskitElement = await LaunchesPresskit(Launch.links.presskit);
     information__2.appendChild(LaunchesPresskitElement); 
+
+
+
+    let information__table__2 = document.querySelector("#information__table__2");
+    information__table__2.innerHTML = "";
+    let h3 = document.createElement("h3");
+    h3.textContent = "Launch Details"
+    let hr = document.createElement("hr");
+    information__table__2.append(h3, hr)
+
+    let div = document.createElement("div");
+    div.classList.add("table__container__2");
+    
+    let div1 = document.createElement("div");
+    let span1 = document.createElement("span");
+    span1.textContent = "Details"
+    let strong1 = document.createElement("strong");
+
+    if (Launch.details === null) {
+        strong1.textContent = "No details available for this launch.";
+    } else {
+        strong1.textContent = `${Launch.details}`;
+    }
+
+    div1.append(span1, strong1)
+
+    div.append(div1)
+    information__table__2.append(div)
 }
 
 
