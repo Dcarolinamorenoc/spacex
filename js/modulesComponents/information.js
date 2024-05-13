@@ -668,3 +668,204 @@ export const launchesFirePage  = async(static_fire_date_utc)=>{
 
     return div; // Devuelve el elemento div en lugar de agregarlo directamente al DOM
 }
+
+
+// lado izquierdo
+
+export const LaunchesWikipedia = async (wikipedia) => {
+    let div = document.createElement('div');
+    div.classList.add('description__container2');
+
+    let divWrapper = document.createElement('div');
+    divWrapper.style.display = "flex"; // Utilizar flexbox
+    divWrapper.style.alignItems = "center"; // Alinear elementos verticalmente al centro
+    divWrapper.style.marginBottom = "20px"; 
+    divWrapper.style.marginLeft = "20px";
+
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/wiki.svg");
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+    divFirst.appendChild(img);
+
+    let divLast = document.createElement('div');
+
+    let h3 = document.createElement('h3');
+    h3.textContent = "Wikipedia:";
+    h3.style.color = "white"; // Establecer el color del texto en blanco
+    h3.style.marginLeft = "20px";
+    divLast.appendChild(h3);
+
+    // Crear un enlace (<a>) para el texto de Wikipedia
+    let wikipediaLink = document.createElement('a');
+    wikipediaLink.textContent = "Read on Wikipedia";
+    wikipediaLink.style.color = "white"; // Establecer el color del texto en blanco
+    wikipediaLink.style.marginLeft = "20px";
+    wikipediaLink.style.textDecoration = "underline"; // Subrayar el enlace
+    wikipediaLink.href = wikipedia; // Establecer el atributo href con el enlace de Wikipedia
+    wikipediaLink.style.fontSize = "9px";
+    // Abrir el enlace en una nueva pestaña
+    wikipediaLink.target = "_blank";
+
+    // Agregar el enlace al contenedor
+    divLast.appendChild(wikipediaLink);
+
+    divWrapper.appendChild(divFirst);
+    divWrapper.appendChild(divLast);
+
+    div.appendChild(divWrapper);
+
+    return div;
+}
+
+
+export const LaunchesWebcast = async (webcast) => {
+    let div = document.createElement('div');
+    div.classList.add('description__container2');
+
+    let divWrapper = document.createElement('div');
+    divWrapper.style.display = "flex"; // Utilizar flexbox
+    divWrapper.style.alignItems = "center"; // Alinear elementos verticalmente al centro
+    divWrapper.style.marginBottom = "20px"; 
+    divWrapper.style.marginLeft = "20px";
+
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/youtube.svg"); // Cambiar el ícono por el de YouTube
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+    divFirst.appendChild(img);
+
+    let divLast = document.createElement('div');
+
+    let h3 = document.createElement('h3');
+    h3.textContent = "Webcast:"; // Cambiar el texto a "Webcast"
+    h3.style.color = "white"; // Establecer el color del texto en blanco
+    h3.style.marginLeft = "20px";
+    divLast.appendChild(h3);
+
+    // Crear un enlace (<a>) para el webcast
+    let webcastLink = document.createElement('a');
+    webcastLink.textContent = "Watch on YouTube"; // Texto del enlace
+    webcastLink.style.color = "white"; // Establecer el color del texto en blanco
+    webcastLink.style.marginLeft = "20px";
+    webcastLink.style.textDecoration = "underline"; // Subrayar el enlace
+    webcastLink.href = webcast; // Establecer el atributo href con el enlace del webcast
+    webcastLink.style.fontSize = "9px";
+    // Abrir el enlace en una nueva pestaña
+    webcastLink.target = "_blank";
+
+    // Agregar el enlace al contenedor
+    divLast.appendChild(webcastLink);
+
+    divWrapper.appendChild(divFirst);
+    divWrapper.appendChild(divLast);
+
+    div.appendChild(divWrapper);
+
+    return div;
+}
+
+export const LaunchesArticle = async (article) => {
+    let div = document.createElement('div');
+    div.classList.add('description__container2');
+
+    let divWrapper = document.createElement('div');
+    divWrapper.style.display = "flex"; // Utilizar flexbox
+    divWrapper.style.alignItems = "center"; // Alinear elementos verticalmente al centro
+    divWrapper.style.marginBottom = "20px"; 
+    divWrapper.style.marginLeft = "20px";
+
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/article.svg"); // Cambiar el ícono por el de un artículo
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+    divFirst.appendChild(img);
+
+    let divLast = document.createElement('div');
+
+    let h3 = document.createElement('h3');
+    h3.textContent = "Article:"; // Cambiar el texto a "Article"
+    h3.style.color = "white"; // Establecer el color del texto en blanco
+    h3.style.marginLeft = "20px";
+    divLast.appendChild(h3);
+
+    // Crear un enlace (<a>) para el artículo
+    let articleLink = document.createElement('a');
+    articleLink.textContent = "Read on Space.com"; // Texto del enlace
+    articleLink.style.color = "white"; // Establecer el color del texto en blanco
+    articleLink.style.marginLeft = "20px";
+    articleLink.style.textDecoration = "underline"; // Subrayar el enlace
+    articleLink.href = article; // Establecer el atributo href con el enlace del artículo
+    articleLink.style.fontSize = "9px";
+    // Abrir el enlace en una nueva pestaña
+    articleLink.target = "_blank";
+
+    // Agregar el enlace al contenedor
+    divLast.appendChild(articleLink);
+
+    divWrapper.appendChild(divFirst);
+    divWrapper.appendChild(divLast);
+
+    div.appendChild(divWrapper);
+
+    return div;
+}
+
+
+export const LaunchesPresskit = async (presskit) => {
+    let div = document.createElement('div');
+    div.classList.add('description__container2');
+
+    let divWrapper = document.createElement('div');
+    divWrapper.style.display = "flex"; // Utilizar flexbox
+    divWrapper.style.alignItems = "center"; // Alinear elementos verticalmente al centro
+    divWrapper.style.marginBottom = "20px"; 
+    divWrapper.style.marginLeft = "20px";
+
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/press.svg"); // Cambiar el ícono por el de un presskit
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+    divFirst.appendChild(img);
+
+    let divLast = document.createElement('div');
+
+    let h3 = document.createElement('h3');
+    h3.textContent = "Press Kit:"; // Cambiar el texto a "Press Kit"
+    h3.style.color = "white"; // Establecer el color del texto en blanco
+    h3.style.marginLeft = "20px";
+    divLast.appendChild(h3);
+
+    if (presskit === null) {
+        let p = document.createElement('p');
+        p.textContent = "No press kit document available for this launch.";
+        p.style.color = "white"; // Establecer el color del texto en blanco
+        p.style.marginLeft = "20px";
+        divLast.appendChild(p);
+    } else {
+        // Crear un enlace (<a>) para el presskit
+        let presskitLink = document.createElement('a');
+        presskitLink.textContent = "View Press Kit"; // Texto del enlace
+        presskitLink.style.color = "white"; // Establecer el color del texto en blanco
+        presskitLink.style.marginLeft = "20px";
+        presskitLink.style.textDecoration = "underline"; // Subrayar el enlace
+        presskitLink.href = presskit; // Establecer el atributo href con el enlace del presskit
+        presskitLink.style.fontSize = "9px";
+        // Abrir el enlace en una nueva pestaña
+        presskitLink.target = "_blank";
+
+        // Agregar el enlace al contenedor
+        divLast.appendChild(presskitLink);
+    }
+
+    divWrapper.appendChild(divFirst);
+    divWrapper.appendChild(divLast);
+
+    div.appendChild(divWrapper);
+
+    return div;
+}

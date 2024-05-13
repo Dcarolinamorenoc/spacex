@@ -35,7 +35,11 @@ import {
     launchesIdPage,
     launchesCorePage,
     launchesRocketPage,
-    launchesFirePage
+    launchesFirePage,
+    LaunchesWikipedia,
+    LaunchesWebcast,
+    LaunchesArticle,
+    LaunchesPresskit
 } from "./information.js";
 
 import { 
@@ -636,6 +640,21 @@ const getLaunchesId = async (e) => {
 
     let launchesFirePageElement = await launchesFirePage(Launch.static_fire_date_utc);
     descriptionItem.append(launchesFirePageElement);
+
+
+    let LaunchesWikipediaElement = await LaunchesWikipedia(Launch.links.wikipedia);
+    let information__2 = document.getElementById('information__2'); // Este es el nuevo contenedor
+    information__2.innerHTML = ""; // Limpia el contenido actual si es necesario
+    information__2.appendChild(LaunchesWikipediaElement); 
+
+    let LaunchesWebcastElement = await LaunchesWebcast(Launch.links.webcast);
+    information__2.appendChild(LaunchesWebcastElement); 
+
+    let LaunchesArticleElement = await LaunchesArticle(Launch.links.article);
+    information__2.appendChild(LaunchesArticleElement); 
+
+    let LaunchesPresskitElement = await LaunchesPresskit(Launch.links.presskit);
+    information__2.appendChild(LaunchesPresskitElement); 
 }
 
 
