@@ -49,7 +49,9 @@ import {
     coresrtls_attempts,
     coresrtls_landingss,
     coresasds_attempts,
-    coresasds_landings
+    coresasds_landings,
+    LandpadsIdPage,
+    LandpadsFullPage
 } from "./information.js";
 
 import { 
@@ -917,6 +919,14 @@ const getAllLandpadsById = async (e) => {
     console.log(landpads);
 
     await nameLanpads(landpads.name);
+
+    let LandpadsIdPageElement = await LandpadsIdPage(landpads.id);
+    let descriptionItem = document.querySelector(".description__item");
+    descriptionItem.innerHTML = "";
+    descriptionItem.append(LandpadsIdPageElement);
+
+    let LandpadsFullPageElement = await LandpadsFullPage(landpads.full_name);
+    descriptionItem.append(LandpadsFullPageElement);
 
 
 };
