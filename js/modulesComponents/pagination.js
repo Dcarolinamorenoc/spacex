@@ -40,7 +40,11 @@ import {
     LaunchesWikipedia,
     LaunchesWebcast,
     LaunchesArticle,
-    LaunchesPresskit
+    LaunchesPresskit,
+    CoreIdPage,
+    coresLaunches,
+    CoreStatusPage,
+    coresreuse_count
 } from "./information.js";
 
 import { 
@@ -773,6 +777,23 @@ const getAllCoreById = async (e) => {
     console.log(core);
 
     await nameCores(core.serial);
+
+    let CoreIdPageElement = await CoreIdPage(core.id);
+    let descriptionItem = document.querySelector(".description__item");
+    descriptionItem.innerHTML = "";
+    descriptionItem.append(CoreIdPageElement);
+
+    let coresLaunchesElement = await coresLaunches(core.launches);
+    descriptionItem.append(coresLaunchesElement);
+
+    let CoreStatusPageElement = await CoreStatusPage(core.status);
+    descriptionItem.append(CoreStatusPageElement);
+
+    let coresreuse_countElement = await coresreuse_count(core.reuse_count);
+    let information__2 = document.getElementById('information__2'); // Este es el nuevo contenedor
+    information__2.innerHTML = ""; // Limpia el contenido actual si es necesario
+    information__2.appendChild(coresreuse_countElement);
+
 
 };
 
