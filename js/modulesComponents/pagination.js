@@ -12,7 +12,8 @@ import {
     nameRockets,
     nameCapsules,
     nameCrew,
-    nameLaunches
+    nameLaunches,
+    nameCores
 } from "./title.js";
 import { 
     informationRockets,
@@ -770,6 +771,8 @@ const getAllCoreById = async (e) => {
 
     let core = await getCoreById(e.target.id);
     console.log(core);
+
+    await nameCores(core.serial);
 
 };
 
