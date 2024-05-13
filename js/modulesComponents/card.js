@@ -49,3 +49,38 @@ export const imageCrew = async (crewData) => {
         section__image.append(div);
     });
 };
+
+
+export const imageLaunches = async (launchData) => {
+    let section__image = document.querySelector("#section__image");
+    section__image.innerHTML = ""; // Limpiar el contenedor de imágenes antes de agregar nuevas
+
+    launchData.forEach(launch => {
+        let div = document.createElement("div");
+        div.classList.add("carousel__item");
+
+        let img = document.createElement("img");
+        img.setAttribute("src", launch.links.patch.small); // Extraer la URL de la imagen pequeña de los datos del lanzamiento
+        img.setAttribute("alt", launch.name); // Establecer el nombre de la misión como atributo alt para accesibilidad
+        img.setAttribute("referrerpolicy", "no-referrer");
+
+        // Establecer el tamaño de la imagen
+        img.setAttribute("style", "width: 200px; height: auto;"); // Ajustar el tamaño según sea necesario
+
+        // Centrar la imagen
+        img.onload = function() {
+            let imgWidth = this.width;
+            let imgHeight = this.height;
+            let containerWidth = section__image.offsetWidth;
+            let containerHeight = section__image.offsetHeight;
+            let marginLeft = (containerWidth - imgWidth) / 2;
+            let marginTop = (containerHeight - imgHeight) / 2;
+
+            this.style.marginLeft = marginLeft + "px";
+            this.style.marginTop = marginTop + "px";
+        };
+
+        div.append(img);
+        section__image.append(div);
+    });
+};

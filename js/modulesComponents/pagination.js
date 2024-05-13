@@ -54,7 +54,8 @@ import {
 } from "./inform.js";
 import { 
     imageRockets,
-    imageCrew
+    imageCrew,
+    imageLaunches
 } from "./card.js";
 import { 
     progressRocketWeight,
@@ -600,42 +601,41 @@ export const paginationCrew = async(page=1, limit=4)=>{
     return div;
 }
 
-const getLaunchesId = async(e)=>{
+const getLaunchesId = async (e) => {
     e.preventDefault();
-    if(e.target.dataset.page){
+    if (e.target.dataset.page) {
         let paginacion = document.querySelector("#paginacion");
-        paginacion.innerHTML = ""
-        paginacion.append(await paginationLaunches(Number(e.target.dataset.page)))
+        paginacion.innerHTML = "";
+        paginacion.append(await paginationLaunches(Number(e.target.dataset.page)));
     }
+
     let a = e.target.parentElement.children;
-    for(let val of a){
+    for (let val of a) {
         val.classList.remove('activo');
     }
     e.target.classList.add('activo');
-    
 
     let Launch = await getAllLaunchesId(e.target.id);
     console.log(Launch);
-    
 
-    await nameLaunches(Launch.name)
+    await nameLaunches(Launch.name);
+
+    // Llamar a imageLaunches con el objeto completo del lanzamiento
+    await imageLaunches([Launch]);
 
     let launchesIdPageElement = await launchesIdPage(Launch.id);
     let descriptionItem = document.querySelector(".description__item");
     descriptionItem.innerHTML = "";
     descriptionItem.append(launchesIdPageElement);
-    
+
     let launchesCorePageElement = await launchesCorePage(Launch.launchpad);
     descriptionItem.append(launchesCorePageElement);
-
 
     let launchesRocketPageElement = await launchesRocketPage(Launch.rocket);
     descriptionItem.append(launchesRocketPageElement);
 
     let launchesFirePageElement = await launchesFirePage(Launch.static_fire_date_utc);
     descriptionItem.append(launchesFirePageElement);
-
-    
 }
 
 
