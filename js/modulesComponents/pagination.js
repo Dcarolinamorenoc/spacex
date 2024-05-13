@@ -623,8 +623,6 @@ const getLaunchesId = async (e) => {
     console.log(Launch);
 
     await nameLaunches(Launch.name);
-
-    // Llamar a imageLaunches con el objeto completo del lanzamiento
     await imageLaunches([Launch]);
 
     let launchesIdPageElement = await launchesIdPage(Launch.id);
@@ -641,50 +639,79 @@ const getLaunchesId = async (e) => {
     let launchesFirePageElement = await launchesFirePage(Launch.static_fire_date_utc);
     descriptionItem.append(launchesFirePageElement);
 
-
     let LaunchesWikipediaElement = await LaunchesWikipedia(Launch.links.wikipedia);
-    let information__2 = document.getElementById('information__2'); // Este es el nuevo contenedor
-    information__2.innerHTML = ""; // Limpia el contenido actual si es necesario
-    information__2.appendChild(LaunchesWikipediaElement); 
+    let information__2 = document.getElementById('information__2');
+    information__2.innerHTML = "";
+    information__2.appendChild(LaunchesWikipediaElement);
 
     let LaunchesWebcastElement = await LaunchesWebcast(Launch.links.webcast);
-    information__2.appendChild(LaunchesWebcastElement); 
+    information__2.appendChild(LaunchesWebcastElement);
 
     let LaunchesArticleElement = await LaunchesArticle(Launch.links.article);
-    information__2.appendChild(LaunchesArticleElement); 
+    information__2.appendChild(LaunchesArticleElement);
 
     let LaunchesPresskitElement = await LaunchesPresskit(Launch.links.presskit);
-    information__2.appendChild(LaunchesPresskitElement); 
-
-
+    information__2.appendChild(LaunchesPresskitElement);
 
     let information__table__2 = document.querySelector("#information__table__2");
     information__table__2.innerHTML = "";
-    let h3 = document.createElement("h3");
-    h3.textContent = "Launch Details"
-    let hr = document.createElement("hr");
-    information__table__2.append(h3, hr)
+    let h3Details = document.createElement("h3");
+    h3Details.textContent = "Launch Details";
+    let hrDetails = document.createElement("hr");
+    information__table__2.append(h3Details, hrDetails);
 
-    let div = document.createElement("div");
-    div.classList.add("table__container__2");
-    
-    let div1 = document.createElement("div");
-    let span1 = document.createElement("span");
-    span1.textContent = "Details"
-    let strong1 = document.createElement("strong");
+    let divDetails = document.createElement("div");
+    divDetails.classList.add("table__container__2");
+
+    let div1Details = document.createElement("div");
+    let span1Details = document.createElement("span");
+    span1Details.textContent = "Details";
+    let strong1Details = document.createElement("strong");
 
     if (Launch.details === null) {
-        strong1.textContent = "No details available for this launch.";
+        strong1Details.textContent = "No details available for this launch.";
     } else {
-        strong1.textContent = `${Launch.details}`;
+        strong1Details.textContent = `${Launch.details}`;
     }
 
-    div1.append(span1, strong1)
+    div1Details.append(span1Details, strong1Details);
+    divDetails.append(div1Details);
+    information__table__2.append(divDetails);
 
-    div.append(div1)
-    information__table__2.append(div)
-}
+    let information__table__1 = document.querySelector("#information__table__1");
+    information__table__1.innerHTML = "";
+    let h3LaunchData = document.createElement("h3");
+    h3LaunchData.textContent = "Launch Data";
+    let hrLaunchData = document.createElement("hr");
+    information__table__1.append(h3LaunchData, hrLaunchData);
 
+    let divLaunchData = document.createElement("div");
+    divLaunchData.classList.add("table__container__1");
+
+    let div1Data = document.createElement("div");
+    let span1Data = document.createElement("span");
+    span1Data.textContent = "Static Fire Date (Unix)";
+    let strong1Data = document.createElement("strong");
+    strong1Data.textContent = `${Launch.static_fire_date_unix}`;
+    div1Data.append(span1Data, strong1Data);
+
+    let div2Data = document.createElement("div");
+    let span2Data = document.createElement("span");
+    span2Data.textContent = "Window";
+    let strong2Data = document.createElement("strong");
+    strong2Data.textContent = `${Launch.window}`;
+    div2Data.append(span2Data, strong2Data);
+
+    let div3Data = document.createElement("div");
+    let span3Data = document.createElement("span");
+    span3Data.textContent = "Success";
+    let strong3Data = document.createElement("strong");
+    strong3Data.textContent = `${Launch.success}`;
+    div3Data.append(span3Data, strong3Data);
+
+    divLaunchData.append(div1Data, div2Data, div3Data);
+    information__table__1.append(divLaunchData);
+};
 
 
 
