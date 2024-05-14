@@ -1093,12 +1093,10 @@ const getAllShipsById = async (e) => {
 
     await imageShips(ships);
 
-
     let shipsIdPageElement = await shipsIdPage(ships.id);
     let descriptionItem = document.querySelector(".description__item");
     descriptionItem.innerHTML = "";
     descriptionItem.append(shipsIdPageElement);
-
 
     let shipsLaunchesElement = await shipsLaunches(ships.launches);
     descriptionItem.append(shipsLaunchesElement);
@@ -1123,14 +1121,90 @@ const getAllShipsById = async (e) => {
     let shipsUpdateElement = await shipsUpdate(ships.last_ais_update);
     information__2.appendChild(shipsUpdateElement);
 
-
     let year_builtElement = await shipsyear_built(ships.year_built);
     information__2.appendChild(year_builtElement);
 
-    
-    
+    let information__table__1 = document.querySelector("#information__table__1");
+    information__table__1.innerHTML = "";
+    let h3 = document.createElement("h3");
+    h3.textContent = "Ship information";
+    let hr = document.createElement("hr");
+    information__table__1.append(h3, hr);
 
+    let divLaunchData = document.createElement("div");
+    divLaunchData.classList.add("table__container__1");
 
+    let div1Data = document.createElement("div");
+    let span1Data = document.createElement("span");
+    span1Data.textContent = "Latitude";
+    let strong1Data = document.createElement("strong");
+    strong1Data.textContent = `${ships.latitude !== null ? ships.latitude : "Data is null"}`;
+    div1Data.append(span1Data, strong1Data);
+
+    let div2Data = document.createElement("div");
+    let span2Data = document.createElement("span");
+    span2Data.textContent = "Longitude";
+    let strong2Data = document.createElement("strong");
+    strong2Data.textContent = `${ships.longitude !== null ? ships.longitude : "Data is null"}`;
+    div2Data.append(span2Data, strong2Data);
+
+    let div3Data = document.createElement("div");
+    let span3Data = document.createElement("span");
+    span3Data.textContent = "IMO";
+    let strong3Data = document.createElement("strong");
+    strong3Data.textContent = `${ships.imo !== null ? ships.imo : "Data is null"}`;
+    div3Data.append(span3Data, strong3Data);
+
+    let div4Data = document.createElement("div");
+    let span4Data = document.createElement("span");
+    span4Data.textContent = "MMSI";
+    let strong4Data = document.createElement("strong");
+    strong4Data.textContent = `${ships.mmsi !== null ? ships.mmsi : "Data is null"}`;
+    div4Data.append(span4Data, strong4Data);
+
+    divLaunchData.append(div1Data, div2Data, div3Data, div4Data);
+    information__table__1.append(divLaunchData);
+
+    let information__table__2 = document.querySelector("#information__table__2");
+    information__table__2.innerHTML = "";
+    let h3Details = document.createElement("h3");
+    h3Details.textContent = "Ship Landings Information";
+    let hrDetails = document.createElement("hr");
+    information__table__2.append(h3Details, hrDetails);
+
+    let divDetails = document.createElement("div");
+    divDetails.classList.add("table__container__2");
+
+    let div1Details = document.createElement("div");
+    let span1Details = document.createElement("span");
+    span1Details.textContent = "ABS";
+    let strong1Details = document.createElement("strong");
+    strong1Details.textContent = `${ships.abs !== null ? ships.abs : "Data is null"}`;
+    div1Details.append(span1Details, strong1Details);
+
+    let div2Details = document.createElement("div");
+    let span2Details = document.createElement("span");
+    span2Details.textContent = "Class";
+    let strong2Details = document.createElement("strong");
+    strong2Details.textContent = `${ships.class !== null ? ships.class : "Data is null"}`;
+    div2Details.append(span2Details, strong2Details);
+
+    let div3Details = document.createElement("div");
+    let span3Details = document.createElement("span");
+    span3Details.textContent = "Mass (kg)";
+    let strong3Details = document.createElement("strong");
+    strong3Details.textContent = `${ships.mass_kg !== null ? ships.mass_kg : "Data is null"}`;
+    div3Details.append(span3Details, strong3Details);
+
+    let div4Details = document.createElement("div");
+    let span4Details = document.createElement("span");
+    span4Details.textContent = "Mass (lbs)";
+    let strong4Details = document.createElement("strong");
+    strong4Details.textContent = `${ships.mass_lbs !== null ? ships.mass_lbs : "Data is null"}`;
+    div4Details.append(span4Details, strong4Details);
+
+    divDetails.append(div1Details, div2Details, div3Details, div4Details);
+    information__table__2.append(divDetails);
 };
 
 
