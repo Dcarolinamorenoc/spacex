@@ -80,7 +80,8 @@ import {
     imageRockets,
     imageCrew,
     imageLaunches,
-    LandpadsImages
+    LandpadsImages,
+    imageShips
 } from "./card.js";
 import { 
     progressRocketWeight,
@@ -1081,7 +1082,7 @@ const getAllShipsById = async (e) => {
 
     await nameShips(ships.name);
 
-    
+    await imageShips(ships);
 };
 
 
