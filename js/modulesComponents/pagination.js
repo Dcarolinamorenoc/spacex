@@ -57,7 +57,8 @@ import {
     LandpadsWikipedia,
     LanpadsLatitude,
     Lanpadslongitude,
-    Lanpadslanding_attempts
+    Lanpadslanding_attempts,
+    Lanpadslanding_successes
 } from "./information.js";
 
 import { 
@@ -957,6 +958,9 @@ const getAllLandpadsById = async (e) => {
 
     let Lanpadslanding_attemptsElement = await Lanpadslanding_attempts(landpads.landing_attempts);
     information__2.appendChild(Lanpadslanding_attemptsElement);
+
+    let Lanpadslanding_successesElement = await Lanpadslanding_successes(landpads.landing_successes);
+    information__2.appendChild(Lanpadslanding_successesElement);
 
 }
 

@@ -100,7 +100,7 @@ export const LandpadsImages = async (landpadsData) => {
         img.setAttribute("referrerpolicy", "no-referrer");
 
         // Establecer el tamaño de la imagen
-        img.setAttribute("style", "width: 200px; height: 200px;"); // Ajustar el tamaño según sea necesario
+        img.setAttribute("style", "width: 250px; height: 250px;"); // Ajustar el tamaño según sea necesario
 
         // Centrar la imagen
         img.onload = function() {
