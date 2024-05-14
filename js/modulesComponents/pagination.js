@@ -945,24 +945,79 @@ const getAllLandpadsById = async (e) => {
     descriptionItem.append(landpadsLaunchesElement);
 
     let LandpadsWikipediaElement = LandpadsWikipedia(landpads.wikipedia);
-    let information__2 = document.getElementById('information__2'); // Este es el nuevo contenedor
-    information__2.innerHTML = ""; // Limpia el contenido actual si es necesario
+    let information__2 = document.getElementById('information__2');
+    information__2.innerHTML = "";
     information__2.appendChild(LandpadsWikipediaElement); 
 
-
-    let LanpadsLatitudeElement = await LanpadsLatitude(landpads.latitude);
+    let LanpadsLatitudeElement = document.createElement("div");
+    LanpadsLatitudeElement.textContent = `Latitude: ${landpads.latitude}`;
     information__2.appendChild(LanpadsLatitudeElement);
 
-    let LanpadslongitudeElement = await Lanpadslongitude(landpads.longitude);
+    let LanpadslongitudeElement = document.createElement("div");
+    LanpadslongitudeElement.textContent = `Longitude: ${landpads.longitude}`;
     information__2.appendChild(LanpadslongitudeElement);
 
-    let Lanpadslanding_attemptsElement = await Lanpadslanding_attempts(landpads.landing_attempts);
+    let Lanpadslanding_attemptsElement = document.createElement("div");
+    Lanpadslanding_attemptsElement.textContent = `Landing Attempts: ${landpads.landing_attempts}`;
     information__2.appendChild(Lanpadslanding_attemptsElement);
 
-    let Lanpadslanding_successesElement = await Lanpadslanding_successes(landpads.landing_successes);
+    let Lanpadslanding_successesElement = document.createElement("div");
+    Lanpadslanding_successesElement.textContent = `Landing Successes: ${landpads.landing_successes}`;
     information__2.appendChild(Lanpadslanding_successesElement);
 
-}
+    let information__table__1 = document.querySelector("#information__table__1");
+    information__table__1.innerHTML = "";
+    let h3LaunchData = document.createElement("h3");
+    h3LaunchData.textContent = "Landpads Data";
+    let hrLaunchData = document.createElement("hr");
+    information__table__1.append(h3LaunchData, hrLaunchData);
+
+    let divLaunchData = document.createElement("div");
+    divLaunchData.classList.add("table__container__1");
+
+    let div1Data = document.createElement("div");
+    let span1Data = document.createElement("span");
+    span1Data.textContent = "Status";
+    let strong1Data = document.createElement("strong");
+    strong1Data.textContent = `${landpads.status}`;
+    div1Data.append(span1Data, strong1Data);
+
+    let div2Data = document.createElement("div");
+    let span2Data = document.createElement("span");
+    span2Data.textContent = "Locality";
+    let strong2Data = document.createElement("strong");
+    strong2Data.textContent = `${landpads.locality}`;
+    div2Data.append(span2Data, strong2Data);
+
+    let div3Data = document.createElement("div");
+    let span3Data = document.createElement("span");
+    span3Data.textContent = "Region";
+    let strong3Data = document.createElement("strong");
+    strong3Data.textContent = `${landpads.region}`;
+    div3Data.append(span3Data, strong3Data);
+
+    divLaunchData.append(div1Data, div2Data, div3Data);
+    information__table__1.append(divLaunchData);
+
+    let information__table__2 = document.querySelector("#information__table__2");
+    information__table__2.innerHTML = "";
+    let h3Details = document.createElement("h3");
+    h3Details.textContent = "Landpads Details";
+    let hrDetails = document.createElement("hr");
+    information__table__2.append(h3Details, hrDetails);
+
+    let divDetails = document.createElement("div");
+    divDetails.classList.add("table__container__2");
+
+    let div1Details = document.createElement("div");
+    let span1Details = document.createElement("span");
+    span1Details.textContent = "Details";
+    let strong1Details = document.createElement("strong");
+    strong1Details.textContent = `${landpads.details}`;
+    div1Details.append(span1Details, strong1Details);
+    divDetails.append(div1Details);
+    information__table__2.append(divDetails);
+};
 
 
 
