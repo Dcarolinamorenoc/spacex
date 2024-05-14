@@ -54,7 +54,10 @@ import {
     LandpadsFullPage,
     LandpadsTypePage,
     landpadsLaunches,
-    LandpadsWikipedia
+    LandpadsWikipedia,
+    LanpadsLatitude,
+    Lanpadslongitude,
+    Lanpadslanding_attempts
 } from "./information.js";
 
 import { 
@@ -74,7 +77,8 @@ import {
 import { 
     imageRockets,
     imageCrew,
-    imageLaunches
+    imageLaunches,
+    LandpadsImages
 } from "./card.js";
 import { 
     progressRocketWeight,
@@ -923,6 +927,8 @@ const getAllLandpadsById = async (e) => {
 
     await nameLanpads(landpads.name);
 
+    await LandpadsImages([landpads]);
+
     let LandpadsIdPageElement = await LandpadsIdPage(landpads.id);
     let descriptionItem = document.querySelector(".description__item");
     descriptionItem.innerHTML = "";
@@ -941,6 +947,17 @@ const getAllLandpadsById = async (e) => {
     let information__2 = document.getElementById('information__2'); // Este es el nuevo contenedor
     information__2.innerHTML = ""; // Limpia el contenido actual si es necesario
     information__2.appendChild(LandpadsWikipediaElement); 
+
+
+    let LanpadsLatitudeElement = await LanpadsLatitude(landpads.latitude);
+    information__2.appendChild(LanpadsLatitudeElement);
+
+    let LanpadslongitudeElement = await Lanpadslongitude(landpads.longitude);
+    information__2.appendChild(LanpadslongitudeElement);
+
+    let Lanpadslanding_attemptsElement = await Lanpadslanding_attempts(landpads.landing_attempts);
+    information__2.appendChild(Lanpadslanding_attemptsElement);
+
 }
 
 
