@@ -1339,7 +1339,7 @@ export const LanpadsLatitude = async (latitude) => {
 
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/icons/star.svg");
+    img.setAttribute("src", "storage/img/icons/latitude.svg");
     img.setAttribute("width", "50"); 
     img.setAttribute("height", "40");
     divFirst.appendChild(img);
@@ -1379,7 +1379,7 @@ export const Lanpadslongitude = async (longitude) => {
 
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/icons/star.svg");
+    img.setAttribute("src", "storage/img/icons/longitude.svg");
     img.setAttribute("width", "50"); 
     img.setAttribute("height", "40");
     divFirst.appendChild(img);
@@ -1419,7 +1419,7 @@ export const Lanpadslanding_attempts = async (landing_attempts) => {
 
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/icons/star.svg");
+    img.setAttribute("src", "storage/img/icons/Landing.svg");
     img.setAttribute("width", "50"); 
     img.setAttribute("height", "40");
     divFirst.appendChild(img);
@@ -1459,7 +1459,7 @@ export const Lanpadslanding_successes = async (landing_successes) => {
 
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/icons/star.svg");
+    img.setAttribute("src", "storage/img/icons/Landing.svg");
     img.setAttribute("width", "50"); 
     img.setAttribute("height", "40");
     divFirst.appendChild(img);
