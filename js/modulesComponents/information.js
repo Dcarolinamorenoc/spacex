@@ -1639,3 +1639,191 @@ export const shipsRoles = async (roles) => {
 
     return div;
 };
+
+
+// informacion lado izquierdo
+
+
+export const shipLink = async (link) => {
+    let div = document.createElement('div');
+    div.classList.add('description__container2');
+
+    let divWrapper = document.createElement('div');
+    divWrapper.style.display = "flex";
+    divWrapper.style.alignItems = "center";
+    divWrapper.style.marginBottom = "20px";
+    divWrapper.style.marginLeft = "20px";
+
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/link.svg");
+    img.setAttribute("width", "50");
+    img.setAttribute("height", "40");
+    divFirst.appendChild(img);
+
+    let divLast = document.createElement('div');
+
+    let h3 = document.createElement('h3');
+    h3.textContent = "Link:";
+    h3.style.color = "white";
+    h3.style.marginLeft = "20px";
+    divLast.appendChild(h3);
+
+    // Crear un enlace (<a>) para redirigir al usuario al enlace proporcionado
+    let linkElement = document.createElement('a');
+    linkElement.textContent = "Read more about this here";
+    linkElement.style.color = "white";
+    linkElement.style.marginLeft = "20px";
+    linkElement.style.textDecoration = "underline";
+    linkElement.href = link;
+    linkElement.style.fontSize = "9px";
+    linkElement.target = "_blank";
+
+    divLast.appendChild(linkElement);
+
+    divWrapper.appendChild(divFirst);
+    divWrapper.appendChild(divLast);
+
+    div.appendChild(divWrapper);
+
+    return div;
+}
+
+
+export const shipsModel = async (model) => {
+    let div = document.createElement('div');
+    div.classList.add('description__container2');
+
+    let divWrapper = document.createElement('div');
+    divWrapper.style.display = "flex";
+    divWrapper.style.alignItems = "center";
+    divWrapper.style.marginBottom = "20px";
+    divWrapper.style.marginLeft = "20px";
+
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/model.svg");
+    img.setAttribute("width", "50");
+    img.setAttribute("height", "40");
+    divFirst.appendChild(img);
+
+    let divLast = document.createElement('div');
+
+    let h3 = document.createElement('h3');
+    h3.textContent = "Model:";
+    h3.style.color = "white";
+    h3.style.marginLeft = "20px";
+    divLast.appendChild(h3);
+
+    // Verificar si model es null
+    if (model === null) {
+        let small = document.createElement('small');
+        small.textContent = "Result is null";
+        small.style.color = "white";
+        small.style.marginLeft = "20px";
+        divLast.appendChild(small);
+    } else {
+        let small = document.createElement('small');
+        small.textContent = model;
+        small.style.color = "white";
+        small.style.marginLeft = "20px";
+        divLast.appendChild(small);
+    }
+
+    divWrapper.appendChild(divFirst);
+    divWrapper.appendChild(divLast);
+
+    div.appendChild(divWrapper);
+
+    return div;
+}
+
+export const shipsUpdate = async (last_ais_update) => {
+    let div = document.createElement('div');
+    div.classList.add('description__container2');
+
+    let divWrapper = document.createElement('div');
+    divWrapper.style.display = "flex";
+    divWrapper.style.alignItems = "center";
+    divWrapper.style.marginBottom = "20px";
+    divWrapper.style.marginLeft = "20px";
+
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/update.svg");
+    img.setAttribute("width", "50");
+    img.setAttribute("height", "40");
+    divFirst.appendChild(img);
+
+    let divLast = document.createElement('div');
+
+    let h3 = document.createElement('h3');
+    h3.textContent = "Last Ais Update:";
+    h3.style.color = "white";
+    h3.style.marginLeft = "20px";
+    divLast.appendChild(h3);
+
+    // Verificar si model es null
+    if (last_ais_update === null) {
+        let small = document.createElement('small');
+        small.textContent = "Result is null";
+        small.style.color = "white";
+        small.style.marginLeft = "20px";
+        divLast.appendChild(small);
+    } else {
+        let small = document.createElement('small');
+        small.textContent = last_ais_update;
+        small.style.color = "white";
+        small.style.marginLeft = "20px";
+        divLast.appendChild(small);
+    }
+
+    divWrapper.appendChild(divFirst);
+    divWrapper.appendChild(divLast);
+
+    div.appendChild(divWrapper);
+
+    return div;
+}
+
+
+export const shipsyear_built = async (year_built) => {
+    let div = document.createElement('div');
+    div.classList.add('description__container2');
+
+    let divWrapper = document.createElement('div');
+    divWrapper.style.display = "flex"; // Utilizar flexbox
+    divWrapper.style.alignItems = "center"; // Alinear elementos verticalmente al centro
+    divWrapper.style.marginBottom = "20px"; 
+    divWrapper.style.marginLeft = "20px";
+
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/year.svg");
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+    divFirst.appendChild(img);
+
+    let divLast = document.createElement('div');
+
+    let h3 = document.createElement('h3');
+    h3.textContent = "Year Built:";
+    h3.style.color = "white"; // Establecer el color del texto en blanco
+    h3.style.marginLeft = "20px";
+    divLast.appendChild(h3);
+
+    let small = document.createElement('small');
+    small.textContent = year_built;
+    small.style.color = "white"; // Establecer el color del texto en blanco
+    small.style.marginLeft = "20px";
+    divLast.appendChild(small);
+
+    divWrapper.appendChild(divFirst);
+    divWrapper.appendChild(divLast);
+
+    div.appendChild(divWrapper);
+
+    return div;
+}
+
+

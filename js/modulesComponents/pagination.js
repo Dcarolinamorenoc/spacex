@@ -64,7 +64,11 @@ import {
     shipsLaunches,
     shipslegacy_idPage,
     shipshome_portPage,
-    shipsRoles
+    shipsRoles,
+    shipLink,
+    shipsModel,
+    shipsUpdate,
+    shipsyear_built
 } from "./information.js";
 
 import { 
@@ -1108,10 +1112,23 @@ const getAllShipsById = async (e) => {
     let shipsRolesElement = await shipsRoles(ships.roles);
     descriptionItem.append(shipsRolesElement);
 
+    let shipLinkElement = await shipLink(ships.link);
+    let information__2 = document.getElementById('information__2');
+    information__2.innerHTML = "";
+    information__2.appendChild(shipLinkElement);
 
+    let shipsModelElement = await shipsModel(ships.model);
+    information__2.appendChild(shipsModelElement);
+
+    let shipsUpdateElement = await shipsUpdate(ships.last_ais_update);
+    information__2.appendChild(shipsUpdateElement);
+
+
+    let year_builtElement = await shipsyear_built(ships.year_built);
+    information__2.appendChild(year_builtElement);
 
     
-
+    
 
 
 };
