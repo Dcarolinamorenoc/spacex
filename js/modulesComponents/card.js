@@ -123,6 +123,7 @@ export const LandpadsImages = async (landpadsData) => {
 
 
 export const imageShips = async (ship) => {
+    console.log(ship);
     let section__image = document.querySelector("#section__image");
     section__image.innerHTML = ""; // Limpiar el contenedor de imágenes antes de agregar una nueva
 
@@ -136,7 +137,7 @@ export const imageShips = async (ship) => {
         img.setAttribute("referrerpolicy", "no-referrer");
 
         // Establecer el tamaño de la imagen
-        img.setAttribute("style", "width: 200px; height: auto;"); // Ejemplo de tamaño (ajusta según lo necesites)
+        img.setAttribute("style", "width: 250px; height: 200px;"); // Ejemplo de tamaño (ajusta según lo necesites)
 
         // Centrar la imagen
         img.onload = function() {

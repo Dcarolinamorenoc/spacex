@@ -59,7 +59,12 @@ import {
     LanpadsLatitude,
     Lanpadslongitude,
     Lanpadslanding_attempts,
-    Lanpadslanding_successes
+    Lanpadslanding_successes,
+    shipsIdPage,
+    shipsLaunches,
+    shipslegacy_idPage,
+    shipshome_portPage,
+    shipsRoles
 } from "./information.js";
 
 import { 
@@ -1083,6 +1088,32 @@ const getAllShipsById = async (e) => {
     await nameShips(ships.name);
 
     await imageShips(ships);
+
+
+    let shipsIdPageElement = await shipsIdPage(ships.id);
+    let descriptionItem = document.querySelector(".description__item");
+    descriptionItem.innerHTML = "";
+    descriptionItem.append(shipsIdPageElement);
+
+
+    let shipsLaunchesElement = await shipsLaunches(ships.launches);
+    descriptionItem.append(shipsLaunchesElement);
+
+    let shipslegacy_idPageElement = await shipslegacy_idPage(ships.legacy_id);
+    descriptionItem.append(shipslegacy_idPageElement);
+
+    let shipshome_portPageElement = await shipshome_portPage(ships.home_port);
+    descriptionItem.append(shipshome_portPageElement);
+
+    let shipsRolesElement = await shipsRoles(ships.roles);
+    descriptionItem.append(shipsRolesElement);
+
+
+
+    
+
+
+
 };
 
 
