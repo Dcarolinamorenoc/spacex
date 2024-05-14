@@ -1195,7 +1195,7 @@ export const LandpadsFullPage  = async(full_name)=>{
     div.classList.add('description__container')
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/icons/star.svg")
+    img.setAttribute("src", "storage/img/icons/name.svg")
 
     img.setAttribute("width", "50"); 
      img.setAttribute("height", "40");
@@ -1212,3 +1212,68 @@ export const LandpadsFullPage  = async(full_name)=>{
 
     return div; // Devuelve el elemento div en lugar de agregarlo directamente al DOM
 }
+
+
+export const LandpadsTypePage  = async(type)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/metereo.svg")
+
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Type:"
+    let small = document.createElement('small');
+    small.textContent = type
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    return div; // Devuelve el elemento div en lugar de agregarlo directamente al DOM
+}
+
+
+export const landpadsLaunches = async (launches) => {
+    let div = document.createElement('div');
+    div.classList.add('description__container');
+
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/launches.png");
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Launches:";
+    divLast.appendChild(h3);
+
+    // Verificamos si hay más de una launch
+    if (Array.isArray(launches) && launches.length > 0) {
+        let ul = document.createElement('ul');
+        launches.forEach((launchId) => {
+            let li = document.createElement('li');
+            let small = document.createElement('small');
+            small.textContent = launchId;
+            li.appendChild(small);
+            ul.appendChild(li);
+        });
+        divLast.appendChild(ul);
+    } else {
+        // Si solo hay una launch
+        let small = document.createElement('small');
+        small.textContent = launches;
+        divLast.appendChild(small);
+    }
+
+    div.appendChild(divFirst);
+    div.appendChild(divLast);
+
+    return div;
+};

@@ -51,7 +51,9 @@ import {
     coresasds_attempts,
     coresasds_landings,
     LandpadsIdPage,
-    LandpadsFullPage
+    LandpadsFullPage,
+    LandpadsTypePage,
+    landpadsLaunches
 } from "./information.js";
 
 import { 
@@ -928,6 +930,11 @@ const getAllLandpadsById = async (e) => {
     let LandpadsFullPageElement = await LandpadsFullPage(landpads.full_name);
     descriptionItem.append(LandpadsFullPageElement);
 
+    let LandpadsTypePageElement = await LandpadsTypePage(landpads.type);
+    descriptionItem.append(LandpadsTypePageElement);
+
+    let landpadsLaunchesElement = await landpadsLaunches(landpads.launches);
+    descriptionItem.append(landpadsLaunchesElement);
 
 };
 
