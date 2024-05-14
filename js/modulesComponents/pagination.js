@@ -949,21 +949,19 @@ const getAllLandpadsById = async (e) => {
     information__2.innerHTML = "";
     information__2.appendChild(LandpadsWikipediaElement); 
 
-    let LanpadsLatitudeElement = document.createElement("div");
-    LanpadsLatitudeElement.textContent = `Latitude: ${landpads.latitude}`;
+    let LanpadsLatitudeElement = await LanpadsLatitude(landpads.latitude);
     information__2.appendChild(LanpadsLatitudeElement);
 
-    let LanpadslongitudeElement = document.createElement("div");
-    LanpadslongitudeElement.textContent = `Longitude: ${landpads.longitude}`;
+    let LanpadslongitudeElement = await Lanpadslongitude(landpads.longitude);
     information__2.appendChild(LanpadslongitudeElement);
 
-    let Lanpadslanding_attemptsElement = document.createElement("div");
-    Lanpadslanding_attemptsElement.textContent = `Landing Attempts: ${landpads.landing_attempts}`;
+    let Lanpadslanding_attemptsElement = await Lanpadslanding_attempts(landpads.landing_attempts);
     information__2.appendChild(Lanpadslanding_attemptsElement);
 
-    let Lanpadslanding_successesElement = document.createElement("div");
-    Lanpadslanding_successesElement.textContent = `Landing Successes: ${landpads.landing_successes}`;
+    let Lanpadslanding_successesElement = await Lanpadslanding_successes(landpads.landing_successes);
     information__2.appendChild(Lanpadslanding_successesElement);
+
+
 
     let information__table__1 = document.querySelector("#information__table__1");
     information__table__1.innerHTML = "";
