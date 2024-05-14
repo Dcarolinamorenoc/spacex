@@ -53,7 +53,8 @@ import {
     LandpadsIdPage,
     LandpadsFullPage,
     LandpadsTypePage,
-    landpadsLaunches
+    landpadsLaunches,
+    LandpadsWikipedia
 } from "./information.js";
 
 import { 
@@ -936,7 +937,11 @@ const getAllLandpadsById = async (e) => {
     let landpadsLaunchesElement = await landpadsLaunches(landpads.launches);
     descriptionItem.append(landpadsLaunchesElement);
 
-};
+    let LandpadsWikipediaElement = LandpadsWikipedia(landpads.wikipedia);
+    let information__2 = document.getElementById('information__2'); // Este es el nuevo contenedor
+    information__2.innerHTML = ""; // Limpia el contenido actual si es necesario
+    information__2.appendChild(LandpadsWikipediaElement); 
+}
 
 
 
