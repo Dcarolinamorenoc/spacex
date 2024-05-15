@@ -2013,6 +2013,15 @@ const getAllPayloadsById = async (e) => {
     let payreusedElement = await payreused(payloads.reused);
     descriptionItem.append(payreusedElement);
 
+    let image = document.createElement("img");
+    image.src = "storage/img/icons/satelite.webp"; // Reemplaza con la ruta de tu imagen
+    image.style.position = "absolute";
+    image.style.marginTop = "-400px"; // Ejemplo de margen top
+    image.style.marginLeft = "500px"; // Ejemplo de margen izquierdo
+    image.style.width = "400px"; // Ejemplo de ancho
+    image.style.height = "300px"; // Ejemplo de alto
+    document.body.appendChild(image); 
+
     let payreference_systemElement = await payreference_system(payloads.reference_system);
     let information__2 = document.getElementById('information__2');
     information__2.innerHTML = "";
