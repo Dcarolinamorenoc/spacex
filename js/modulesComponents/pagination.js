@@ -2032,11 +2032,131 @@ const getAllPayloadsById = async (e) => {
     let payManufacturesElement = await payManufactures(payloads.manufacturers);
     information__2.appendChild(payManufacturesElement);
 
-    
+    let information__table__1 = document.querySelector("#information__table__1");
+    information__table__1.innerHTML = "";
+    let h3_1 = document.createElement("h3");
+    h3_1.textContent = "Payloads information";
+    let hr_1 = document.createElement("hr");
+    information__table__1.append(h3_1, hr_1);
 
-    
-  };
+    // Mostrar información de la lanzadera actual
+    let div = document.createElement("div");
+    div.classList.add("table__container__1");
 
+    let div1 = document.createElement("div");
+    let span1 = document.createElement("span");
+    span1.textContent = "Period Min";
+    let strong1 = document.createElement("strong");
+    strong1.textContent = `${payloads.period_min}`;
+    div1.append(span1, strong1);
+
+    let div2 = document.createElement("div");
+    let span2 = document.createElement("span");
+    span2.textContent = "Inclination Deg";
+    let strong2 = document.createElement("strong");
+    strong2.textContent = `${payloads.inclination_deg}`;
+    div2.append(span2, strong2);
+
+    let div3 = document.createElement("div");
+    let span3 = document.createElement("span");
+    span3.textContent = "Apoapsis Km";
+    let strong3 = document.createElement("strong");
+    strong3.textContent = `${payloads.apoapsis_km}`;
+    div3.append(span3, strong3);
+
+    let div4 = document.createElement("div");
+    let span4 = document.createElement("span");
+    span4.textContent = "periapsis Km";
+    let strong4 = document.createElement("strong");
+    strong4.textContent = `${payloads.periapsis_km}`;
+    div4.append(span4, strong4);
+
+    let div5 = document.createElement("div");
+    let span5 = document.createElement("span");
+    span5.textContent = "Eccentricity";
+    let strong5 = document.createElement("strong");
+    strong5.textContent = `${payloads.eccentricity}`;
+    div5.append(span5, strong5);
+
+
+    let div6 = document.createElement("div");
+    let span6 = document.createElement("span");
+    span6.textContent = "Semi Major Axis Km";
+    let strong6 = document.createElement("strong");
+    strong6.textContent = `${payloads.semi_major_axis_km}`;
+    div6.append(span6, strong6);
+
+    let div7 = document.createElement("div");
+    let span7 = document.createElement("span");
+    span7.textContent = "Longitude";
+    let strong7 = document.createElement("strong");
+    strong7.textContent = `${payloads.longitude}`;
+    div7.append(span7, strong7);
+
+    div.append(div1, div2, div3, div4, div5, div6, div7);
+    information__table__1.append(div);
+
+
+    async function createLocationTable(payloads) {
+        let information__table__2 = document.querySelector("#information__table__2");
+        information__table__2.innerHTML = "";
+        let h3_2 = document.createElement("h3");
+        h3_2.textContent = "Payloads Location ";
+        let hr_2 = document.createElement("hr");
+        information__table__2.append(h3_2, hr_2);
+
+        let divLoc = document.createElement("div");
+        divLoc.classList.add("table__container__1");
+
+        let div1Loc = document.createElement("div");
+        let span1Loc = document.createElement("span");
+        span1Loc.textContent = "Lifespan Years";
+        let strong1Loc = document.createElement("strong");
+        strong1Loc.textContent = payloads.lifespan_years !== null ? payloads.lifespan_years : "No data available";
+        div1Loc.append(span1Loc, strong1Loc);
+
+        let div2Loc = document.createElement("div");
+        let span2Loc = document.createElement("span");
+        span2Loc.textContent = "Epoch";
+        let strong2Loc = document.createElement("strong");
+        strong2Loc.textContent = payloads.epoch !== null ? payloads.epoch : "No data available";
+        div2Loc.append(span2Loc, strong2Loc);
+
+        let div3Loc = document.createElement("div");
+        let span3Loc = document.createElement("span");
+        span3Loc.textContent = "Mean motion";
+        let strong3Loc = document.createElement("strong");
+        strong3Loc.textContent = payloads.mean_motion !== null ? payloads.mean_motion : "No data available";
+        div3Loc.append(span3Loc, strong3Loc);
+
+        let div4Loc = document.createElement("div");
+        let span4Loc = document.createElement("span");
+        span4Loc.textContent = "Raan";
+        let strong4Loc = document.createElement("strong");
+        strong4Loc.textContent = payloads.raan !== null ? payloads.raan : "No data available";
+        div4Loc.append(span4Loc, strong4Loc);
+
+        let div5Loc = document.createElement("div");
+        let span5Loc = document.createElement("span");
+        span5Loc.textContent = "Arg of Pericenter";
+        let strong5Loc = document.createElement("strong");
+        strong5Loc.textContent = payloads.arg_of_pericenter !== null ? payloads.arg_of_pericenter : "No data available";
+        div5Loc.append(span5Loc, strong5Loc);
+
+        let div6Loc = document.createElement("div");
+        let span6Loc = document.createElement("span");
+        span6Loc.textContent = "Mean Anomaly";
+        let strong6Loc = document.createElement("strong");
+        strong6Loc.textContent = payloads.mean_anomaly !== null ? payloads.mean_anomaly : "No data available";
+        div6Loc.append(span6Loc, strong6Loc);
+
+        divLoc.append(div1Loc, div2Loc, div3Loc, div4Loc, div5Loc, div6Loc);
+        information__table__2.append(divLoc);
+    }
+
+    // Llama a la función para crear la tabla information__table__2
+    await createLocationTable(payloads);
+};
 
 
 
