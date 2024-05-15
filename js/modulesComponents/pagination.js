@@ -864,6 +864,26 @@ const getAllCoreById = async (e) => {
     let CoreStatusPageElement = await CoreStatusPage(core.status);
     descriptionItem.append(CoreStatusPageElement);
 
+
+    let sectionImage = document.querySelector("#section__information__1");
+    sectionImage.innerHTML = "";
+    
+    // Crea la nueva imagen y agrégala a sectionImage
+    let img = document.createElement("img");
+    img.setAttribute("src", "storage/img/icons/cores.gif");
+    img.classList.add("imagen-paginacion-cores");
+    
+    // Agrega estilos para posición absoluta
+    img.style.position = "absolute";
+    img.style.top = "100px"; // Ajusta la posición vertical
+    img.style.left = "19px"; // Ajusta la posición horizontal
+    img.style.width = "300px";
+    img.style.height = "250px";
+    img.style.marginTop = "210px";
+    img.style.marginLeft = "285px";
+    
+    sectionImage.appendChild(img);
+
     let coresreuse_countElement = await coresreuse_count(core.reuse_count);
     let information__2 = document.getElementById('information__2');
     information__2.innerHTML = "";
