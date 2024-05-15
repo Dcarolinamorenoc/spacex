@@ -86,7 +86,9 @@ import {
     launchIdPage,
     launchLaunches,
     launchRockets,
-    launchfull_name
+    launchfull_name,
+    launchStatus,
+    launchTimezone
 } from "./information.js";
 
 import { 
@@ -1676,6 +1678,8 @@ export const paginationDragons = async(page=1, limit=4)=>{
 }
 
 
+
+
 const getAllLaunchpadsById = async (e) => {
     e.preventDefault();
     if (e.target.dataset.page) {
@@ -1690,32 +1694,113 @@ const getAllLaunchpadsById = async (e) => {
     }
     e.target.classList.add('activo');
 
-    let launchpads = await getLaunchpadsById(e.target.id);
-    console.log(launchpads); // Agrega este console.log para verificar los datos
+    let launchpad = await getLaunchpadsById(e.target.id);
+    console.log(launchpad); // Verifica los datos en la consola
 
-    await nameLaunchpads(launchpads.name);
+    await nameLaunchpads(launchpad.name);
 
-    await LaunchpadsImages([launchpads]);
+    await LaunchpadsImages ([launchpad]);
 
-
-    let launchIdPageElement = await launchIdPage(launchpads.id);
+    let launchIdPageElement = await launchIdPage(launchpad.id);
     let descriptionItem = document.querySelector(".description__item");
     descriptionItem.innerHTML = "";
     descriptionItem.append(launchIdPageElement);
 
-    let launchfull_nameElement = await launchfull_name(launchpads.full_name);
+    let launchfull_nameElement = await launchfull_name(launchpad.full_name);
     descriptionItem.append(launchfull_nameElement);
 
-
-    let launchLaunchesElement = await launchLaunches(launchpads.launches);
+    let launchLaunchesElement = await launchLaunches(launchpad.launches);
     descriptionItem.append(launchLaunchesElement);
 
-    let launchRocketsElement = await launchRockets(launchpads.rockets);
+    let launchRocketsElement = await launchRockets(launchpad.rockets);
     descriptionItem.append(launchRocketsElement);
 
-   
+    let launchStatusElement = await launchStatus(launchpad.status);
+    let information__2 = document.getElementById('information__2');
+    information__2.innerHTML = "";
+    information__2.appendChild(launchStatusElement);
 
+    let launchTimezoneElement = await launchTimezone(launchpad.timezone);
+    information__2.appendChild(launchTimezoneElement);
+
+    let information__table__1 = document.querySelector("#information__table__1");
+    information__table__1.innerHTML = "";
+    let h3_1 = document.createElement("h3");
+    h3_1.textContent = "Launchpad information";
+    let hr_1 = document.createElement("hr");
+    information__table__1.append(h3_1, hr_1);
+
+    // Mostrar información de la lanzadera actual
+    let div = document.createElement("div");
+    div.classList.add("table__container__1");
+
+    let div1 = document.createElement("div");
+    let span1 = document.createElement("span");
+    span1.textContent = "Latitude";
+    let strong1 = document.createElement("strong");
+    strong1.textContent = `${launchpad.latitude}`;
+    div1.append(span1, strong1);
+
+    let div2 = document.createElement("div");
+    let span2 = document.createElement("span");
+    span2.textContent = "Longitude";
+    let strong2 = document.createElement("strong");
+    strong2.textContent = `${launchpad.longitude}`;
+    div2.append(span2, strong2);
+
+    let div3 = document.createElement("div");
+    let span3 = document.createElement("span");
+    span3.textContent = "Launch Attempts";
+    let strong3 = document.createElement("strong");
+    strong3.textContent = `${launchpad.launch_attempts}`;
+    div3.append(span3, strong3);
+
+    let div4 = document.createElement("div");
+    let span4 = document.createElement("span");
+    span4.textContent = "Launch Successes";
+    let strong4 = document.createElement("strong");
+    strong4.textContent = `${launchpad.launch_successes}`;
+    div4.append(span4, strong4);
+
+    div.append(div1, div2, div3, div4);
+    information__table__1.append(div);
+
+    let information__table__2 = document.querySelector("#information__table__2");
+    information__table__2.innerHTML = "";
+    let h3_2 = document.createElement("h3");
+    h3_2.textContent = "Launchpad Location Information";
+    let hr_2 = document.createElement("hr");
+    information__table__2.append(h3_2, hr_2);
+
+    // Mostrar información de localización de la lanzadera actual
+    let divLoc = document.createElement("div");
+    divLoc.classList.add("table__container__1");
+
+    let div1Loc = document.createElement("div");
+    let span1Loc = document.createElement("span");
+    span1Loc.textContent = "Locality";
+    let strong1Loc = document.createElement("strong");
+    strong1Loc.textContent = launchpad.locality;
+    div1Loc.append(span1Loc, strong1Loc);
+
+    let div2Loc = document.createElement("div");
+    let span2Loc = document.createElement("span");
+    span2Loc.textContent = "Region";
+    let strong2Loc = document.createElement("strong");
+    strong2Loc.textContent = launchpad.region;
+    div2Loc.append(span2Loc, strong2Loc);
+
+    let div3Loc = document.createElement("div");
+    let span3Loc = document.createElement("span");
+    span3Loc.textContent = "Details";
+    let strong3Loc = document.createElement("strong");
+    strong3Loc.textContent = launchpad.details;
+    div3Loc.append(span3Loc, strong3Loc);
+
+    divLoc.append(div1Loc, div2Loc, div3Loc);
+    information__table__2.append(divLoc);
 };
+
 
 
 

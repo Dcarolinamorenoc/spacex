@@ -2307,3 +2307,84 @@ export const launchfull_name  = async(full_name)=>{
 
     return div; // Devuelve el elemento div en lugar de agregarlo directamente al DOM
 }
+
+
+
+export const launchStatus = async (status) => {
+    let div = document.createElement('div');
+    div.classList.add('description__container2');
+
+    let divWrapper = document.createElement('div');
+    divWrapper.style.display = "flex"; // Utilizar flexbox
+    divWrapper.style.alignItems = "center"; // Alinear elementos verticalmente al centro
+    divWrapper.style.marginBottom = "20px"; 
+    divWrapper.style.marginLeft = "20px";
+
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/star.svg");
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+    divFirst.appendChild(img);
+
+    let divLast = document.createElement('div');
+
+    let h3 = document.createElement('h3');
+    h3.textContent = "Status:";
+    h3.style.color = "white"; // Establecer el color del texto en blanco
+    h3.style.marginLeft = "20px";
+    divLast.appendChild(h3);
+
+    let small = document.createElement('small');
+    small.textContent = status;
+    small.style.color = "white"; // Establecer el color del texto en blanco
+    small.style.marginLeft = "20px";
+    divLast.appendChild(small);
+
+    divWrapper.appendChild(divFirst);
+    divWrapper.appendChild(divLast);
+
+    div.appendChild(divWrapper);
+
+    return div;
+}
+
+
+export const launchTimezone = async (timezone) => {
+    let div = document.createElement('div');
+    div.classList.add('description__container2');
+
+    let divWrapper = document.createElement('div');
+    divWrapper.style.display = "flex"; // Utilizar flexbox
+    divWrapper.style.alignItems = "center"; // Alinear elementos verticalmente al centro
+    divWrapper.style.marginBottom = "20px"; 
+    divWrapper.style.marginLeft = "20px";
+
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/ubicacion.svg");
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+    divFirst.appendChild(img);
+
+    let divLast = document.createElement('div');
+
+    let h3 = document.createElement('h3');
+    h3.textContent = "Timezone:";
+    h3.style.color = "white"; // Establecer el color del texto en blanco
+    h3.style.marginLeft = "20px";
+    divLast.appendChild(h3);
+
+    let small = document.createElement('small');
+    small.textContent = timezone;
+    small.style.color = "white"; // Establecer el color del texto en blanco
+    small.style.marginLeft = "20px";
+    divLast.appendChild(small);
+
+    divWrapper.appendChild(divFirst);
+    divWrapper.appendChild(divLast);
+
+    div.appendChild(divWrapper);
+
+    return div;
+}
