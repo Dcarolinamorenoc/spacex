@@ -1974,3 +1974,49 @@ export const companyvaluationPage  = async(valuation)=>{
 
     return div; // Devuelve el elemento div en lugar de agregarlo directamente al DOM
 }
+
+
+// datos de la derecha
+export const SpaceXLinks = (links) => {
+    let div = document.createElement('div');
+    div.classList.add('description__container');
+
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/linkcito.svg"); // Ruta a la imagen de SpaceX
+    img.setAttribute("width", "50");
+    img.setAttribute("height", "40");
+    divFirst.appendChild(img);
+
+    let divLast = document.createElement('div');
+
+    let h3 = document.createElement('h3');
+    h3.textContent = "SpaceX Links";
+    divLast.appendChild(h3);
+
+    let ul = document.createElement('ul');
+    ul.style.listStyleType = "none";
+    ul.style.padding = "0";
+
+    let keys = ['website', 'flickr', 'twitter', 'elon_twitter'];
+
+    keys.forEach(key => {
+        if (links[key]) {
+            let li = document.createElement('li');
+            let link = document.createElement('a');
+            link.textContent = key.charAt(0).toUpperCase() + key.slice(1); // Capitalize the key
+            link.style.color = "white"; // Cambia el color del texto a blanco
+            link.style.textDecoration = "underline";
+            link.href = links[key];
+            link.target = "_blank";
+            li.appendChild(link);
+            ul.appendChild(li);
+        }
+    });
+
+    divLast.appendChild(ul);
+
+    div.append(divFirst, divLast);
+
+    return div; // Devuelve el elemento div con los enlaces de SpaceX
+}

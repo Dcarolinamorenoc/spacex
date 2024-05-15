@@ -75,7 +75,8 @@ import {
     companyFoundedPage,
     companyemployeesPage,
     companyvehiclesPage,
-    companyvaluationPage
+    companyvaluationPage,
+    SpaceXLinks
 } from "./information.js";
 
 import { 
@@ -1269,7 +1270,6 @@ export const paginationShips = async(page=1, limit=4)=>{
 
 
 
-
 const getAllCompanyById = async (e) => {
     e.preventDefault();
     if (e.target.dataset.page) {
@@ -1289,13 +1289,10 @@ const getAllCompanyById = async (e) => {
 
     await nameCompany(company.name);
 
-
     let companyIdPageElement = await companyIdPage(company.id);
     let descriptionItem = document.querySelector(".description__item");
     descriptionItem.innerHTML = "";
     descriptionItem.append(companyIdPageElement);
-
-
 
     let sectionImage = document.querySelector("#section__information__1");
     let img = document.createElement("img");
@@ -1306,12 +1303,11 @@ const getAllCompanyById = async (e) => {
     img.style.position = "absolute";
     img.style.top = "100px"; // Ajusta la posición vertical
     img.style.left = "50px"; // Ajusta la posición horizontal
-    img.style.width = "250px"
-    img.style.marginTop= "200px"
-    img.style.marginLeft= "285px"
+    img.style.width = "250px";
+    img.style.marginTop = "200px";
+    img.style.marginLeft = "285px";
     
     sectionImage.appendChild(img);
-
 
     let companyFounderPageElement = await companyFounderPage(company.founder);
     descriptionItem.append(companyFounderPageElement);
@@ -1325,12 +1321,22 @@ const getAllCompanyById = async (e) => {
     let companyvehiclesPageElement = await companyvehiclesPage(company.vehicles);
     descriptionItem.append(companyvehiclesPageElement);
 
-
     let companyvaluationPageElement = await companyvaluationPage(company.valuation);
     descriptionItem.append(companyvaluationPageElement);
 
-    
-};
+    // Mostrar los enlaces específicos (website, flickr, twitter, elon_twitter)
+    let specificLinks = {
+        website: company.links.website,
+        flickr: company.links.flickr,
+        twitter: company.links.twitter,
+        elon_twitter: company.links.elon_twitter
+    };
+
+    let SpaceXLinksElement = SpaceXLinks(specificLinks);
+    let information__2 = document.getElementById('information__2');
+    information__2.innerHTML = "";
+    information__2.appendChild(SpaceXLinksElement); 
+}
 
 
 
