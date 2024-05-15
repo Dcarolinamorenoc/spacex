@@ -80,7 +80,8 @@ import {
     SpaceXLinks,
     dragonsIdPage,
     dragonsTypePage,
-    SpaceData
+    SpaceData,
+    dragonsFlightPage
 } from "./information.js";
 
 import { 
@@ -1528,10 +1529,101 @@ const getAllDragonsById = async (e) => {
     let dragonsTypePageElement = await dragonsTypePage(dragons.type);
     descriptionItem.append(dragonsTypePageElement);
 
+    let dragonsFlightPageElement = await dragonsFlightPage(dragons.first_flight);
+    descriptionItem.append(dragonsFlightPageElement);
+
     let SpaceDataElement = await SpaceData(dragons);
     let information__2 = document.getElementById('information__2');
     information__2.innerHTML = "";
     information__2.appendChild(SpaceDataElement); 
+
+    let information__table__2 = document.querySelector("#information__table__2");
+    information__table__2.innerHTML = "";
+    let h3_table2 = document.createElement("h3");
+    h3_table2.textContent = "Dragon Information";
+    let hr_table2 = document.createElement("hr");
+    information__table__2.append(h3_table2, hr_table2);
+
+    let div_table2 = document.createElement("div");
+    div_table2.classList.add("table__container__1");
+
+    let description = dragons.description;
+    let wikipedia = dragons.wikipedia;
+
+    let div1_table2 = document.createElement("div");
+    let span1_table2 = document.createElement("span");
+    span1_table2.textContent = "Description";
+    let pDescription_table2 = document.createElement("p");
+    pDescription_table2.textContent = description;
+    pDescription_table2.style.color = "white"; // Set description color to white
+    div1_table2.append(span1_table2, pDescription_table2);
+
+    let div2_table2 = document.createElement("div");
+    let span2_table2 = document.createElement("span");
+    span2_table2.textContent = "Wikipedia";
+    let aWikipedia_table2 = document.createElement("a");
+    aWikipedia_table2.textContent = "Read more here";
+    aWikipedia_table2.href = wikipedia;
+    aWikipedia_table2.target = "_blank"; // Open link in a new tab
+    div2_table2.append(span2_table2, aWikipedia_table2);
+
+    div_table2.append(div1_table2, div2_table2);
+    information__table__2.append(div_table2);
+
+    let information__table__1 = document.querySelector("#information__table__1");
+    information__table__1.innerHTML = "";
+    let h3_table1 = document.createElement("h3");
+    h3_table1.textContent = "Dragon Information";
+    let hr_table1 = document.createElement("hr");
+    information__table__1.append(h3_table1, hr_table1);
+
+    let div_table1 = document.createElement("div");
+    div_table1.classList.add("table__container__1");
+
+    let div1_table1 = document.createElement("div");
+    let span1_table1 = document.createElement("span");
+    span1_table1.textContent = "Active";
+    let strong1_table1 = document.createElement("strong");
+    strong1_table1.textContent = `${dragons.active}`;
+    div1_table1.append(span1_table1, strong1_table1);
+
+    let div2_table1 = document.createElement("div");
+    let span2_table1 = document.createElement("span");
+    span2_table1.textContent = "Crew Capacity";
+    let strong2_table1 = document.createElement("strong");
+    strong2_table1.textContent = `${dragons.crew_capacity}`;
+    div2_table1.append(span2_table1, strong2_table1);
+
+    let div3_table1 = document.createElement("div");
+    let span3_table1 = document.createElement("span");
+    span3_table1.textContent = "Sidewall Angle (deg)";
+    let strong3_table1 = document.createElement("strong");
+    strong3_table1.textContent = `${dragons.sidewall_angle_deg}`;
+    div3_table1.append(span3_table1, strong3_table1);
+
+    let div4_table1 = document.createElement("div");
+    let span4_table1 = document.createElement("span");
+    span4_table1.textContent = "Orbit Duration (years)";
+    let strong4_table1 = document.createElement("strong");
+    strong4_table1.textContent = `${dragons.orbit_duration_yr}`;
+    div4_table1.append(span4_table1, strong4_table1);
+
+    let div5_table1 = document.createElement("div");
+    let span5_table1 = document.createElement("span");
+    span5_table1.textContent = "Dry Mass (kg)";
+    let strong5_table1 = document.createElement("strong");
+    strong5_table1.textContent = `${dragons.dry_mass_kg}`;
+    div5_table1.append(span5_table1, strong5_table1);
+
+    let div6_table1 = document.createElement("div");
+    let span6_table1 = document.createElement("span");
+    span6_table1.textContent = "Dry Mass (lb)";
+    let strong6_table1 = document.createElement("strong");
+    strong6_table1.textContent = `${dragons.dry_mass_lb}`;
+    div6_table1.append(span6_table1, strong6_table1);
+
+    div_table1.append(div1_table1, div2_table1, div3_table1, div4_table1, div5_table1, div6_table1);
+    information__table__1.append(div_table1);
 };
 
 

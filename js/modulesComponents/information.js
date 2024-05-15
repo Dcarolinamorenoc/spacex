@@ -2150,3 +2150,27 @@ export const SpaceData = (dragonData) => {
 
     return div;
 };
+
+
+export const dragonsFlightPage = async (first_flight) => {
+    let div = document.createElement('div');
+    div.classList.add('description__container');
+
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/first.svg");
+    img.setAttribute("width", "50");
+    img.setAttribute("height", "40");
+    divFirst.appendChild(img);
+
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "First Flight:";
+    let small = document.createElement('small');
+    small.textContent = first_flight;
+    divLast.append(h3, small);
+
+    div.append(divFirst, divLast);
+
+    return div;
+};
