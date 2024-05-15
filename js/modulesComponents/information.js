@@ -2053,7 +2053,7 @@ export const dragonsTypePage = async (type) => {
 
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/icons/cohete.svg");
+    img.setAttribute("src", "storage/img/icons/ti.svg");
     img.setAttribute("width", "50");
     img.setAttribute("height", "40");
     divFirst.appendChild(img);
