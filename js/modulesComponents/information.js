@@ -2020,3 +2020,133 @@ export const SpaceXLinks = (links) => {
 
     return div; // Devuelve el elemento div con los enlaces de SpaceX
 }
+
+
+
+export const dragonsIdPage = async (id) => {
+    let div = document.createElement('div');
+    div.classList.add('description__container');
+
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/cohete.svg");
+    img.setAttribute("width", "50");
+    img.setAttribute("height", "40");
+    divFirst.appendChild(img);
+
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "ID:";
+    let small = document.createElement('small');
+    small.textContent = id;
+    divLast.append(h3, small);
+
+    div.append(divFirst, divLast);
+
+    return div;
+};
+
+
+export const dragonsTypePage = async (type) => {
+    let div = document.createElement('div');
+    div.classList.add('description__container');
+
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/cohete.svg");
+    img.setAttribute("width", "50");
+    img.setAttribute("height", "40");
+    divFirst.appendChild(img);
+
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Type:";
+    let small = document.createElement('small');
+    small.textContent = type;
+    divLast.append(h3, small);
+
+    div.append(divFirst, divLast);
+
+    return div;
+};
+
+
+export const SpaceData = (dragonData) => {
+    let div = document.createElement('div');
+    div.classList.add('description__container');
+
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/name.svg");
+    img.setAttribute("width", "50");
+    img.setAttribute("height", "50");
+    divFirst.appendChild(img);
+
+    let divLast = document.createElement('div');
+
+    let h3 = document.createElement('h3');
+    h3.textContent = "SpaceX Data";
+    h3.style.color = "white"; // Cambia el color del título a blanco
+    divLast.appendChild(h3);
+
+    let ul = document.createElement('ul');
+    ul.style.listStyleType = "none";
+    ul.style.padding = "0";
+
+    let dragonDetails = {
+        "heat_shield": dragonData.heat_shield,
+        "launch_payload_mass": dragonData.launch_payload_mass,
+        "launch_payload_vol": dragonData.launch_payload_vol,
+        "return_payload_mass": dragonData.return_payload_mass,
+        "return_payload_vol": dragonData.return_payload_vol,
+        "diameter": dragonData.diameter
+    };
+
+    Object.keys(dragonDetails).forEach(key => {
+        let li = document.createElement('li');
+        let detailContainer = document.createElement('div');
+        detailContainer.style.display = "flex";
+        detailContainer.style.alignItems = "center";
+
+        let detailImg = document.createElement('img');
+        detailImg.setAttribute("src", "storage/img/icons/star.svg");
+        detailImg.setAttribute("width", "20");
+        detailImg.setAttribute("height", "20");
+        detailImg.style.marginRight = "10px";
+
+        let detail = document.createElement('span');
+        detail.style.color = "white"; // Cambia el color del texto a blanco
+
+        if (typeof dragonDetails[key] === 'object') {
+            detail.textContent = `${key}:`;
+            let subUl = document.createElement('ul');
+            subUl.style.listStyleType = "none";
+            subUl.style.padding = "0";
+
+            Object.keys(dragonDetails[key]).forEach(subKey => {
+                let subLi = document.createElement('li');
+                subLi.textContent = `${subKey}: ${JSON.stringify(dragonDetails[key][subKey])}`;
+                subLi.style.color = "white"; // Cambia el color del texto a blanco
+                subUl.appendChild(subLi);
+            });
+
+            detailContainer.appendChild(detailImg);
+            detailContainer.appendChild(detail);
+            li.appendChild(detailContainer);
+            li.appendChild(subUl);
+        } else {
+            detail.textContent = `${key}: ${JSON.stringify(dragonDetails[key])}`;
+            detailContainer.appendChild(detailImg);
+            detailContainer.appendChild(detail);
+            li.appendChild(detailContainer);
+        }
+
+        ul.appendChild(li);
+    });
+
+    divLast.appendChild(ul);
+
+    div.append(divFirst, divLast);
+
+    return div;
+};

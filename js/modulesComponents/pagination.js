@@ -77,7 +77,10 @@ import {
     companyemployeesPage,
     companyvehiclesPage,
     companyvaluationPage,
-    SpaceXLinks
+    SpaceXLinks,
+    dragonsIdPage,
+    dragonsTypePage,
+    SpaceData
 } from "./information.js";
 
 import { 
@@ -1512,13 +1515,23 @@ const getAllDragonsById = async (e) => {
     e.target.classList.add('activo');
 
     let dragons = await getDragonsById(e.target.id);
-    console.log(dragons);
+    console.log(dragons); // Agrega este console.log para verificar los datos
 
     await nameDragons(dragons.name);
-
     await imageDragons(dragons.flickr_images);
 
+    let dragonsIdPageElement = await dragonsIdPage(dragons.id);
+    let descriptionItem = document.querySelector(".description__item");
+    descriptionItem.innerHTML = "";
+    descriptionItem.append(dragonsIdPageElement);
 
+    let dragonsTypePageElement = await dragonsTypePage(dragons.type);
+    descriptionItem.append(dragonsTypePageElement);
+
+    let SpaceDataElement = await SpaceData(dragons);
+    let information__2 = document.getElementById('information__2');
+    information__2.innerHTML = "";
+    information__2.appendChild(SpaceDataElement); 
 };
 
 
