@@ -190,3 +190,42 @@ export const imageDragons = async (flickr_images) => {
         });
     }
 };
+
+
+export const LaunchpadsImages = async (launchpadsData) => {
+    let section__image = document.querySelector("#section__image");
+    section__image.innerHTML = ""; // Limpiar el contenedor de imágenes antes de agregar nuevas
+  
+    launchpadsData.forEach(launchpad => {
+      let div = document.createElement("div");
+      div.classList.add("carousel__item");
+  
+      let img = document.createElement("img");
+      if (launchpad.images && launchpad.images.large && launchpad.images.large.length > 0) {
+        img.setAttribute("src", launchpad.images.large[0]); // Extraer la URL de la imagen grande de los datos del sitio de lanzamiento
+      } else {
+        img.setAttribute("src", "default_image.jpg"); // Establecer una imagen predeterminada si no hay imagen disponible
+      }
+      img.setAttribute("alt", launchpad.name); // Establecer el nombre del sitio de lanzamiento como atributo alt para accesibilidad
+      img.setAttribute("referrerpolicy", "no-referrer");
+  
+      // Establecer el tamaño de la imagen
+      img.setAttribute("style", "width: 250px; height: 250px;"); // Ajustar el tamaño según sea necesario
+  
+      // Centrar la imagen
+      img.onload = function() {
+        let imgWidth = this.width;
+        let imgHeight = this.height;
+        let containerWidth = section__image.offsetWidth;
+        let containerHeight = section__image.offsetHeight;
+        let marginLeft = (containerWidth - imgWidth) / 2;
+        let marginTop = (containerHeight - imgHeight) / 2;
+  
+        this.style.marginLeft = marginLeft + "px";
+        this.style.marginTop = marginTop + "px";
+      };
+  
+      div.append(img);
+      section__image.append(div);
+    });
+  }

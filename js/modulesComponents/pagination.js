@@ -105,7 +105,8 @@ import {
     imageLaunches,
     LandpadsImages,
     imageShips,
-    imageDragons
+    imageDragons,
+    LaunchpadsImages
 } from "./card.js";
 import { 
     progressRocketWeight,
@@ -1689,6 +1690,8 @@ const getAllLaunchpadsById = async (e) => {
     console.log(launchpads); // Agrega este console.log para verificar los datos
 
     await nameLaunchpads(launchpads.name);
+
+    await LaunchpadsImages([launchpads]);
 
 };
 
