@@ -453,7 +453,25 @@ const getCapsulesId = async (e) => {
     description__item.append(capsulesIdPageElement);
   
     let capsulesLaunchesElement = await capsulesLaunches(capsules.launches);
-    description__item.append(capsulesLaunchesElement);
+
+    let sectionImage = document.querySelector("#section__information__1");
+    sectionImage.innerHTML = "";
+    
+    // Crea la nueva imagen y agrégala a sectionImage
+    let img = document.createElement("img");
+    img.setAttribute("src", "storage/img/icons/capsul.gif");
+    img.classList.add("imagen-paginacion-capsula");
+    
+    // Agrega estilos para posición absoluta
+    img.style.position = "absolute";
+    img.style.top = "100px"; // Ajusta la posición vertical
+    img.style.left = "-20px"; // Ajusta la posición horizontal
+    img.style.width = "400px";
+    img.style.height = "400px";
+    img.style.marginTop = "120px";
+    img.style.marginLeft = "285px";
+    
+    sectionImage.appendChild(img);
   
     // Asegurarse de que capsulesTypeElement se agregue al lugar correcto
     let capsulesTypeElement = await capsulesType(capsules.type);
