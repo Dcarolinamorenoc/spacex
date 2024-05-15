@@ -2250,7 +2250,7 @@ export const launchRockets = async (rockets) => {
 
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/icons/launches.png");
+    img.setAttribute("src", "storage/img/icons/persona.svg");
     img.setAttribute("width", "50"); 
     img.setAttribute("height", "40");
     divFirst.append(img);
@@ -2290,7 +2290,7 @@ export const launchfull_name  = async(full_name)=>{
     div.classList.add('description__container')
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/icons/cohete.svg")
+    img.setAttribute("src", "storage/img/icons/namee.svg")
 
     img.setAttribute("width", "50"); 
      img.setAttribute("height", "40");
