@@ -2459,3 +2459,53 @@ export const event_date_unixHistory = async(event_date_unix)=>{
 
     return div; // Retorna el elemento div
 }
+
+
+
+export const historyLinks = async (links) => {
+    let div = document.createElement('div');
+    div.classList.add('description__container2');
+
+    let divWrapper = document.createElement('div');
+    divWrapper.style.display = "flex"; 
+    divWrapper.style.alignItems = "center"; 
+    divWrapper.style.marginBottom = "20px"; 
+    divWrapper.style.marginLeft = "20px";
+
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/article.svg");
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+    divFirst.appendChild(img);
+
+    let divLast = document.createElement('div');
+
+    let h3 = document.createElement('h3');
+    h3.textContent = "Article:";
+    h3.style.color = "white"; 
+    h3.style.marginLeft = "20px";
+    divLast.appendChild(h3);
+
+    // Extraer el enlace del objeto "links"
+    let articleLink = links.article;
+
+    // Crear un enlace (<a>) para el artículo
+    let articleAnchor = document.createElement('a');
+    articleAnchor.textContent = articleLink;
+    articleAnchor.style.color = "white"; 
+    articleAnchor.style.marginLeft = "20px";
+    articleAnchor.style.textDecoration = "underline"; 
+    articleAnchor.href = articleLink; 
+    articleAnchor.style.fontSize = "9px";
+    articleAnchor.target = "_blank";
+
+    divLast.appendChild(articleAnchor);
+
+    divWrapper.appendChild(divFirst);
+    divWrapper.appendChild(divLast);
+
+    div.appendChild(divWrapper);
+
+    return div;
+}

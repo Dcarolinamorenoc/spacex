@@ -91,7 +91,8 @@ import {
     launchTimezone,
     idHistory,
     event_date_utcHistory,
-    event_date_unixHistory
+    event_date_unixHistory,
+    historyLinks
 } from "./information.js";
 
 import { 
@@ -1881,6 +1882,12 @@ const getAllHistoryById = async (e) => {
 
     let event_date_unixHistoryElement = await event_date_unixHistory(history.event_date_unix);
     descriptionItem.append(event_date_unixHistoryElement);
+
+
+    let historyLinksElement = await historyLinks(history.links);
+    let information__2 = document.getElementById('information__2');
+    information__2.innerHTML = "";
+    information__2.appendChild(historyLinksElement);
 
 
 };
