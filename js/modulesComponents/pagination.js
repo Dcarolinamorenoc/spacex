@@ -93,7 +93,8 @@ import {
     idHistory,
     event_date_utcHistory,
     event_date_unixHistory,
-    historyLinks
+    historyLinks,
+    idPay
 } from "./information.js";
 
 import { 
@@ -1984,6 +1985,13 @@ const getAllPayloadsById = async (e) => {
     console.log(payloads); // Verifica los datos en la consola
 
     await namePayloads(payloads.name);
+
+
+
+    let idPayElement = await idPay(payloads.id);
+    let descriptionItem = document.querySelector(".description__item");
+    descriptionItem.innerHTML = "";
+    descriptionItem.append(idPayElement);
 
 
 
