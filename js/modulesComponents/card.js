@@ -59,8 +59,10 @@ export const imageLaunches = async (launchData) => {
         let div = document.createElement("div");
         div.classList.add("carousel__item");
 
+        let imageUrl = launch.links.patch.small || "storage/img/icons/land.gif"; // Verificar si hay una imagen, de lo contrario, usar elon.webp
+
         let img = document.createElement("img");
-        img.setAttribute("src", launch.links.patch.small); // Extraer la URL de la imagen pequeña de los datos del lanzamiento
+        img.setAttribute("src", imageUrl);
         img.setAttribute("alt", launch.name); // Establecer el nombre de la misión como atributo alt para accesibilidad
         img.setAttribute("referrerpolicy", "no-referrer");
 
@@ -83,7 +85,7 @@ export const imageLaunches = async (launchData) => {
         div.append(img);
         section__image.append(div);
     });
-};
+}
 
 
 export const LandpadsImages = async (landpadsData) => {
@@ -130,31 +132,31 @@ export const imageShips = async (ship) => {
     let div = document.createElement("div");
     div.classList.add("carousel__item");
 
-    if (ship.image) { // Verificar si la nave tiene una imagen principal disponible
-        let img = document.createElement("img");
-        img.setAttribute("src", ship.image);
-        img.setAttribute("alt", ship.name); // Asociar el nombre como atributo alt para accesibilidad
-        img.setAttribute("referrerpolicy", "no-referrer");
+    let imageUrl = ship.image || "storage/img/icons/ships.gif"; // Verificar si hay una imagen, de lo contrario, usar elon.webp
 
-        // Establecer el tamaño de la imagen
-        img.setAttribute("style", "width: 250px; height: 200px;"); // Ejemplo de tamaño (ajusta según lo necesites)
+    let img = document.createElement("img");
+    img.setAttribute("src", imageUrl);
+    img.setAttribute("alt", ship.name); // Asociar el nombre como atributo alt para accesibilidad
+    img.setAttribute("referrerpolicy", "no-referrer");
 
-        // Centrar la imagen
-        img.onload = function() {
-            let imgWidth = this.width;
-            let imgHeight = this.height;
-            let containerWidth = section__image.offsetWidth;
-            let containerHeight = section__image.offsetHeight;
-            let marginLeft = (containerWidth - imgWidth) / 2;
-            let marginTop = (containerHeight - imgHeight) / 2;
+    // Establecer el tamaño de la imagen
+    img.setAttribute("style", "width: 250px; height: 200px;"); // Ejemplo de tamaño (ajusta según lo necesites)
 
-            this.style.marginLeft = marginLeft + "px";
-            this.style.marginTop = marginTop + "px";
-        };
+    // Centrar la imagen
+    img.onload = function() {
+        let imgWidth = this.width;
+        let imgHeight = this.height;
+        let containerWidth = section__image.offsetWidth;
+        let containerHeight = section__image.offsetHeight;
+        let marginLeft = (containerWidth - imgWidth) / 2;
+        let marginTop = (containerHeight - imgHeight) / 2;
 
-        div.append(img);
-        section__image.append(div);
-    }
+        this.style.marginLeft = marginLeft + "px";
+        this.style.marginTop = marginTop + "px";
+    };
+
+    div.append(img);
+    section__image.append(div);
 };
 
 
