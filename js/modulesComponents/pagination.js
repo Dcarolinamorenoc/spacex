@@ -2013,15 +2013,24 @@ const getAllPayloadsById = async (e) => {
     let payreusedElement = await payreused(payloads.reused);
     descriptionItem.append(payreusedElement);
 
-    let image = document.createElement("img");
-    image.src = "storage/img/icons/satelite.webp"; // Reemplaza con la ruta de tu imagen
-    image.style.position = "absolute";
-    image.style.marginTop = "-400px"; // Ejemplo de margen top
-    image.style.marginLeft = "500px"; // Ejemplo de margen izquierdo
-    image.style.width = "400px"; // Ejemplo de ancho
-    image.style.height = "300px"; // Ejemplo de alto
-    document.body.appendChild(image); 
-
+    let sectionImage = document.querySelector("#section__information__1");
+    sectionImage.innerHTML = "";
+    
+    // Crea la nueva imagen y agrégala a sectionImage
+    let img = document.createElement("img");
+    img.setAttribute("src", "storage/img/icons/satelite.webp");
+    img.classList.add("imagen-paginacion-capsula");
+    
+    // Agrega estilos para posición absoluta
+    img.style.position = "absolute";
+    img.style.top = "100px"; // Ajusta la posición vertical
+    img.style.left = "-20px"; // Ajusta la posición horizontal
+    img.style.width = "300px";
+    img.style.height = "300px";
+    img.style.marginTop = "200px";
+    img.style.marginLeft = "320px";
+    
+    sectionImage.appendChild(img);
     let payreference_systemElement = await payreference_system(payloads.reference_system);
     let information__2 = document.getElementById('information__2');
     information__2.innerHTML = "";
