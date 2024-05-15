@@ -1858,7 +1858,7 @@ export const companyFounderPage  = async(founder)=>{
     div.classList.add('description__container')
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/icons/cohete.svg")
+    img.setAttribute("src", "storage/img/icons/founder.svg")
 
     img.setAttribute("width", "50"); 
      img.setAttribute("height", "40");
@@ -1883,7 +1883,7 @@ export const companyFoundedPage  = async(founded)=>{
     div.classList.add('description__container')
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/icons/cohete.svg")
+    img.setAttribute("src", "storage/img/icons/founded.svg")
 
     img.setAttribute("width", "50"); 
      img.setAttribute("height", "40");
@@ -1908,7 +1908,7 @@ export const companyemployeesPage  = async(employees)=>{
     div.classList.add('description__container')
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/icons/cohete.svg")
+    img.setAttribute("src", "storage/img/icons/emplo.svg")
 
     img.setAttribute("width", "50"); 
      img.setAttribute("height", "40");
@@ -1933,7 +1933,7 @@ export const companyvehiclesPage  = async(vehicles)=>{
     div.classList.add('description__container')
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/icons/cohete.svg")
+    img.setAttribute("src", "storage/img/icons/car.svg")
 
     img.setAttribute("width", "50"); 
      img.setAttribute("height", "40");
@@ -1957,7 +1957,7 @@ export const companyvaluationPage  = async(valuation)=>{
     div.classList.add('description__container')
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/icons/cohete.svg")
+    img.setAttribute("src", "storage/img/icons/valu.svg")
 
     img.setAttribute("width", "50"); 
      img.setAttribute("height", "40");
