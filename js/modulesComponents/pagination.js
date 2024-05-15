@@ -83,7 +83,10 @@ import {
     dragonsTypePage,
     SpaceData,
     dragonsFlightPage,
-    launchIdPage
+    launchIdPage,
+    launchLaunches,
+    launchRockets,
+    launchfull_name
 } from "./information.js";
 
 import { 
@@ -1699,6 +1702,18 @@ const getAllLaunchpadsById = async (e) => {
     let descriptionItem = document.querySelector(".description__item");
     descriptionItem.innerHTML = "";
     descriptionItem.append(launchIdPageElement);
+
+    let launchfull_nameElement = await launchfull_name(launchpads.full_name);
+    descriptionItem.append(launchfull_nameElement);
+
+
+    let launchLaunchesElement = await launchLaunches(launchpads.launches);
+    descriptionItem.append(launchLaunchesElement);
+
+    let launchRocketsElement = await launchRockets(launchpads.rockets);
+    descriptionItem.append(launchRocketsElement);
+
+   
 
 };
 

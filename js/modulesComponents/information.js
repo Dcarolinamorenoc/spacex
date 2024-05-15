@@ -2200,3 +2200,110 @@ export const launchIdPage  = async(id)=>{
 
     return div; // Devuelve el elemento div en lugar de agregarlo directamente al DOM
 }
+
+
+export const launchLaunches = async (launches) => {
+    let div = document.createElement('div');
+    div.classList.add('description__container');
+
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/launches.png");
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Launches:";
+    divLast.appendChild(h3);
+
+    // Verificamos si hay más de una launch
+    if (Array.isArray(launches) && launches.length > 0) {
+        let ul = document.createElement('ul');
+        launches.forEach((launchId) => {
+            let li = document.createElement('li');
+            let small = document.createElement('small');
+            small.textContent = launchId;
+            li.appendChild(small);
+            ul.appendChild(li);
+        });
+        divLast.appendChild(ul);
+    } else {
+        // Si no hay lanzamientos, mostrar mensaje en inglés
+        let small = document.createElement('small');
+        small.textContent = "No launches registered";
+        divLast.appendChild(small);
+    }
+
+    div.appendChild(divFirst);
+    div.appendChild(divLast);
+
+    return div;
+};
+
+
+
+export const launchRockets = async (rockets) => {
+    let div = document.createElement('div');
+    div.classList.add('description__container');
+
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/launches.png");
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Rockets:";
+    divLast.appendChild(h3);
+
+    // Verificamos si hay más de una launch
+    if (Array.isArray(rockets) && rockets.length > 0) {
+        let ul = document.createElement('ul');
+        rockets.forEach((launchId) => {
+            let li = document.createElement('li');
+            let small = document.createElement('small');
+            small.textContent = launchId;
+            li.appendChild(small);
+            ul.appendChild(li);
+        });
+        divLast.appendChild(ul);
+    } else {
+        // Si no hay lanzamientos, mostrar mensaje en inglés
+        let small = document.createElement('small');
+        small.textContent = "No rockets registered";
+        divLast.appendChild(small);
+    }
+
+    div.appendChild(divFirst);
+    div.appendChild(divLast);
+
+    return div;
+};
+
+
+export const launchfull_name  = async(full_name)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/cohete.svg")
+
+    img.setAttribute("width", "50"); 
+     img.setAttribute("height", "40");
+
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Full Name:"
+    let small = document.createElement('small');
+    small.textContent = full_name
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    return div; // Devuelve el elemento div en lugar de agregarlo directamente al DOM
+}
