@@ -88,7 +88,8 @@ import {
     launchRockets,
     launchfull_name,
     launchStatus,
-    launchTimezone
+    launchTimezone,
+    idHistory
 } from "./information.js";
 
 import { 
@@ -1866,6 +1867,11 @@ const getAllHistoryById = async (e) => {
     console.log(history); // Verifica los datos en la consola
 
     await nameLaunchpads(history.title);
+
+    let idHistoryElement = await idHistory(history.id);
+    let descriptionItem = document.querySelector(".description__item");
+    descriptionItem.innerHTML = "";
+    descriptionItem.append(idHistoryElement);
 
 
 };
