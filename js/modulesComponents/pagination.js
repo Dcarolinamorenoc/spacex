@@ -1336,6 +1336,81 @@ const getAllCompanyById = async (e) => {
     let information__2 = document.getElementById('information__2');
     information__2.innerHTML = "";
     information__2.appendChild(SpaceXLinksElement); 
+
+    let information__table__1 = document.querySelector("#information__table__1");
+    information__table__1.innerHTML = "";
+    let h3_1 = document.createElement("h3");
+    h3_1.textContent = "Company information";
+    let hr_1 = document.createElement("hr");
+    information__table__1.append(h3_1, hr_1);
+
+    let div_1 = document.createElement("div");
+    div_1.classList.add("table__container__1");
+
+    let div1_1 = document.createElement("div");
+    let span1_1 = document.createElement("span");
+    span1_1.textContent = "CEO";
+    let strong1_1 = document.createElement("strong");
+    strong1_1.textContent = `${company.ceo}`;
+    div1_1.append(span1_1, strong1_1);
+
+    let div2_1 = document.createElement("div");
+    let span2_1 = document.createElement("span");
+    span2_1.textContent = "CTO";
+    let strong2_1 = document.createElement("strong");
+    strong2_1.textContent = `${company.cto}`;
+    div2_1.append(span2_1, strong2_1);
+
+    let div3_1 = document.createElement("div");
+    let span3_1 = document.createElement("span");
+    span3_1.textContent = "COO";
+    let strong3_1 = document.createElement("strong");
+    strong3_1.textContent = `${company.coo}`;
+    div3_1.append(span3_1, strong3_1);
+
+    let div4_1 = document.createElement("div");
+    let span4_1 = document.createElement("span");
+    span4_1.textContent = "CTO Propulsion";
+    let strong4_1 = document.createElement("strong");
+    strong4_1.textContent = `${company.cto_propulsion}`;
+    div4_1.append(span4_1, strong4_1);
+
+    div_1.append(div1_1, div2_1, div3_1, div4_1);
+    information__table__1.append(div_1);
+
+    let information__table__2 = document.querySelector("#information__table__2");
+    information__table__2.innerHTML = "";
+    let h3_2 = document.createElement("h3");
+    h3_2.textContent = "Company Information";
+    let hr_2 = document.createElement("hr");
+    information__table__2.append(h3_2, hr_2);
+
+    let div_2 = document.createElement("div");
+    div_2.classList.add("table__container__1");
+
+    let div1_2 = document.createElement("div");
+    let span1_2 = document.createElement("span");
+    span1_2.textContent = "Launch Sites";
+    let strong1_2 = document.createElement("strong");
+    strong1_2.textContent = `${company.launch_sites}`;
+    div1_2.append(span1_2, strong1_2);
+
+    let div2_2 = document.createElement("div");
+    let span2_2 = document.createElement("span");
+    span2_2.textContent = "Test Sites";
+    let strong2_2 = document.createElement("strong");
+    strong2_2.textContent = `${company.test_sites}`;
+    div2_2.append(span2_2, strong2_2);
+
+    let div3_2 = document.createElement("div");
+    let span3_2 = document.createElement("span");
+    span3_2.textContent = "Summary";
+    let strong3_2 = document.createElement("strong");
+    strong3_2.textContent = `${company.summary}`;
+    div3_2.append(span3_2, strong3_2);
+
+    div_2.append(div1_2, div2_2, div3_2);
+    information__table__2.append(div_2);
 }
 
 
