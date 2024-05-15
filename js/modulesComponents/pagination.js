@@ -1890,6 +1890,9 @@ const getAllHistoryById = async (e) => {
     information__2.appendChild(historyLinksElement);
 
 
+    
+
+
     let information__table__2 = document.querySelector("#information__table__2");
     information__table__2.innerHTML = "";
     let h3 = document.createElement("h3");
