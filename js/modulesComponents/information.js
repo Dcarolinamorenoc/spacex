@@ -2511,7 +2511,7 @@ export const historyLinks = async (links) => {
 }
 
 
-
+// datos de Payloads
 
 export const idPay = async(id)=>{
     let div = document.createElement('div');
@@ -2529,6 +2529,252 @@ export const idPay = async(id)=>{
     h3.textContent = "ID: "
     let small = document.createElement('small');
     small.textContent = id
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    return div; // Retorna el elemento div
+}
+
+// export const payLaunches = async (launch) => {
+//     let div = document.createElement('div');
+//     div.classList.add('description__container');
+
+//     let divFirst = document.createElement('div');
+//     let img = document.createElement('img');
+//     img.setAttribute("src", "storage/img/icons/launches.png");
+//     img.setAttribute("width", "50"); 
+//     img.setAttribute("height", "40");
+//     divFirst.append(img);
+    
+//     let divLast = document.createElement('div');
+//     let h3 = document.createElement('h3');
+//     h3.textContent = "Launch:";
+//     divLast.appendChild(h3);
+
+//     // Verificamos si hay más de una launch
+//     if (Array.isArray(launch) && launch.length > 0) {
+//         let ul = document.createElement('ul');
+//         launch.forEach((launchId) => {
+//             let li = document.createElement('li');
+//             let small = document.createElement('small');
+//             small.textContent = launchId;
+//             li.appendChild(small);
+//             ul.appendChild(li);
+//         });
+//         divLast.appendChild(ul);
+//     } else {
+//         let p = document.createElement('p');
+//         p.textContent = "No launch data available";
+//         divLast.appendChild(p);
+//     }
+
+//     div.appendChild(divFirst);
+//     div.appendChild(divLast);
+
+//     return div;
+// };
+
+
+export const typePay = async(type)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/cohete.svg")
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Type: "
+    let small = document.createElement('small');
+    small.textContent = type
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    return div; // Retorna el elemento div
+}
+
+
+export const orbitPay = async(orbit)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/cohete.svg")
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Orbit: "
+    let small = document.createElement('small');
+    small.textContent = orbit
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    return div; // Retorna el elemento div
+}
+
+
+export const payLaunches = async(launch)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/cohete.svg")
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Launch: "
+    let small = document.createElement('small');
+    small.textContent = launch
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    return div; // Retorna el elemento div
+}
+
+
+export const payreused = async(reused)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/cohete.svg")
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Reused: "
+    let small = document.createElement('small');
+    small.textContent = reused
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    return div; // Retorna el elemento div
+}
+
+
+export const payreference_system = async(reference_system)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/cohete.svg")
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Reference System: "
+    let small = document.createElement('small');
+    small.textContent = reference_system
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    return div; // Retorna el elemento div
+}
+
+
+export const payregime = async(regime)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/cohete.svg")
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Regime: "
+    let small = document.createElement('small');
+    small.textContent = regime
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    return div; // Retorna el elemento div
+}
+
+
+export const paycustomers = async(customers)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/cohete.svg")
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Customers: "
+    let small = document.createElement('small');
+    small.textContent = customers
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    return div; // Retorna el elemento div
+}
+
+
+export const payNacionality = async(nationalities)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/cohete.svg")
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Nationalities: "
+    let small = document.createElement('small');
+    small.textContent = nationalities
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    return div; // Retorna el elemento div
+}
+
+
+export const payManufactures = async(manufacturers)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/cohete.svg")
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Manufacturers: "
+    let small = document.createElement('small');
+    small.textContent = manufacturers
     divLast.append(h3, small);
     div.append(divFirst, divLast);
 

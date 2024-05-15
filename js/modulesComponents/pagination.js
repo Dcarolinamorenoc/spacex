@@ -94,7 +94,16 @@ import {
     event_date_utcHistory,
     event_date_unixHistory,
     historyLinks,
-    idPay
+    idPay,
+    payLaunches,
+    typePay,
+    orbitPay,
+    payreused,
+    payreference_system,
+    payregime,
+    paycustomers,
+    payNacionality,
+    payManufactures
 } from "./information.js";
 
 import { 
@@ -102,7 +111,7 @@ import {
     tableRocketColum2,
     tableCapsulesColum1,
     tableCapsulesColum2,
-    tableCrewColum1
+    tableCrewColum1,
 } from "./tables.js";
 import { 
     informRocketEngineThrustSeaLevel, 
@@ -1969,33 +1978,64 @@ export const paginationHistory = async(page=1, limit=4)=>{
 
 const getAllPayloadsById = async (e) => {
     e.preventDefault();
-    if (e.target.dataset.page) {
-        let paginacion = document.querySelector("#paginacion");
-        paginacion.innerHTML = "";
-        paginacion.append(await paginationPayloads(Number(e.target.dataset.page)));
+    if (e.target.hasAttribute('data-page')) { // Verificamos si e.target tiene el atributo data-page
+      let paginacion = document.querySelector("#paginacion");
+      paginacion.innerHTML = "";
+      paginacion.append(await paginationPayloads(Number(e.target.dataset.page)));
     }
-
+  
     let a = e.target.parentElement.children;
     for (let val of a) {
-        val.classList.remove('activo');
+      val.classList.remove('activo');
     }
     e.target.classList.add('activo');
-
+  
     let payloads = await getPayloadsById(e.target.id);
     console.log(payloads); // Verifica los datos en la consola
-
-    await namePayloads(payloads.name);
-
-
-
-    let idPayElement = await idPay(payloads.id);
+  
+    let namePayElement = await namePayloads(payloads.name);
     let descriptionItem = document.querySelector(".description__item");
     descriptionItem.innerHTML = "";
+    descriptionItem.append(namePayElement);
+  
+    let idPayElement = await idPay(payloads.id);
     descriptionItem.append(idPayElement);
+  
+    let payLaunchesElement = await payLaunches(payloads.launch);
+    descriptionItem.append(payLaunchesElement);
+  
+    let typePayElement = await typePay(payloads.type);
+    descriptionItem.append(typePayElement);
+  
+    let orbitPayElement = await orbitPay(payloads.orbit);
+    descriptionItem.append(orbitPayElement);
+
+    let payreusedElement = await payreused(payloads.reused);
+    descriptionItem.append(payreusedElement);
+
+    let payreference_systemElement = await payreference_system(payloads.reference_system);
+    let information__2 = document.getElementById('information__2');
+    information__2.innerHTML = "";
+    information__2.appendChild(payreference_systemElement);
 
 
+    let payregimeElement = await payregime(payloads.regime);
+    information__2.appendChild(payregimeElement);
 
-};
+
+    let paycustomersElement = await paycustomers(payloads.customers);
+    information__2.appendChild(paycustomersElement);
+
+    let payNacionalityElement = await payNacionality(payloads.nationalities);
+    information__2.appendChild(payNacionalityElement);
+
+    let payManufacturesElement = await payManufactures(payloads.manufacturers);
+    information__2.appendChild(payManufacturesElement);
+
+    
+
+    
+  };
 
 
 

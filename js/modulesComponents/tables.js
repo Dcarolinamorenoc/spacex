@@ -240,3 +240,5 @@ export const tableCapsulesColum1 = async (capsules) => {
     div.append(div1, div2)
     information__table__2.append(div)
 }
+
+
