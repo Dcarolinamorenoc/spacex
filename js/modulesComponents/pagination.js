@@ -92,7 +92,7 @@ import {
     imageCrew,
     imageLaunches,
     LandpadsImages,
-    imageShips
+    imageShips,
 } from "./card.js";
 import { 
     progressRocketWeight,
@@ -1289,6 +1289,23 @@ const getAllCompanyById = async (e) => {
     let descriptionItem = document.querySelector(".description__item");
     descriptionItem.innerHTML = "";
     descriptionItem.append(companyIdPageElement);
+
+
+
+    let sectionImage = document.querySelector("#section__information__1");
+    let img = document.createElement("img");
+    img.setAttribute("src", "storage/img/icons/elon.webp");
+    img.classList.add("imagen-paginacion-capsula");
+    
+    // Agrega estilos para posición absoluta
+    img.style.position = "absolute";
+    img.style.top = "100px"; // Ajusta la posición vertical
+    img.style.left = "50px"; // Ajusta la posición horizontal
+    img.style.width = "250px"
+    img.style.marginTop= "200px"
+    img.style.marginLeft= "285px"
+    
+    sectionImage.appendChild(img);
 
     
 };

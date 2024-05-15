@@ -156,3 +156,6 @@ export const imageShips = async (ship) => {
         section__image.append(div);
     }
 };
+
+
+
