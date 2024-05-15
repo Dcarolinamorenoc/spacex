@@ -1851,3 +1851,126 @@ export const companyIdPage  = async(id)=>{
 
     return div; // Devuelve el elemento div en lugar de agregarlo directamente al DOM
 }
+
+
+export const companyFounderPage  = async(founder)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/cohete.svg")
+
+    img.setAttribute("width", "50"); 
+     img.setAttribute("height", "40");
+
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Founder:"
+    let small = document.createElement('small');
+    small.textContent = founder
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    return div; // Devuelve el elemento div en lugar de agregarlo directamente al DOM
+}
+
+
+
+export const companyFoundedPage  = async(founded)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/cohete.svg")
+
+    img.setAttribute("width", "50"); 
+     img.setAttribute("height", "40");
+
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Founded:"
+    let small = document.createElement('small');
+    small.textContent = founded
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    return div; // Devuelve el elemento div en lugar de agregarlo directamente al DOM
+}
+
+
+
+export const companyemployeesPage  = async(employees)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/cohete.svg")
+
+    img.setAttribute("width", "50"); 
+     img.setAttribute("height", "40");
+
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Employees:"
+    let small = document.createElement('small');
+    small.textContent = employees
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    return div; // Devuelve el elemento div en lugar de agregarlo directamente al DOM
+}
+
+
+
+export const companyvehiclesPage  = async(vehicles)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/cohete.svg")
+
+    img.setAttribute("width", "50"); 
+     img.setAttribute("height", "40");
+
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Vehicles:"
+    let small = document.createElement('small');
+    small.textContent = vehicles
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    return div; // Devuelve el elemento div en lugar de agregarlo directamente al DOM
+}
+
+
+export const companyvaluationPage  = async(valuation)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/cohete.svg")
+
+    img.setAttribute("width", "50"); 
+     img.setAttribute("height", "40");
+
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Valuation:"
+    let small = document.createElement('small');
+    small.textContent = valuation
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    return div; // Devuelve el elemento div en lugar de agregarlo directamente al DOM
+}

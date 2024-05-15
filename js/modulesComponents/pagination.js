@@ -70,7 +70,12 @@ import {
     shipsModel,
     shipsUpdate,
     shipsyear_built,
-    companyIdPage
+    companyIdPage,
+    companyFounderPage,
+    companyFoundedPage,
+    companyemployeesPage,
+    companyvehiclesPage,
+    companyvaluationPage
 } from "./information.js";
 
 import { 
@@ -1306,6 +1311,23 @@ const getAllCompanyById = async (e) => {
     img.style.marginLeft= "285px"
     
     sectionImage.appendChild(img);
+
+
+    let companyFounderPageElement = await companyFounderPage(company.founder);
+    descriptionItem.append(companyFounderPageElement);
+
+    let companyFoundedPagePageElement = await companyFoundedPage(company.founded);
+    descriptionItem.append(companyFoundedPagePageElement);
+
+    let companyemployeesPageElement = await companyemployeesPage(company.employees);
+    descriptionItem.append(companyemployeesPageElement);
+
+    let companyvehiclesPageElement = await companyvehiclesPage(company.vehicles);
+    descriptionItem.append(companyvehiclesPageElement);
+
+
+    let companyvaluationPageElement = await companyvaluationPage(company.valuation);
+    descriptionItem.append(companyvaluationPageElement);
 
     
 };
