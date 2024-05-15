@@ -89,7 +89,9 @@ import {
     launchfull_name,
     launchStatus,
     launchTimezone,
-    idHistory
+    idHistory,
+    event_date_utcHistory,
+    event_date_unixHistory
 } from "./information.js";
 
 import { 
@@ -1872,6 +1874,13 @@ const getAllHistoryById = async (e) => {
     let descriptionItem = document.querySelector(".description__item");
     descriptionItem.innerHTML = "";
     descriptionItem.append(idHistoryElement);
+
+
+    let event_date_utcHistoryElement = await event_date_utcHistory(history.event_date_utc);
+    descriptionItem.append(event_date_utcHistoryElement);
+
+    let event_date_unixHistoryElement = await event_date_unixHistory(history.event_date_unix);
+    descriptionItem.append(event_date_unixHistoryElement);
 
 
 };

@@ -2413,3 +2413,49 @@ export const idHistory = async(id)=>{
 
     return div; // Retorna el elemento div
 }
+
+
+export const event_date_utcHistory = async(event_date_utc)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/eve.svg")
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Event Date Utc: "
+    let small = document.createElement('small');
+    small.textContent = event_date_utc
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    return div; // Retorna el elemento div
+}
+
+
+export const event_date_unixHistory = async(event_date_unix)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/eve.svg")
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Event Date Unix: "
+    let small = document.createElement('small');
+    small.textContent = event_date_unix
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    return div; // Retorna el elemento div
+}
