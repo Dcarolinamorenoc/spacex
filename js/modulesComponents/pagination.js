@@ -100,6 +100,7 @@ import {
     imageLaunches,
     LandpadsImages,
     imageShips,
+    imageDragons
 } from "./card.js";
 import { 
     progressRocketWeight,
@@ -1514,6 +1515,8 @@ const getAllDragonsById = async (e) => {
     console.log(dragons);
 
     await nameDragons(dragons.name);
+
+    await imageDragons(dragons.flickr_images);
 
 
 };
