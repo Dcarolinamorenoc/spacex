@@ -1890,6 +1890,29 @@ const getAllHistoryById = async (e) => {
     information__2.appendChild(historyLinksElement);
 
 
+    let information__table__2 = document.querySelector("#information__table__2");
+    information__table__2.innerHTML = "";
+    let h3 = document.createElement("h3");
+    h3.textContent = "History Details";
+    let hr = document.createElement("hr");
+    information__table__2.append(h3, hr);
+  
+    let div = document.createElement("div");
+    div.classList.add("table__container__1");
+  
+    let div1 = document.createElement("div");
+    let span1 = document.createElement("span");
+    span1.textContent = "Details";
+    let strong1 = document.createElement("strong");
+    strong1.textContent = `${(history.details) ? history.details : "N/A"}`;
+    div1.append(span1, strong1);
+  
+    div.append(div1);
+    information__table__2.append(div);
+  
+    return div;
+
+
 };
 
 
