@@ -105,7 +105,12 @@ import {
     paycustomers,
     payNacionality,
     payManufactures,
-    idroad
+    idroad,
+    launch_date_utcroad,
+    launch_date_unixroad,
+    orbit_typeroad,
+    launch_mass_kgroad,
+    launch_mass_lbsroad
 } from "./information.js";
 
 import { 
@@ -2249,7 +2254,23 @@ const getAllRoadsterById = async (e) => {
     descriptionItem.innerHTML = "";
     descriptionItem.append(idroadElement);
 
-    
+    let launch_date_utcroadElement = await launch_date_utcroad(roadster.launch_date_utc);
+    descriptionItem.append(launch_date_utcroadElement);
+
+
+    let launch_date_unixroadElement = await launch_date_unixroad(roadster.launch_date_unix);
+    descriptionItem.append(launch_date_unixroadElement)
+
+
+    let orbit_typeroadElement = await orbit_typeroad(roadster.orbit_type);
+    descriptionItem.append(orbit_typeroadElement)
+
+
+    let launch_mass_kgroadElement = await launch_mass_kgroad(roadster.launch_mass_kg);
+    descriptionItem.append(launch_mass_kgroadElement)
+
+    let launch_mass_lbsroadElement = await launch_mass_lbsroad(roadster.launch_mass_lbs);
+    descriptionItem.append(launch_mass_lbsroadElement)
 
 }
 

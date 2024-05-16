@@ -2580,7 +2580,7 @@ export const typePay = async(type)=>{
     div.classList.add('description__container')
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/icons/cohete.svg")
+    img.setAttribute("src", "storage/img/icons/laun.svg")
     img.setAttribute("width", "50"); 
     img.setAttribute("height", "40");
 
@@ -2603,7 +2603,7 @@ export const orbitPay = async(orbit)=>{
     div.classList.add('description__container')
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/icons/cohete.svg")
+    img.setAttribute("src", "storage/img/icons/orbit.svg")
     img.setAttribute("width", "50"); 
     img.setAttribute("height", "40");
 
@@ -2626,7 +2626,7 @@ export const payLaunches = async(launch)=>{
     div.classList.add('description__container')
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/icons/cohete.svg")
+    img.setAttribute("src", "storage/img/icons/launches.png")
     img.setAttribute("width", "50"); 
     img.setAttribute("height", "40");
 
@@ -2649,7 +2649,7 @@ export const payreused = async(reused)=>{
     div.classList.add('description__container')
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/icons/cohete.svg")
+    img.setAttribute("src", "storage/img/icons/prop.svg")
     img.setAttribute("width", "50"); 
     img.setAttribute("height", "40");
 
@@ -2672,7 +2672,7 @@ export const payreference_system = async(reference_system)=>{
     div.classList.add('description__container')
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/icons/cohete.svg")
+    img.setAttribute("src", "storage/img/icons/spacee.svg")
     img.setAttribute("width", "50"); 
     img.setAttribute("height", "40");
 
@@ -2695,7 +2695,7 @@ export const payregime = async(regime)=>{
     div.classList.add('description__container')
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/icons/cohete.svg")
+    img.setAttribute("src", "storage/img/icons/spacee.svg")
     img.setAttribute("width", "50"); 
     img.setAttribute("height", "40");
 
@@ -2718,7 +2718,7 @@ export const paycustomers = async(customers)=>{
     div.classList.add('description__container')
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/icons/cohete.svg")
+    img.setAttribute("src", "storage/img/icons/emplo.svg")
     img.setAttribute("width", "50"); 
     img.setAttribute("height", "40");
 
@@ -2741,7 +2741,7 @@ export const payNacionality = async(nationalities)=>{
     div.classList.add('description__container')
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/icons/cohete.svg")
+    img.setAttribute("src", "storage/img/icons/flag.svg")
     img.setAttribute("width", "50"); 
     img.setAttribute("height", "40");
 
@@ -2764,7 +2764,7 @@ export const payManufactures = async(manufacturers)=>{
     div.classList.add('description__container')
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/icons/cohete.svg")
+    img.setAttribute("src", "storage/img/icons/spacee.svg")
     img.setAttribute("width", "50"); 
     img.setAttribute("height", "40");
 
@@ -2798,6 +2798,122 @@ export const idroad = async(id)=>{
     h3.textContent = "ID: "
     let small = document.createElement('small');
     small.textContent = id
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    return div; // Retorna el elemento div
+}
+
+
+export const launch_date_utcroad = async(launch_date_utc)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/launches.png")
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Launch Date Utc: "
+    let small = document.createElement('small');
+    small.textContent = launch_date_utc
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    return div; // Retorna el elemento div
+}
+
+
+export const launch_date_unixroad = async(launch_date_unix)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/launches.png")
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Launch Date Unix: "
+    let small = document.createElement('small');
+    small.textContent = launch_date_unix
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    return div; // Retorna el elemento div
+}
+
+
+export const orbit_typeroad = async(orbit_type)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/launches.png")
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Orbit Type: "
+    let small = document.createElement('small');
+    small.textContent = orbit_type
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    return div; // Retorna el elemento div
+}
+
+
+export const launch_mass_kgroad = async(launch_mass_kg)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/masa.svg")
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Launch Mass Kg: "
+    let small = document.createElement('small');
+    small.textContent = launch_mass_kg
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    return div; // Retorna el elemento div
+}
+
+
+
+export const launch_mass_lbsroad = async(launch_mass_lbs)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/masa.svg")
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Launch Mass Lbs: "
+    let small = document.createElement('small');
+    small.textContent = launch_mass_lbs
     divLast.append(h3, small);
     div.append(divFirst, divLast);
 
