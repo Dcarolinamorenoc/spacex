@@ -20,7 +20,8 @@ import {
     nameDragons,
     nameLaunchpads,
     namePayloads,
-    nameRoadster
+    nameRoadster,
+    getNameStarlink
 } from "./title.js";
 import { 
     informationRockets,
@@ -2454,25 +2455,23 @@ export const paginationRoadster = async (page = 1, limit = 1) => {
 
 const getAllStarlinkById = async (e) => {
     e.preventDefault();
-    if (e.target.hasAttribute('data-page')) { // Verificamos si e.target tiene el atributo data-page
-      let paginacion = document.querySelector("#paginacion");
-      paginacion.innerHTML = "";
-      paginacion.append(await paginationStarlink(Number(e.target.dataset.page)));
+    if (e.target.hasAttribute('data-page')) {
+        let paginacion = document.querySelector("#paginacion");
+        paginacion.innerHTML = "";
+        paginacion.append(await paginationStarlink(Number(e.target.dataset.page)));
     }
-  
+
     let a = e.target.parentElement.children;
     for (let val of a) {
-      val.classList.remove('activo');
+        val.classList.remove('activo');
     }
     e.target.classList.add('activo');
-  
+
     let starlink = await getStarlinkById(e.target.id);
     console.log(starlink); // Verifica los datos en la consola
-  
-    // let namePayElement = await namePayloads(payloads.name);
 
-
-};
+    await getNameStarlink(); // Llama a la función para mostrar el nombre de Starlink
+}
 
 
 

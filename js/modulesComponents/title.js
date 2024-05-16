@@ -481,10 +481,18 @@ export const nameRoadster = async (name) => {
 }
 
 
-export const nameRoadster = async (name) => {
+// Función para obtener el nombre de Starlink desde la API
+export const getNameStarlink = async () => {
+    const response = await fetch('https://api.spacexdata.com/v4/starlink');
+    const data = await response.json();
+    
+    // Obtener el valor de OBJECT_NAME de la primera entrada en spaceTrack
+    const objectName = data[0].spaceTrack.OBJECT_NAME;
+
+    // Mostrar el nombre en el título
     let header__title = document.querySelector("#header__title");
     header__title.innerHTML = "";
-    header__title.textContent = name;
+    header__title.textContent = objectName;
 
     // Detener el intervalo anterior si existe
     if (header__title.rainbowInterval) {
@@ -499,7 +507,7 @@ export const nameRoadster = async (name) => {
         '#00FF00', // Verde
         '#0000FF', // Azul
         '#4B0082', // Violeta
-      ];
+    ];
 
     // Función para generar el efecto arcoíris
     function applyRainbowEffect(element) {
