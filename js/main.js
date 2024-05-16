@@ -12,7 +12,8 @@ import {
     paginationLaunchpads,
     paginationHistory,
     paginationPayloads,
-    paginationRoadster
+    paginationRoadster,
+    paginationStarlink
 } from "./modulesComponents/pagination.js";
 
 
@@ -141,6 +142,14 @@ roadster.addEventListener("click", async(e)=>{
     let paginacion = document.querySelector("#paginacion");
     paginacion.innerHTML = ""
     paginacion.append(await paginationRoadster()) // Pasar 1 como argumento para la página inicial
+})
+
+let starlink = document.querySelector("#starlink")
+starlink.addEventListener("click", async(e)=>{
+    await footerSelect(e, starlink)
+    let paginacion = document.querySelector("#paginacion");
+    paginacion.innerHTML = ""
+    paginacion.append(await paginationStarlink()) // Pasar 1 como argumento para la página inicial
 })
 
 rocket.click();
