@@ -19,7 +19,8 @@ import {
     nameCompany,
     nameDragons,
     nameLaunchpads,
-    namePayloads
+    namePayloads,
+    nameRoadster
 } from "./title.js";
 import { 
     informationRockets,
@@ -2215,6 +2216,67 @@ export const paginationPayloads = async(page=1, limit=4)=>{
 
 
 
+
+const getAllRoadsterById = async (e) => {
+    e.preventDefault();
+    if (e.target.dataset.page) {
+        let paginacion = document.querySelector("#paginacion");
+        paginacion.innerHTML = "";
+        paginacion.append(await paginationRoadster(Number(e.target.dataset.page)));
+    }
+
+    let a = e.target.parentElement.children;
+    for (let val of a) {
+        val.classList.remove('activo');
+    }
+    e.target.classList.add('activo');
+
+    let roadster = await getRoadsterById (e.target.id);
+    console.log(roadster); // Verifica los datos en la consola
+
+    await nameRoadster(roadster.name);
+
+
+
+
+};
+
+
+export const paginationRoadster = async (page = 1, limit = 1) => {
+    let response = await fetch('https://api.spacexdata.com/v4/roadster');
+    let data = await response.json();
+    let name = data.name; // Suponiendo que el nombre de la compañía está en el campo 'name' en la respuesta JSON
+
+    let div = document.createElement("div");
+    div.classList.add("buttom__paginacion");
+
+    let start = document.createElement("a");
+    start.setAttribute("href", "#");
+    start.innerHTML = "&laquo";
+    start.setAttribute("data-page", page > 1 ? page - 1 : 1);
+    start.addEventListener("click", getAllRoadsterById);
+    div.appendChild(start);
+
+    for (let i = 1; i <= data.totalPages; i++) {
+        let a = document.createElement("a");
+        a.setAttribute("href", "#");
+        a.id = i;
+        a.textContent = i;
+        a.addEventListener("click", getAllRoadsterById);
+        div.appendChild(a);
+    }
+
+    let end = document.createElement("a");
+    end.setAttribute("href", "#");
+    end.innerHTML = "&raquo;";
+    end.setAttribute("data-page", data.nextPage ? data.nextPage : 1);
+    end.addEventListener("click", getAllRoadsterById);
+    div.appendChild(end);
+
+    await nameRoadster(name); // Llamar a la función para mostrar el nombre en el título
+
+    return div;
+};
 
 
 
