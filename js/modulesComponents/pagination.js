@@ -104,7 +104,8 @@ import {
     payregime,
     paycustomers,
     payNacionality,
-    payManufactures
+    payManufactures,
+    idroad
 } from "./information.js";
 
 import { 
@@ -200,6 +201,10 @@ import {
     getPayloadsById
 } from "../modules/payloads.js"
 
+import {
+    getAllRoadster,
+    getRoadsterId
+} from "../modules/roadster.js"
 
 // --------------------------------------------------------------------------------
 
@@ -2231,15 +2236,18 @@ const getAllRoadsterById = async (e) => {
     }
     e.target.classList.add('activo');
 
-    let roadster = await getRoadsterById (e.target.id);
-    console.log(roadster); // Verifica los datos en la consola
+    let roadster = await getRoadsterId(e.target.id);
+    console.log(roadster);
 
     await nameRoadster(roadster.name);
 
+    let idroadElement = await idroad(roadster.id);
+    let descriptionItem = document.querySelector(".description__item");
+    descriptionItem.innerHTML = "";
+    descriptionItem.append(idroadElement);
 
+}
 
-
-};
 
 
 export const paginationRoadster = async (page = 1, limit = 1) => {
@@ -2273,11 +2281,10 @@ export const paginationRoadster = async (page = 1, limit = 1) => {
     end.addEventListener("click", getAllRoadsterById);
     div.appendChild(end);
 
-    await nameRoadster(name); // Llamar a la función para mostrar el nombre en el título
+    await nameCompany(name); // Llamar a la función para mostrar el nombre en el título
 
     return div;
 };
-
 
 
 
