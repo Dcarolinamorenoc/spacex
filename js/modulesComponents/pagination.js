@@ -129,7 +129,8 @@ import {
     LandpadsImages,
     imageShips,
     imageDragons,
-    LaunchpadsImages
+    LaunchpadsImages,
+    imageRoadster
 } from "./card.js";
 import { 
     progressRocketWeight,
@@ -2241,10 +2242,14 @@ const getAllRoadsterById = async (e) => {
 
     await nameRoadster(roadster.name);
 
+    await imageRoadster(roadster.flickr_images);
+
     let idroadElement = await idroad(roadster.id);
     let descriptionItem = document.querySelector(".description__item");
     descriptionItem.innerHTML = "";
     descriptionItem.append(idroadElement);
+
+    
 
 }
 

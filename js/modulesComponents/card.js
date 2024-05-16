@@ -229,3 +229,35 @@ export const LaunchpadsImages = async (launchpadsData) => {
       section__image.append(div);
     });
   }
+
+
+
+  export const imageRoadster = async (flickr_images) => {
+    let section__image = document.querySelector("#section__image");
+    section__image.innerHTML = ""; // Limpiar el contenido existente
+
+    flickr_images.forEach((val) => {
+        let div = document.createElement("div");
+        div.classList.add("carousel__item");
+        let img = document.createElement("img");
+        img.setAttribute("src", val);
+        img.setAttribute("referrerpolicy", "no-referrer");
+        img.style.marginTop = "70px"; // Ajustar el margen superior a 70px
+        img.style.width = "300px"; // Establecer el ancho a 300px
+        img.style.height = "200px"; // Establecer la altura a 200px
+        div.append(img);
+        section__image.append(div);
+    });
+
+    // Inicializar Slick Slider solo si hay más de una imagen
+    if (flickr_images.length > 1) {
+        $(document).ready(function() {
+            $(section__image).slick({
+                infinite: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: true,
+            });
+        });
+    }
+};
