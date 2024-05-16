@@ -810,8 +810,8 @@ footer {
             position: relative;
             width: 100%;
             padding: 20px;
-            gap: 8%;
-            clip-path: polygon(0 0, 100% 0, 85% 50%, 100% 100%, 0 100%, 15% 50%);
+            gap: -1%;
+            clip-path: polygon(0 0, 100% 0, 90% 50%, 100% 100%, 0 100%, 10% 50%);
             
         }
 
@@ -832,7 +832,7 @@ footer {
 
 
         li a img {
-          width: 40px;
+          width: 35px;
           position: absolute;
           margin-top: -15px;
           height: 40px;
