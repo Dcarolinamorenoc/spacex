@@ -2919,3 +2919,93 @@ export const launch_mass_lbsroad = async(launch_mass_lbs)=>{
 
     return div; // Retorna el elemento div
 }
+
+
+export const roadWikipedia = (wikipedia) => {
+    let div = document.createElement('div');
+    div.classList.add('description__container2');
+
+    let divWrapper = document.createElement('div');
+    divWrapper.style.display = "flex"; 
+    divWrapper.style.alignItems = "center"; 
+    divWrapper.style.marginBottom = "20px"; 
+    divWrapper.style.marginLeft = "20px";
+
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/wiki.svg");
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+    divFirst.appendChild(img);
+
+    let divLast = document.createElement('div');
+
+    let h3 = document.createElement('h3');
+    h3.textContent = "Wikipedia:";
+    h3.style.color = "white"; 
+    h3.style.marginLeft = "20px";
+    divLast.appendChild(h3);
+
+    let wikipediaLink = document.createElement('a');
+    wikipediaLink.textContent = "Read on Wikipedia";
+    wikipediaLink.style.color = "white"; 
+    wikipediaLink.style.marginLeft = "20px";
+    wikipediaLink.style.textDecoration = "underline"; 
+    wikipediaLink.href = wikipedia; 
+    wikipediaLink.style.fontSize = "9px";
+    wikipediaLink.target = "_blank";
+
+    divLast.appendChild(wikipediaLink);
+
+    divWrapper.appendChild(divFirst);
+    divWrapper.appendChild(divLast);
+
+    div.appendChild(divWrapper);
+
+    return div; // Devuelve el elemento div directamente
+}
+
+
+export const roadVideo = async (video) => {
+    let div = document.createElement('div');
+    div.classList.add('description__container2');
+
+    let divWrapper = document.createElement('div');
+    divWrapper.style.display = "flex"; 
+    divWrapper.style.alignItems = "center"; 
+    divWrapper.style.marginBottom = "20px"; 
+    divWrapper.style.marginLeft = "20px";
+
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/youtube.svg");
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+    divFirst.appendChild(img);
+
+    let divLast = document.createElement('div');
+
+    let h3 = document.createElement('h3');
+    h3.textContent = "Video:";
+    h3.style.color = "white"; 
+    h3.style.marginLeft = "20px";
+    divLast.appendChild(h3);
+
+    let videoLink = document.createElement('a');
+    videoLink.textContent = "Watch on YouTube";
+    videoLink.style.color = "white"; 
+    videoLink.style.marginLeft = "20px";
+    videoLink.style.textDecoration = "underline"; 
+    videoLink.href = video; 
+    videoLink.style.fontSize = "9px";
+    videoLink.target = "_blank";
+
+    divLast.appendChild(videoLink);
+
+    divWrapper.appendChild(divFirst);
+    divWrapper.appendChild(divLast);
+
+    div.appendChild(divWrapper);
+
+    return div;
+}

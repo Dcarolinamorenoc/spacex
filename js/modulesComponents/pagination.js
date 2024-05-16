@@ -110,7 +110,9 @@ import {
     launch_date_unixroad,
     orbit_typeroad,
     launch_mass_kgroad,
-    launch_mass_lbsroad
+    launch_mass_lbsroad,
+    roadWikipedia,
+    roadVideo
 } from "./information.js";
 
 import { 
@@ -2257,20 +2259,150 @@ const getAllRoadsterById = async (e) => {
     let launch_date_utcroadElement = await launch_date_utcroad(roadster.launch_date_utc);
     descriptionItem.append(launch_date_utcroadElement);
 
-
     let launch_date_unixroadElement = await launch_date_unixroad(roadster.launch_date_unix);
     descriptionItem.append(launch_date_unixroadElement)
 
-
     let orbit_typeroadElement = await orbit_typeroad(roadster.orbit_type);
     descriptionItem.append(orbit_typeroadElement)
-
 
     let launch_mass_kgroadElement = await launch_mass_kgroad(roadster.launch_mass_kg);
     descriptionItem.append(launch_mass_kgroadElement)
 
     let launch_mass_lbsroadElement = await launch_mass_lbsroad(roadster.launch_mass_lbs);
     descriptionItem.append(launch_mass_lbsroadElement)
+
+    let information__2 = document.getElementById('information__2');
+    information__2.innerHTML = "";
+
+    if (roadster.wikipedia) {
+        let roadWikipediaElement = await roadWikipedia(roadster.wikipedia);
+        information__2.appendChild(roadWikipediaElement); 
+    }
+
+    if (roadster.video) {
+        let roadVideoElement = await roadVideo(roadster.video);
+        information__2.appendChild(roadVideoElement); 
+    }
+
+
+
+    let information__table__1 = document.querySelector("#information__table__1");
+    information__table__1.innerHTML = "";
+    let h3_1 = document.createElement("h3");
+    h3_1.textContent = "Roadster information";
+    let hr_1 = document.createElement("hr");
+    information__table__1.append(h3_1, hr_1);
+
+    // Mostrar información de la lanzadera actual
+    let div = document.createElement("div");
+    div.classList.add("table__container__1");
+
+    let div1 = document.createElement("div");
+    let span1 = document.createElement("span");
+    span1.textContent = "Details";
+    let strong1 = document.createElement("strong");
+    strong1.textContent = `${roadster.details}`;
+    div1.append(span1, strong1);
+
+    let div2 = document.createElement("div");
+    let span2 = document.createElement("span");
+    span2.textContent = "Earth Distance Km ";
+    let strong2 = document.createElement("strong");
+    strong2.textContent = `${roadster.earth_distance_km}`;
+    div2.append(span2, strong2);
+
+    let div3 = document.createElement("div");
+    let span3 = document.createElement("span");
+    span3.textContent = "Period Days";
+    let strong3 = document.createElement("strong");
+    strong3.textContent = `${roadster.period_days}`;
+    div3.append(span3, strong3);
+
+    let div4 = document.createElement("div");
+    let span4 = document.createElement("span");
+    span4.textContent = "periapsis Arg";
+    let strong4 = document.createElement("strong");
+    strong4.textContent = `${roadster.periapsis_arg}`;
+    div4.append(span4, strong4);
+
+    let div5 = document.createElement("div");
+    let span5 = document.createElement("span");
+    span5.textContent = "Eccentricity";
+    let strong5 = document.createElement("strong");
+    strong5.textContent = `${roadster.eccentricity}`;
+    div5.append(span5, strong5);
+
+
+    let div6 = document.createElement("div");
+    let span6 = document.createElement("span");
+    span6.textContent = "Inclination";
+    let strong6 = document.createElement("strong");
+    strong6.textContent = `${roadster.inclination}`;
+    div6.append(span6, strong6);
+
+    let div7 = document.createElement("div");
+    let span7 = document.createElement("span");
+    span7.textContent = "Longitude";
+    let strong7 = document.createElement("strong");
+    strong7.textContent = `${roadster.longitude}`;
+    div7.append(span7, strong7);
+
+    div.append(div1, div2, div3, div4, div5, div6, div7);
+    information__table__1.append(div);
+
+
+    async function createLocationTable(roadster) {
+        let information__table__2 = document.querySelector("#information__table__2");
+        information__table__2.innerHTML = "";
+        let h3_2 = document.createElement("h3");
+        h3_2.textContent = "Roadster Data ";
+        let hr_2 = document.createElement("hr");
+        information__table__2.append(h3_2, hr_2);
+
+        let divLoc = document.createElement("div");
+        divLoc.classList.add("table__container__1");
+
+        let div1Loc = document.createElement("div");
+        let span1Loc = document.createElement("span");
+        span1Loc.textContent = "Norad Id";
+        let strong1Loc = document.createElement("strong");
+        strong1Loc.textContent = roadster.norad_id !== null ? roadster.norad_id : "No data available";
+        div1Loc.append(span1Loc, strong1Loc);
+
+        let div2Loc = document.createElement("div");
+        let span2Loc = document.createElement("span");
+        span2Loc.textContent = "Speed Kph";
+        let strong2Loc = document.createElement("strong");
+        strong2Loc.textContent = roadster.speed_kph !== null ? roadster.speed_kph : "No data available";
+        div2Loc.append(span2Loc, strong2Loc);
+
+        let div3Loc = document.createElement("div");
+        let span3Loc = document.createElement("span");
+        span3Loc.textContent = "Epoch Jd";
+        let strong3Loc = document.createElement("strong");
+        strong3Loc.textContent = roadster.epoch_jd !== null ? roadster.epoch_jd : "No data available";
+        div3Loc.append(span3Loc, strong3Loc);
+
+        let div4Loc = document.createElement("div");
+        let span4Loc = document.createElement("span");
+        span4Loc.textContent = "Apoapsis Au";
+        let strong4Loc = document.createElement("strong");
+        strong4Loc.textContent = roadster.apoapsis_au !== null ? roadster.apoapsis_au : "No data available";
+        div4Loc.append(span4Loc, strong4Loc);
+
+        let div5Loc = document.createElement("div");
+        let span5Loc = document.createElement("span");
+        span5Loc.textContent = "Mars Distance Mi";
+        let strong5Loc = document.createElement("strong");
+        strong5Loc.textContent = roadster.mars_distance_mi !== null ? roadster.mars_distance_mi : "No data available";
+        div5Loc.append(span5Loc, strong5Loc);
+
+        divLoc.append(div1Loc, div2Loc, div3Loc, div4Loc, div5Loc);
+        information__table__2.append(divLoc);
+    }
+
+    // Llama a la función para crear la tabla information__table__2
+    await createLocationTable(roadster);
 
 }
 
