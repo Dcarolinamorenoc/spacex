@@ -491,10 +491,16 @@ export const paginationRockets = async()=>{
 const getCapsulesId = async (e) => {
     e.preventDefault();
   
-    if (e.target.dataset.page) {
-      let paginacion = document.querySelector("#paginacion");
-      paginacion.innerHTML = "";
-      paginacion.append(await paginationCapsules(Number(e.target.dataset.page)));
+    if(e.target.dataset.page){
+        let paginacion = document.querySelector("#paginacion");
+        paginacion.innerHTML = ""
+        paginacion.append(await paginationCapsules(Number(e.target.dataset.page)))
+        setTimeout(() => {
+            let paginacion = document.querySelector("#paginacion");
+            let a1 = paginacion.children[0].children[1]
+            
+            a1.click();
+        }, 200);
     }
   
     let a = e.target.parentElement.children;
@@ -658,10 +664,16 @@ export const paginationCapsules = async(page=1, limit=4)=>{
 
 export const getCrewId = async (e) => {
     e.preventDefault();
-    if (e.target.dataset.page) {
+    if(e.target.dataset.page){
         let paginacion = document.querySelector("#paginacion");
-        paginacion.innerHTML = "";
-        paginacion.append(await paginationCrew(Number(e.target.dataset.page)));
+        paginacion.innerHTML = ""
+        paginacion.append(await paginationCrew(Number(e.target.dataset.page)))
+        setTimeout(() => {
+            let paginacion = document.querySelector("#paginacion");
+            let a1 = paginacion.children[0].children[1]
+            
+            a1.click();
+        }, 200);
     }
     
     let Crew = await getAllCrewId(e.target.id);
@@ -754,15 +766,16 @@ export const paginationCrew = async(page=1, limit=4)=>{
 
 const getLaunchesId = async (e) => {
     e.preventDefault();
-    if (e.target.dataset.page) {
+    if(e.target.dataset.page){
         let paginacion = document.querySelector("#paginacion");
-        paginacion.innerHTML = "";
-        paginacion.append(await paginationLaunches(Number(e.target.dataset.page)));
-    }
-
-    let a = e.target.parentElement.children;
-    for (let val of a) {
-        val.classList.remove('activo');
+        paginacion.innerHTML = ""
+        paginacion.append(await paginationLaunches(Number(e.target.dataset.page)))
+        setTimeout(() => {
+            let paginacion = document.querySelector("#paginacion");
+            let a1 = paginacion.children[0].children[1]
+            
+            a1.click();
+        }, 200);
     }
     e.target.classList.add('activo');
 
@@ -900,15 +913,16 @@ export const paginationLaunches = async(page=1, limit=4)=>{
 
 const getAllCoreById = async (e) => {
     e.preventDefault();
-    if (e.target.dataset.page) {
+    if(e.target.dataset.page){
         let paginacion = document.querySelector("#paginacion");
-        paginacion.innerHTML = "";
-        paginacion.append(await paginationCores(Number(e.target.dataset.page)));
-    }
-
-    let a = e.target.parentElement.children;
-    for (let val of a) {
-        val.classList.remove('activo');
+        paginacion.innerHTML = ""
+        paginacion.append(await paginationCores(Number(e.target.dataset.page)))
+        setTimeout(() => {
+            let paginacion = document.querySelector("#paginacion");
+            let a1 = paginacion.children[0].children[1]
+            
+            a1.click();
+        }, 200);
     }
     e.target.classList.add('activo');
 
@@ -1050,15 +1064,16 @@ export const paginationCores = async(page=1, limit=4)=>{
 
 const getAllLandpadsById = async (e) => {
     e.preventDefault();
-    if (e.target.dataset.page) {
+    if(e.target.dataset.page){
         let paginacion = document.querySelector("#paginacion");
-        paginacion.innerHTML = "";
-        paginacion.append(await paginationLandpads(Number(e.target.dataset.page)));
-    }
+        paginacion.innerHTML = ""
+        paginacion.append(await paginationLandpads(Number(e.target.dataset.page)))
+        setTimeout(() => {
+            let paginacion = document.querySelector("#paginacion");
+            let a1 = paginacion.children[0].children[1]
 
-    let a = e.target.parentElement.children;
-    for (let val of a) {
-        val.classList.remove('activo');
+            a1.click();
+        }, 200);
     }
     e.target.classList.add('activo');
 
@@ -1197,10 +1212,16 @@ export const paginationLandpads = async(page=1, limit=4)=>{
 
 const getAllShipsById = async (e) => {
     e.preventDefault();
-    if (e.target.dataset.page) {
+    if(e.target.dataset.page){
         let paginacion = document.querySelector("#paginacion");
-        paginacion.innerHTML = "";
-        paginacion.append(await paginationShips(Number(e.target.dataset.page)));
+        paginacion.innerHTML = ""
+        paginacion.append(await paginationShips(Number(e.target.dataset.page)))
+        setTimeout(() => {
+            let paginacion = document.querySelector("#paginacion");
+            let a1 = paginacion.children[0].children[1]
+
+            a1.click();
+        }, 200);
     }
 
     let a = e.target.parentElement.children;
@@ -1545,15 +1566,16 @@ export const paginationCompany = async() => {
 
 const getAllDragonsById = async (e) => {
     e.preventDefault();
-    if (e.target.dataset.page) {
+    if(e.target.dataset.page){
         let paginacion = document.querySelector("#paginacion");
-        paginacion.innerHTML = "";
-        paginacion.append(await paginationDragons(Number(e.target.dataset.page)));
-    }
+        paginacion.innerHTML = ""
+        paginacion.append(await paginationDragons(Number(e.target.dataset.page)))
+        setTimeout(() => {
+            let paginacion = document.querySelector("#paginacion");
+            let a1 = paginacion.children[0].children[1]
 
-    let a = e.target.parentElement.children;
-    for (let val of a) {
-        val.classList.remove('activo');
+            a1.click();
+        }, 200);
     }
     e.target.classList.add('activo');
 
@@ -1710,10 +1732,16 @@ export const paginationDragons = async(page=1, limit=4)=>{
 
 const getAllLaunchpadsById = async (e) => {
     e.preventDefault();
-    if (e.target.dataset.page) {
+    if(e.target.dataset.page){
         let paginacion = document.querySelector("#paginacion");
-        paginacion.innerHTML = "";
-        paginacion.append(await paginationLaunchpads(Number(e.target.dataset.page)));
+        paginacion.innerHTML = ""
+        paginacion.append(await paginationLaunchpads(Number(e.target.dataset.page)))
+        setTimeout(() => {
+            let paginacion = document.querySelector("#paginacion");
+            let a1 = paginacion.children[0].children[1]
+
+            a1.click();
+        }, 200);
     }
 
     let a = e.target.parentElement.children;
@@ -1871,15 +1899,16 @@ export const paginationLaunchpads = async(page=1, limit=4)=>{
 
 const getAllHistoryById = async (e) => {
     e.preventDefault();
-    if (e.target.dataset.page) {
+    if(e.target.dataset.page){
         let paginacion = document.querySelector("#paginacion");
-        paginacion.innerHTML = "";
-        paginacion.append(await paginationHistory(Number(e.target.dataset.page)));
-    }
+        paginacion.innerHTML = ""
+        paginacion.append(await paginationHistory(Number(e.target.dataset.page)))
+        setTimeout(() => {
+            let paginacion = document.querySelector("#paginacion");
+            let a1 = paginacion.children[0].children[1]
 
-    let a = e.target.parentElement.children;
-    for (let val of a) {
-        val.classList.remove('activo');
+            a1.click();
+        }, 200);
     }
     e.target.classList.add('activo');
 
@@ -1979,15 +2008,16 @@ export const paginationHistory = async(page=1, limit=4)=>{
 
 const getAllPayloadsById = async (e) => {
     e.preventDefault();
-    if (e.target.hasAttribute('data-page')) { // Verificamos si e.target tiene el atributo data-page
-      let paginacion = document.querySelector("#paginacion");
-      paginacion.innerHTML = "";
-      paginacion.append(await paginationPayloads(Number(e.target.dataset.page)));
-    }
-  
-    let a = e.target.parentElement.children;
-    for (let val of a) {
-      val.classList.remove('activo');
+    if(e.target.dataset.page){
+        let paginacion = document.querySelector("#paginacion");
+        paginacion.innerHTML = ""
+        paginacion.append(await paginationPayloads(Number(e.target.dataset.page)))
+        setTimeout(() => {
+            let paginacion = document.querySelector("#paginacion");
+            let a1 = paginacion.children[0].children[1]
+
+            a1.click();
+        }, 200);
     }
     e.target.classList.add('activo');
   
