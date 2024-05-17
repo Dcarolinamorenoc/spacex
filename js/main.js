@@ -136,13 +136,14 @@ payloads.addEventListener("click", async(e)=>{
     paginacion.append(await paginationPayloads())
 })
 
-let roadster = document.querySelector("#roadster")
-roadster.addEventListener("click", async(e)=>{
-    await footerSelect(e, roadster)
+let roadster = document.querySelector("#roadster"); // Obtener el elemento roadster correctamente
+roadster.addEventListener("click", async (e) => {
+    await footerSelect(e, roadster);
+
     let paginacion = document.querySelector("#paginacion");
-    paginacion.innerHTML = ""
-    paginacion.append(await paginationRoadster()) // Pasar 1 como argumento para la página inicial
-})
+    paginacion.innerHTML = "";
+    await paginationRoadster(); // Asegúrate de pasar los argumentos necesarios si la función los requiere
+});
 
 let starlink = document.querySelector("#starlink")
 starlink.addEventListener("click", async(e)=>{

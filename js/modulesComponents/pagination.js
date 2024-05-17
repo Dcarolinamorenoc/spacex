@@ -210,10 +210,7 @@ import {
     getPayloadsById
 } from "../modules/payloads.js"
 
-import {
-    getAllRoadster,
-    getRoadsterId
-} from "../modules/roadster.js"
+import { getRoadster } from "../modules/roadster.js";
 
 import {
     getAllStarlink,
@@ -2236,57 +2233,44 @@ export const paginationPayloads = async(page=1, limit=4)=>{
 
 
 
-const getAllRoadsterById = async (e) => {
-    e.preventDefault();
-    if (e.target.dataset.page) {
-        let paginacion = document.querySelector("#paginacion");
-        paginacion.innerHTML = "";
-        paginacion.append(await paginationRoadster(Number(e.target.dataset.page)));
-    }
+export const paginationRoadster = async (e) => {
+    let data = await getRoadster()
+    await clear()
 
-    let a = e.target.parentElement.children;
-    for (let val of a) {
-        val.classList.remove('activo');
-    }
-    e.target.classList.add('activo');
+    await nameRoadster(data.name);
 
-    let roadster = await getRoadsterId(e.target.id);
-    console.log(roadster);
+    await imageRoadster(data.flickr_images);
 
-    await nameRoadster(roadster.name);
-
-    await imageRoadster(roadster.flickr_images);
-
-    let idroadElement = await idroad(roadster.id);
+    let idroadElement = await idroad(data.id);
     let descriptionItem = document.querySelector(".description__item");
     descriptionItem.innerHTML = "";
     descriptionItem.append(idroadElement);
 
-    let launch_date_utcroadElement = await launch_date_utcroad(roadster.launch_date_utc);
+    let launch_date_utcroadElement = await launch_date_utcroad(data.launch_date_utc);
     descriptionItem.append(launch_date_utcroadElement);
 
-    let launch_date_unixroadElement = await launch_date_unixroad(roadster.launch_date_unix);
+    let launch_date_unixroadElement = await launch_date_unixroad(data.launch_date_unix);
     descriptionItem.append(launch_date_unixroadElement)
 
-    let orbit_typeroadElement = await orbit_typeroad(roadster.orbit_type);
+    let orbit_typeroadElement = await orbit_typeroad(data.orbit_type);
     descriptionItem.append(orbit_typeroadElement)
 
-    let launch_mass_kgroadElement = await launch_mass_kgroad(roadster.launch_mass_kg);
+    let launch_mass_kgroadElement = await launch_mass_kgroad(data.launch_mass_kg);
     descriptionItem.append(launch_mass_kgroadElement)
 
-    let launch_mass_lbsroadElement = await launch_mass_lbsroad(roadster.launch_mass_lbs);
+    let launch_mass_lbsroadElement = await launch_mass_lbsroad(data.launch_mass_lbs);
     descriptionItem.append(launch_mass_lbsroadElement)
 
     let information__2 = document.getElementById('information__2');
     information__2.innerHTML = "";
 
-    if (roadster.wikipedia) {
-        let roadWikipediaElement = await roadWikipedia(roadster.wikipedia);
+    if (data.wikipedia) {
+        let roadWikipediaElement = await roadWikipedia(data.wikipedia);
         information__2.appendChild(roadWikipediaElement); 
     }
 
-    if (roadster.video) {
-        let roadVideoElement = await roadVideo(roadster.video);
+    if (data.video) {
+        let roadVideoElement = await roadVideo(data.video);
         information__2.appendChild(roadVideoElement); 
     }
 
@@ -2307,35 +2291,35 @@ const getAllRoadsterById = async (e) => {
     let span1 = document.createElement("span");
     span1.textContent = "Details";
     let strong1 = document.createElement("strong");
-    strong1.textContent = `${roadster.details}`;
+    strong1.textContent = `${data.details}`;
     div1.append(span1, strong1);
 
     let div2 = document.createElement("div");
     let span2 = document.createElement("span");
     span2.textContent = "Earth Distance Km ";
     let strong2 = document.createElement("strong");
-    strong2.textContent = `${roadster.earth_distance_km}`;
+    strong2.textContent = `${data.earth_distance_km}`;
     div2.append(span2, strong2);
 
     let div3 = document.createElement("div");
     let span3 = document.createElement("span");
     span3.textContent = "Period Days";
     let strong3 = document.createElement("strong");
-    strong3.textContent = `${roadster.period_days}`;
+    strong3.textContent = `${data.period_days}`;
     div3.append(span3, strong3);
 
     let div4 = document.createElement("div");
     let span4 = document.createElement("span");
     span4.textContent = "periapsis Arg";
     let strong4 = document.createElement("strong");
-    strong4.textContent = `${roadster.periapsis_arg}`;
+    strong4.textContent = `${data.periapsis_arg}`;
     div4.append(span4, strong4);
 
     let div5 = document.createElement("div");
     let span5 = document.createElement("span");
     span5.textContent = "Eccentricity";
     let strong5 = document.createElement("strong");
-    strong5.textContent = `${roadster.eccentricity}`;
+    strong5.textContent = `${data.eccentricity}`;
     div5.append(span5, strong5);
 
 
@@ -2343,21 +2327,21 @@ const getAllRoadsterById = async (e) => {
     let span6 = document.createElement("span");
     span6.textContent = "Inclination";
     let strong6 = document.createElement("strong");
-    strong6.textContent = `${roadster.inclination}`;
+    strong6.textContent = `${data.inclination}`;
     div6.append(span6, strong6);
 
     let div7 = document.createElement("div");
     let span7 = document.createElement("span");
     span7.textContent = "Longitude";
     let strong7 = document.createElement("strong");
-    strong7.textContent = `${roadster.longitude}`;
+    strong7.textContent = `${data.longitude}`;
     div7.append(span7, strong7);
 
     div.append(div1, div2, div3, div4, div5, div6, div7);
     information__table__1.append(div);
 
 
-    async function createLocationTable(roadster) {
+    async function createLocationTable(data) {
         let information__table__2 = document.querySelector("#information__table__2");
         information__table__2.innerHTML = "";
         let h3_2 = document.createElement("h3");
@@ -2372,35 +2356,35 @@ const getAllRoadsterById = async (e) => {
         let span1Loc = document.createElement("span");
         span1Loc.textContent = "Norad Id";
         let strong1Loc = document.createElement("strong");
-        strong1Loc.textContent = roadster.norad_id !== null ? roadster.norad_id : "No data available";
+        strong1Loc.textContent = data.norad_id !== null ? data.norad_id : "No data available";
         div1Loc.append(span1Loc, strong1Loc);
 
         let div2Loc = document.createElement("div");
         let span2Loc = document.createElement("span");
         span2Loc.textContent = "Speed Kph";
         let strong2Loc = document.createElement("strong");
-        strong2Loc.textContent = roadster.speed_kph !== null ? roadster.speed_kph : "No data available";
+        strong2Loc.textContent = data.speed_kph !== null ? data.speed_kph : "No data available";
         div2Loc.append(span2Loc, strong2Loc);
 
         let div3Loc = document.createElement("div");
         let span3Loc = document.createElement("span");
         span3Loc.textContent = "Epoch Jd";
         let strong3Loc = document.createElement("strong");
-        strong3Loc.textContent = roadster.epoch_jd !== null ? roadster.epoch_jd : "No data available";
+        strong3Loc.textContent = data.epoch_jd !== null ? data.epoch_jd : "No data available";
         div3Loc.append(span3Loc, strong3Loc);
 
         let div4Loc = document.createElement("div");
         let span4Loc = document.createElement("span");
         span4Loc.textContent = "Apoapsis Au";
         let strong4Loc = document.createElement("strong");
-        strong4Loc.textContent = roadster.apoapsis_au !== null ? roadster.apoapsis_au : "No data available";
+        strong4Loc.textContent = data.apoapsis_au !== null ? data.apoapsis_au : "No data available";
         div4Loc.append(span4Loc, strong4Loc);
 
         let div5Loc = document.createElement("div");
         let span5Loc = document.createElement("span");
         span5Loc.textContent = "Mars Distance Mi";
         let strong5Loc = document.createElement("strong");
-        strong5Loc.textContent = roadster.mars_distance_mi !== null ? roadster.mars_distance_mi : "No data available";
+        strong5Loc.textContent = data.mars_distance_mi !== null ? data.mars_distance_mi : "No data available";
         div5Loc.append(span5Loc, strong5Loc);
 
         divLoc.append(div1Loc, div2Loc, div3Loc, div4Loc, div5Loc);
@@ -2408,47 +2392,47 @@ const getAllRoadsterById = async (e) => {
     }
 
     // Llama a la función para crear la tabla information__table__2
-    await createLocationTable(roadster);
+    await createLocationTable(data);
 
 }
 
 
 
-export const paginationRoadster = async (page = 1, limit = 1) => {
-    let response = await fetch('https://api.spacexdata.com/v4/roadster');
-    let data = await response.json();
-    let name = data.name; // Suponiendo que el nombre de la compañía está en el campo 'name' en la respuesta JSON
+// export const paginationRoadster = async (page = 1, limit = 1) => {
+//     let response = await fetch('https://api.spacexdata.com/v4/roadster');
+//     let data = await response.json();
+//     let name = data.name; // Suponiendo que el nombre de la compañía está en el campo 'name' en la respuesta JSON
 
-    let div = document.createElement("div");
-    div.classList.add("buttom__paginacion");
+//     let div = document.createElement("div");
+//     div.classList.add("buttom__paginacion");
 
-    let start = document.createElement("a");
-    start.setAttribute("href", "#");
-    start.innerHTML = "&laquo";
-    start.setAttribute("data-page", page > 1 ? page - 1 : 1);
-    start.addEventListener("click", getAllRoadsterById);
-    div.appendChild(start);
+//     let start = document.createElement("a");
+//     start.setAttribute("href", "#");
+//     start.innerHTML = "&laquo";
+//     start.setAttribute("data-page", page > 1 ? page - 1 : 1);
+//     start.addEventListener("click", getAllRoadsterById);
+//     div.appendChild(start);
 
-    for (let i = 1; i <= data.totalPages; i++) {
-        let a = document.createElement("a");
-        a.setAttribute("href", "#");
-        a.id = i;
-        a.textContent = i;
-        a.addEventListener("click", getAllRoadsterById);
-        div.appendChild(a);
-    }
+//     for (let i = 1; i <= data.totalPages; i++) {
+//         let a = document.createElement("a");
+//         a.setAttribute("href", "#");
+//         a.id = i;
+//         a.textContent = i;
+//         a.addEventListener("click", getAllRoadsterById);
+//         div.appendChild(a);
+//     }
 
-    let end = document.createElement("a");
-    end.setAttribute("href", "#");
-    end.innerHTML = "&raquo;";
-    end.setAttribute("data-page", data.nextPage ? data.nextPage : 1);
-    end.addEventListener("click", getAllRoadsterById);
-    div.appendChild(end);
+//     let end = document.createElement("a");
+//     end.setAttribute("href", "#");
+//     end.innerHTML = "&raquo;";
+//     end.setAttribute("data-page", data.nextPage ? data.nextPage : 1);
+//     end.addEventListener("click", getAllRoadsterById);
+//     div.appendChild(end);
 
-    await nameCompany(name); // Llamar a la función para mostrar el nombre en el título
+//     await nameCompany(name); // Llamar a la función para mostrar el nombre en el título
 
-    return div;
-};
+//     return div;
+// };
 
 
 

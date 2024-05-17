@@ -22,3 +22,11 @@ export const getStarlinkById = async (starlinkId) => {
     const data = await response.json();
     return data;
 }
+
+export const getRoadster = async ()=>{
+
+    let res = await fetch("https://api.spacexdata.com/v4/roadster")
+    let data = await res.json();
+
+    return data;
+}

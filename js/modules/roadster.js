@@ -22,3 +22,9 @@ export const getRoadsterId = async (roadsterId) => {
     const data = await response.json();
     return data;
 }
+
+export const getRoadster = async () => {
+    const response = await fetch("https://api.spacexdata.com/v4/roadster");
+    const data = await response.json();
+    return data;
+}
