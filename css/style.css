@@ -855,6 +855,20 @@ footer {
         transform: translateX(-50%);
     }
 
+    /* Estilo para la línea indicativa de selección */
+a.select span::after {
+  content: '';
+  display: block;
+  width: 100%; /* Ajusta el ancho de la línea */
+  height: 2px;
+  background-color: #ffffff; /* Color de la línea */
+  position: absolute;
+  top: 100%; /* Posiciona la línea justo debajo del texto */
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 2px; /* Espacio entre el texto y la línea */
+}
+
 
 
   /* redes sociales */
