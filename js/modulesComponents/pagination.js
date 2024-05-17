@@ -2453,24 +2453,34 @@ export const paginationRoadster = async (page = 1, limit = 1) => {
 
 
 
-const getAllStarlinkById = async (e) => {
-    e.preventDefault();
-    if (e.target.hasAttribute('data-page')) {
-        let paginacion = document.querySelector("#paginacion");
-        paginacion.innerHTML = "";
-        paginacion.append(await paginationStarlink(Number(e.target.dataset.page)));
-    }
 
+export const getAllStarlinkById = async(e)=>{
+    e.preventDefault();
+    if(e.target.dataset.page){
+        let paginacion = document.querySelector("#paginacion");
+        paginacion.innerHTML = ""
+        paginacion.append(await paginationStarlink(Number(e.target.dataset.page)))
+        setTimeout(() => {
+            let paginacion = document.querySelector("#paginacion");
+            let a1 = paginacion.children[0].children[1]
+
+            a1.click();
+        }, 200);
+    }
     let a = e.target.parentElement.children;
-    for (let val of a) {
+    for(let val of a){
         val.classList.remove('activo');
     }
     e.target.classList.add('activo');
-
+    
     let starlink = await getStarlinkById(e.target.id);
-    console.log(starlink); // Verifica los datos en la consola
+    await clear();
 
-    await getNameStarlink(); // Llama a la función para mostrar el nombre de Starlink
+    await getNameStarlink(starlink.spaceTrack.OBJECT_NAME)
+
+    // await tablesCapsule(Capsule)
+    // await tablesCapsule2(Capsule)
+    // await imageCapsule(Capsule)
 }
 
 
