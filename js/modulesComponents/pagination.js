@@ -180,10 +180,7 @@ import {
 } from "../modules/ships.js"
 
 
-import {
-    getAllCompany,
-    getCompanyById
-} from "../modules/company.js"
+import { getCompany } from "../modules/company.js";
 
 
 import {
@@ -1375,26 +1372,13 @@ export const paginationShips = async(page=1, limit=4)=>{
 
 
 
-const getAllCompanyById = async (e) => {
-    e.preventDefault();
-    if (e.target.dataset.page) {
-        let paginacion = document.querySelector("#paginacion");
-        paginacion.innerHTML = "";
-        paginacion.append(await paginationCompany(Number(e.target.dataset.page)));
-    }
+export const paginationCompany = async() => {
+    let data = await getCompany()
+    await clear()
 
-    let a = e.target.parentElement.children;
-    for (let val of a) {
-        val.classList.remove('activo');
-    }
-    e.target.classList.add('activo');
+    await nameCompany(data.name);
 
-    let company = await getCompanyById(e.target.id);
-    console.log(company);
-
-    await nameCompany(company.name);
-
-    let companyIdPageElement = await companyIdPage(company.id);
+    let companyIdPageElement = await companyIdPage(data.id);
     let descriptionItem = document.querySelector(".description__item");
     descriptionItem.innerHTML = "";
     descriptionItem.append(companyIdPageElement);
@@ -1414,27 +1398,27 @@ const getAllCompanyById = async (e) => {
     
     sectionImage.appendChild(img);
 
-    let companyFounderPageElement = await companyFounderPage(company.founder);
+    let companyFounderPageElement = await companyFounderPage(data.founder);
     descriptionItem.append(companyFounderPageElement);
 
-    let companyFoundedPagePageElement = await companyFoundedPage(company.founded);
+    let companyFoundedPagePageElement = await companyFoundedPage(data.founded);
     descriptionItem.append(companyFoundedPagePageElement);
 
-    let companyemployeesPageElement = await companyemployeesPage(company.employees);
+    let companyemployeesPageElement = await companyemployeesPage(data.employees);
     descriptionItem.append(companyemployeesPageElement);
 
-    let companyvehiclesPageElement = await companyvehiclesPage(company.vehicles);
+    let companyvehiclesPageElement = await companyvehiclesPage(data.vehicles);
     descriptionItem.append(companyvehiclesPageElement);
 
-    let companyvaluationPageElement = await companyvaluationPage(company.valuation);
+    let companyvaluationPageElement = await companyvaluationPage(data.valuation);
     descriptionItem.append(companyvaluationPageElement);
 
     // Mostrar los enlaces específicos (website, flickr, twitter, elon_twitter)
     let specificLinks = {
-        website: company.links.website,
-        flickr: company.links.flickr,
-        twitter: company.links.twitter,
-        elon_twitter: company.links.elon_twitter
+        website: data.links.website,
+        flickr: data.links.flickr,
+        twitter: data.links.twitter,
+        elon_twitter: data.links.elon_twitter
     };
 
     let SpaceXLinksElement = SpaceXLinks(specificLinks);
@@ -1456,28 +1440,28 @@ const getAllCompanyById = async (e) => {
     let span1_1 = document.createElement("span");
     span1_1.textContent = "CEO";
     let strong1_1 = document.createElement("strong");
-    strong1_1.textContent = `${company.ceo}`;
+    strong1_1.textContent = `${data.ceo}`;
     div1_1.append(span1_1, strong1_1);
 
     let div2_1 = document.createElement("div");
     let span2_1 = document.createElement("span");
     span2_1.textContent = "CTO";
     let strong2_1 = document.createElement("strong");
-    strong2_1.textContent = `${company.cto}`;
+    strong2_1.textContent = `${data.cto}`;
     div2_1.append(span2_1, strong2_1);
 
     let div3_1 = document.createElement("div");
     let span3_1 = document.createElement("span");
     span3_1.textContent = "COO";
     let strong3_1 = document.createElement("strong");
-    strong3_1.textContent = `${company.coo}`;
+    strong3_1.textContent = `${data.coo}`;
     div3_1.append(span3_1, strong3_1);
 
     let div4_1 = document.createElement("div");
     let span4_1 = document.createElement("span");
     span4_1.textContent = "CTO Propulsion";
     let strong4_1 = document.createElement("strong");
-    strong4_1.textContent = `${company.cto_propulsion}`;
+    strong4_1.textContent = `${data.cto_propulsion}`;
     div4_1.append(span4_1, strong4_1);
 
     div_1.append(div1_1, div2_1, div3_1, div4_1);
@@ -1497,21 +1481,21 @@ const getAllCompanyById = async (e) => {
     let span1_2 = document.createElement("span");
     span1_2.textContent = "Launch Sites";
     let strong1_2 = document.createElement("strong");
-    strong1_2.textContent = `${company.launch_sites}`;
+    strong1_2.textContent = `${data.launch_sites}`;
     div1_2.append(span1_2, strong1_2);
 
     let div2_2 = document.createElement("div");
     let span2_2 = document.createElement("span");
     span2_2.textContent = "Test Sites";
     let strong2_2 = document.createElement("strong");
-    strong2_2.textContent = `${company.test_sites}`;
+    strong2_2.textContent = `${data.test_sites}`;
     div2_2.append(span2_2, strong2_2);
 
     let div3_2 = document.createElement("div");
     let span3_2 = document.createElement("span");
     span3_2.textContent = "Summary";
     let strong3_2 = document.createElement("strong");
-    strong3_2.textContent = `${company.summary}`;
+    strong3_2.textContent = `${data.summary}`;
     div3_2.append(span3_2, strong3_2);
 
     div_2.append(div1_2, div2_2, div3_2);
@@ -1520,41 +1504,41 @@ const getAllCompanyById = async (e) => {
 
 
 
-export const paginationCompany = async (page = 1, limit = 1) => {
-    let response = await fetch('https://api.spacexdata.com/v4/company');
-    let data = await response.json();
-    let name = data.name; // Suponiendo que el nombre de la compañía está en el campo 'name' en la respuesta JSON
+// export const paginationCompany = async (page = 1, limit = 1) => {
+//     let response = await fetch('https://api.spacexdata.com/v4/company');
+//     let data = await response.json();
+//     let name = data.name; // Suponiendo que el nombre de la compañía está en el campo 'name' en la respuesta JSON
 
-    let div = document.createElement("div");
-    div.classList.add("buttom__paginacion");
+//     let div = document.createElement("div");
+//     div.classList.add("buttom__paginacion");
 
-    let start = document.createElement("a");
-    start.setAttribute("href", "#");
-    start.innerHTML = "&laquo";
-    start.setAttribute("data-page", page > 1 ? page - 1 : 1);
-    start.addEventListener("click", getAllCompanyById);
-    div.appendChild(start);
+//     let start = document.createElement("a");
+//     start.setAttribute("href", "#");
+//     start.innerHTML = "&laquo";
+//     start.setAttribute("data-page", page > 1 ? page - 1 : 1);
+//     start.addEventListener("click", getAllCompanyById);
+//     div.appendChild(start);
 
-    for (let i = 1; i <= data.totalPages; i++) {
-        let a = document.createElement("a");
-        a.setAttribute("href", "#");
-        a.id = i;
-        a.textContent = i;
-        a.addEventListener("click", getAllCompanyById);
-        div.appendChild(a);
-    }
+//     for (let i = 1; i <= data.totalPages; i++) {
+//         let a = document.createElement("a");
+//         a.setAttribute("href", "#");
+//         a.id = i;
+//         a.textContent = i;
+//         a.addEventListener("click", getAllCompanyById);
+//         div.appendChild(a);
+//     }
 
-    let end = document.createElement("a");
-    end.setAttribute("href", "#");
-    end.innerHTML = "&raquo;";
-    end.setAttribute("data-page", data.nextPage ? data.nextPage : 1);
-    end.addEventListener("click", getAllCompanyById);
-    div.appendChild(end);
+//     let end = document.createElement("a");
+//     end.setAttribute("href", "#");
+//     end.innerHTML = "&raquo;";
+//     end.setAttribute("data-page", data.nextPage ? data.nextPage : 1);
+//     end.addEventListener("click", getAllCompanyById);
+//     div.appendChild(end);
 
-    await nameCompany(name); // Llamar a la función para mostrar el nombre en el título
+//     await nameCompany(name); // Llamar a la función para mostrar el nombre en el título
 
-    return div;
-};
+//     return div;
+// };
 
 
 
