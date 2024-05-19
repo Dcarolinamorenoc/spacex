@@ -113,7 +113,8 @@ import {
     launch_mass_kgroad,
     launch_mass_lbsroad,
     roadWikipedia,
-    roadVideo
+    roadVideo,
+    idStarlink
 } from "./information.js";
 
 import { 
@@ -2468,9 +2469,14 @@ export const getAllStarlinkById = async(e)=>{
 
     await getNameStarlink(starlink.spaceTrack.OBJECT_NAME)
 
-    // await tablesCapsule(Capsule)
-    // await tablesCapsule2(Capsule)
-    // await imageCapsule(Capsule)
+    let idStarlinkElement = await idStarlink(starlink.id);
+    let descriptionItem = document.querySelector(".description__item");
+    descriptionItem.innerHTML = "";
+    descriptionItem.append(idStarlinkElement);
+
+
+
+
 }
 
 
