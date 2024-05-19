@@ -3035,3 +3035,126 @@ export const idStarlink = async(id)=>{
 
     return div; // Retorna el elemento div
 }
+
+
+export const COMMENTStarlink = async(COMMENT)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/cohete.svg")
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "COMMENT: "
+    let small = document.createElement('small');
+    small.textContent = COMMENT
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    return div; // Retorna el elemento div
+}
+
+export const launchStarlink = async(launch)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/cohete.svg")
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Launch: "
+    let small = document.createElement('small');
+    small.textContent = launch
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    return div; // Retorna el elemento div
+}
+
+
+export const versionStarlink = async(version)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/cohete.svg")
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Version: "
+    let small = document.createElement('small');
+    small.textContent = version
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    return div; // Retorna el elemento div
+}
+
+
+export const height_kmStarlink = async(height_km) => {
+    let div = document.createElement('div');
+    div.classList.add('description__container');
+    
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/cohete.svg");
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "Height Km: ";
+    let small = document.createElement('small');
+
+    // Verificar si height_km es null y asignar "no data" si es así
+    if (height_km === null) {
+        small.textContent = "No data recorded";
+    } else {
+        small.textContent = height_km;
+    }
+
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    return div; // Retorna el elemento div 
+};
+
+
+
+export const CCSDS_OMM_VERSStarlink = async(CCSDS_OMM_VERS)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/cohete.svg")
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "CCSDS_OMM_VERS: "
+    let small = document.createElement('small');
+    small.textContent = CCSDS_OMM_VERS
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    return div; // Retorna el elemento div
+}

@@ -114,7 +114,12 @@ import {
     launch_mass_lbsroad,
     roadWikipedia,
     roadVideo,
-    idStarlink
+    idStarlink,
+    COMMENTStarlink,
+    launchStarlink,
+    versionStarlink,
+    height_kmStarlink,
+    CCSDS_OMM_VERSStarlink
 } from "./information.js";
 
 import { 
@@ -2445,7 +2450,7 @@ export const paginationRoadster = async (e) => {
 
 
 
-export const getAllStarlinkById = async(e)=>{
+export const getAllStarlinkById = async (e, data) => {
     e.preventDefault();
     if(e.target.dataset.page){
         let paginacion = document.querySelector("#paginacion");
@@ -2474,9 +2479,64 @@ export const getAllStarlinkById = async(e)=>{
     descriptionItem.innerHTML = "";
     descriptionItem.append(idStarlinkElement);
 
+    let launchStarlinkElement = await launchStarlink(starlink.launch);
+    descriptionItem.append(launchStarlinkElement);
+
+
+    let versionStarlinkElement = await versionStarlink(starlink.version);
+    descriptionItem.append(versionStarlinkElement);
+
+    let height_kmStarlinkElement = await height_kmStarlink(starlink.height_km);
+    descriptionItem.append(height_kmStarlinkElement);
+
+
+    let COMMENTStarlinkElement = await COMMENTStarlink(starlink.spaceTrack.COMMENT); // Espera a que la función asíncrona se resuelva
+    let information__2 = document.getElementById('information__2');
+    information__2.innerHTML = "";
+    information__2.appendChild(COMMENTStarlinkElement);
+
+    let CCSDS_OMM_VERSStarlinkElement = await CCSDS_OMM_VERSStarlink(starlink.spaceTrack.CCSDS_OMM_VERS); 
+    information__2.appendChild(CCSDS_OMM_VERSStarlinkElement);
 
 
 
+    let information__table__1 = document.querySelector("#information__table__1");
+    information__table__1.innerHTML = "";
+    let h3_1 = document.createElement("h3");
+    h3_1.textContent = "Starlink information";
+    let hr_1 = document.createElement("hr");
+    information__table__1.append(h3_1, hr_1);
+    
+    // Mostrar información de la lanzadera actual
+    let div = document.createElement("div");
+    div.classList.add("table__container__1");
+    
+    // Reemplazar con los nuevos datos obtenidos de la API
+    let spaceTrackData = starlink.spaceTrack;
+    
+    let div1 = createDataElement("TLE_LINE0", spaceTrackData.TLE_LINE0);
+    let div2 = createDataElement("TLE_LINE1", spaceTrackData.TLE_LINE1);
+    let div3 = createDataElement("TLE_LINE2", spaceTrackData.TLE_LINE2);
+    let div4 = createDataElement("GP_ID", spaceTrackData.GP_ID);
+    let div5 = createDataElement("FILE", spaceTrackData.FILE);
+    let div6 = createDataElement("DECAYED", spaceTrackData.DECAYED);
+    let div7 = createDataElement("DECAY_DATE", spaceTrackData.DECAY_DATE);
+    
+    div.append(div1, div2, div3, div4, div5, div6, div7);
+    information__table__1.append(div);
+    
+    // Función para crear elementos de datos
+    function createDataElement(label, value) {
+      let div = document.createElement("div");
+      let span = document.createElement("span");
+      span.textContent = label;
+      let strong = document.createElement("strong");
+      strong.textContent = value;
+      div.append(span, strong);
+      return div;
+    }
+
+    
 }
 
 
