@@ -119,7 +119,19 @@ import {
     launchStarlink,
     versionStarlink,
     height_kmStarlink,
-    CCSDS_OMM_VERSStarlink
+    CCSDS_OMM_VERSStarlink,
+    CREATION_DATEStarlink,
+    ORIGINATORtarlink,
+    OBJECT_IDtarlink,
+    CENTER_NAMEtarlink,
+    REF_FRAMEtarlink,
+    TIME_SYSTEMtarlink,
+    MEAN_ELEMENT_THEORY,
+    EPOCH,
+    MEAN_MOTION,
+    ECCENTRICITY,
+    INCLINATION,
+    BSTAR
 } from "./information.js";
 
 import { 
@@ -1934,7 +1946,24 @@ const getAllHistoryById = async (e) => {
     information__2.appendChild(historyLinksElement);
 
 
+    let sectionImage = document.querySelector("#section__information__1");
+    sectionImage.innerHTML = "";
     
+    // Crea la nueva imagen y agrégala a sectionImage
+    let img = document.createElement("img");
+    img.setAttribute("src", "storage/img/icons/history.gif");
+    img.classList.add("imagen-paginacion-capsula");
+    
+    // Agrega estilos para posición absoluta
+    img.style.position = "absolute";
+    img.style.top = "100px"; // Ajusta la posición vertical
+    img.style.left = "-20px"; // Ajusta la posición horizontal
+    img.style.width = "280px";
+    img.style.height = "300px";
+    img.style.marginTop = "190px";
+    img.style.marginLeft = "350px";
+    
+    sectionImage.appendChild(img);
 
 
     let information__table__2 = document.querySelector("#information__table__2");
@@ -2494,6 +2523,64 @@ export const getAllStarlinkById = async (e, data) => {
   
     let CCSDS_OMM_VERSStarlinkElement = await CCSDS_OMM_VERSStarlink(starlink.spaceTrack.CCSDS_OMM_VERS); 
     information__2.appendChild(CCSDS_OMM_VERSStarlinkElement);
+
+    let CREATION_DATEStarlinkElement = await CREATION_DATEStarlink(starlink.spaceTrack.CREATION_DATE); 
+    information__2.appendChild(CREATION_DATEStarlinkElement);
+
+    let ORIGINATORtarlinkElement = await ORIGINATORtarlink(starlink.spaceTrack.ORIGINATOR); 
+    information__2.appendChild(ORIGINATORtarlinkElement);
+
+
+    let OBJECT_IDtarlinkElement = await OBJECT_IDtarlink(starlink.spaceTrack.OBJECT_ID); 
+    information__2.appendChild(OBJECT_IDtarlinkElement);
+
+    let CENTER_NAMEtarlinkElement = await CENTER_NAMEtarlink(starlink.spaceTrack.CENTER_NAME); 
+    information__2.appendChild(CENTER_NAMEtarlinkElement);
+
+    let REF_FRAMEtarlinkElement = await REF_FRAMEtarlink(starlink.spaceTrack.REF_FRAME); 
+    information__2.appendChild(REF_FRAMEtarlinkElement);
+
+    let TIME_SYSTEMtarlinkElement = await TIME_SYSTEMtarlink(starlink.spaceTrack.TIME_SYSTEM); 
+    information__2.appendChild(TIME_SYSTEMtarlinkElement);
+
+    let MEAN_ELEMENT_THEORYElement = await MEAN_ELEMENT_THEORY(starlink.spaceTrack.MEAN_ELEMENT_THEORY); 
+    information__2.appendChild(MEAN_ELEMENT_THEORYElement);
+
+    let EPOCHElement = await EPOCH(starlink.spaceTrack.EPOCH); 
+    information__2.appendChild(EPOCHElement);
+
+    let MEAN_MOTIONElement = await MEAN_MOTION(starlink.spaceTrack.MEAN_MOTION); 
+    information__2.appendChild(MEAN_MOTIONElement);
+
+    let ECCENTRICITYElement = await ECCENTRICITY(starlink.spaceTrack.ECCENTRICITY); 
+    information__2.appendChild(ECCENTRICITYElement);
+
+    let INCLINATIONElement = await INCLINATION(starlink.spaceTrack.INCLINATION); 
+    information__2.appendChild(INCLINATIONElement);
+
+    let BSTARElement = await BSTAR(starlink.spaceTrack.BSTAR); 
+    information__2.appendChild(BSTARElement);
+
+
+
+    let sectionImage = document.querySelector("#section__information__1");
+    sectionImage.innerHTML = "";
+    
+    // Crea la nueva imagen y agrégala a sectionImage
+    let img = document.createElement("img");
+    img.setAttribute("src", "storage/img/icons/starlink.gif");
+    img.classList.add("imagen-paginacion-capsula");
+    
+    // Agrega estilos para posición absoluta
+    img.style.position = "absolute";
+    img.style.top = "100px"; // Ajusta la posición vertical
+    img.style.left = "-20px"; // Ajusta la posición horizontal
+    img.style.width = "280px";
+    img.style.height = "300px";
+    img.style.marginTop = "190px";
+    img.style.marginLeft = "350px";
+    
+    sectionImage.appendChild(img);
   
     let information__table__1 = document.querySelector("#information__table__1");
     information__table__1.innerHTML = "";

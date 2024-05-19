@@ -3042,7 +3042,7 @@ export const COMMENTStarlink = async(COMMENT)=>{
     div.classList.add('description__container')
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/icons/cohete.svg")
+    img.setAttribute("src", "storage/img/icons/ufo.svg")
     img.setAttribute("width", "50"); 
     img.setAttribute("height", "40");
 
@@ -3064,7 +3064,7 @@ export const launchStarlink = async(launch)=>{
     div.classList.add('description__container')
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/icons/cohete.svg")
+    img.setAttribute("src", "storage/img/icons/laun.svg")
     img.setAttribute("width", "50"); 
     img.setAttribute("height", "40");
 
@@ -3087,7 +3087,7 @@ export const versionStarlink = async(version)=>{
     div.classList.add('description__container')
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/icons/cohete.svg")
+    img.setAttribute("src", "storage/img/icons/MdiCircleDouble.png")
     img.setAttribute("width", "50"); 
     img.setAttribute("height", "40");
 
@@ -3111,7 +3111,7 @@ export const height_kmStarlink = async(height_km) => {
     
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/icons/cohete.svg");
+    img.setAttribute("src", "storage/img/icons/altura.svg");
     img.setAttribute("width", "50"); 
     img.setAttribute("height", "40");
 
@@ -3142,7 +3142,7 @@ export const CCSDS_OMM_VERSStarlink = async(CCSDS_OMM_VERS)=>{
     div.classList.add('description__container')
     let divFirst = document.createElement('div');
     let img = document.createElement('img');
-    img.setAttribute("src", "storage/img/icons/cohete.svg")
+    img.setAttribute("src", "storage/img/icons/ufo.svg")
     img.setAttribute("width", "50"); 
     img.setAttribute("height", "40");
 
@@ -3153,6 +3153,280 @@ export const CCSDS_OMM_VERSStarlink = async(CCSDS_OMM_VERS)=>{
     h3.textContent = "CCSDS_OMM_VERS: "
     let small = document.createElement('small');
     small.textContent = CCSDS_OMM_VERS
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    return div; // Retorna el elemento div
+}
+
+
+export const CREATION_DATEStarlink = async(CREATION_DATE)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/ufo.svg")
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "CREATION_DATE: "
+    let small = document.createElement('small');
+    small.textContent = CREATION_DATE
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    return div; // Retorna el elemento div
+}
+
+
+export const ORIGINATORtarlink = async(ORIGINATOR)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/ufo.svg")
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "ORIGINATOR: "
+    let small = document.createElement('small');
+    small.textContent = ORIGINATOR
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    return div; // Retorna el elemento div
+}
+
+
+export const OBJECT_IDtarlink = async(OBJECT_ID)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/ufo.svg")
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "OBJECT_ID: "
+    let small = document.createElement('small');
+    small.textContent = OBJECT_ID
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    return div; // Retorna el elemento div
+}
+
+
+export const CENTER_NAMEtarlink = async(CENTER_NAME)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/ufo.svg")
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "CENTER_NAME: "
+    let small = document.createElement('small');
+    small.textContent = CENTER_NAME
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    return div; // Retorna el elemento div
+}
+
+
+export const REF_FRAMEtarlink = async(REF_FRAME)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/ufo.svg")
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "REF_FRAME: "
+    let small = document.createElement('small');
+    small.textContent = REF_FRAME
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    return div; // Retorna el elemento div
+}
+
+
+export const TIME_SYSTEMtarlink = async(TIME_SYSTEM)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/ufo.svg")
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "TIME_SYSTEM: "
+    let small = document.createElement('small');
+    small.textContent = TIME_SYSTEM
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    return div; // Retorna el elemento div
+}
+
+
+export const MEAN_ELEMENT_THEORY = async(MEAN_ELEMENT_THEORY)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/ufo.svg")
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "MEAN_ELEMENT_THEORY: "
+    let small = document.createElement('small');
+    small.textContent = MEAN_ELEMENT_THEORY
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    return div; // Retorna el elemento div
+}
+
+
+export const EPOCH = async(EPOCH)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/ufo.svg")
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "EPOCH: "
+    let small = document.createElement('small');
+    small.textContent = EPOCH
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    return div; // Retorna el elemento div
+}
+
+
+export const MEAN_MOTION = async(MEAN_MOTION)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/ufo.svg")
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "MEAN_MOTION: "
+    let small = document.createElement('small');
+    small.textContent = MEAN_MOTION
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    return div; // Retorna el elemento div
+}
+
+export const ECCENTRICITY = async(ECCENTRICITY)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/ufo.svg")
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "ECCENTRICITY: "
+    let small = document.createElement('small');
+    small.textContent = ECCENTRICITY
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    return div; // Retorna el elemento div
+}
+
+export const INCLINATION = async(INCLINATION)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/ufo.svg")
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "INCLINATION: "
+    let small = document.createElement('small');
+    small.textContent = INCLINATION
+    divLast.append(h3, small);
+    div.append(divFirst, divLast);
+
+    return div; // Retorna el elemento div
+}
+
+
+export const BSTAR = async(BSTAR)=>{
+    let div = document.createElement('div');
+    div.classList.add('description__container')
+    let divFirst = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute("src", "storage/img/icons/ufo.svg")
+    img.setAttribute("width", "50"); 
+    img.setAttribute("height", "40");
+
+    divFirst.append(img);
+    
+    let divLast = document.createElement('div');
+    let h3 = document.createElement('h3');
+    h3.textContent = "BSTAR: "
+    let small = document.createElement('small');
+    small.textContent = BSTAR
     divLast.append(h3, small);
     div.append(divFirst, divLast);
 
