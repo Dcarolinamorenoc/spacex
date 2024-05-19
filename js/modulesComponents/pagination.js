@@ -2453,53 +2453,48 @@ export const paginationRoadster = async (e) => {
 export const getAllStarlinkById = async (e, data) => {
     e.preventDefault();
     if(e.target.dataset.page){
+      let paginacion = document.querySelector("#paginacion");
+      paginacion.innerHTML = ""
+      paginacion.append(await paginationStarlink(Number(e.target.dataset.page)))
+      setTimeout(() => {
         let paginacion = document.querySelector("#paginacion");
-        paginacion.innerHTML = ""
-        paginacion.append(await paginationStarlink(Number(e.target.dataset.page)))
-        setTimeout(() => {
-            let paginacion = document.querySelector("#paginacion");
-            let a1 = paginacion.children[0].children[1]
-
-            a1.click();
-        }, 200);
+        let a1 = paginacion.children[0].children[1]
+        a1.click();
+      }, 200);
     }
     let a = e.target.parentElement.children;
     for(let val of a){
-        val.classList.remove('activo');
+      val.classList.remove('activo');
     }
     e.target.classList.add('activo');
     
     let starlink = await getStarlinkById(e.target.id);
     await clear();
-
+  
     await getNameStarlink(starlink.spaceTrack.OBJECT_NAME)
-
+  
     let idStarlinkElement = await idStarlink(starlink.id);
     let descriptionItem = document.querySelector(".description__item");
     descriptionItem.innerHTML = "";
     descriptionItem.append(idStarlinkElement);
-
+  
     let launchStarlinkElement = await launchStarlink(starlink.launch);
     descriptionItem.append(launchStarlinkElement);
-
-
+  
     let versionStarlinkElement = await versionStarlink(starlink.version);
     descriptionItem.append(versionStarlinkElement);
-
+  
     let height_kmStarlinkElement = await height_kmStarlink(starlink.height_km);
     descriptionItem.append(height_kmStarlinkElement);
-
-
+  
     let COMMENTStarlinkElement = await COMMENTStarlink(starlink.spaceTrack.COMMENT); // Espera a que la función asíncrona se resuelva
     let information__2 = document.getElementById('information__2');
     information__2.innerHTML = "";
     information__2.appendChild(COMMENTStarlinkElement);
-
+  
     let CCSDS_OMM_VERSStarlinkElement = await CCSDS_OMM_VERSStarlink(starlink.spaceTrack.CCSDS_OMM_VERS); 
     information__2.appendChild(CCSDS_OMM_VERSStarlinkElement);
-
-
-
+  
     let information__table__1 = document.querySelector("#information__table__1");
     information__table__1.innerHTML = "";
     let h3_1 = document.createElement("h3");
@@ -2535,9 +2530,61 @@ export const getAllStarlinkById = async (e, data) => {
       div.append(span, strong);
       return div;
     }
-
-    
-}
+  
+    // Agrega el código de createLocationTable aquí
+    async function createLocationTable(data) {
+      let information__table__2 = document.querySelector("#information__table__2");
+      information__table__2.innerHTML = "";
+      let h3_2 = document.createElement("h3");
+      h3_2.textContent = "Starlink Data";
+      let hr_2 = document.createElement("hr");
+      information__table__2.append(h3_2, hr_2);
+  
+      let divLoc = document.createElement("div");
+      divLoc.classList.add("table__container__1");
+  
+      let div1Loc = document.createElement("div");
+      let span1Loc = document.createElement("span");
+      span1Loc.textContent = "Object Type";
+      let strong1Loc = document.createElement("strong");
+      strong1Loc.textContent = data.spaceTrack.OBJECT_TYPE !== null ? data.spaceTrack.OBJECT_TYPE : "No data available";
+      div1Loc.append(span1Loc, strong1Loc);
+  
+      let div2Loc = document.createElement("div");
+      let span2Loc = document.createElement("span");
+      span2Loc.textContent = "RCS Size";
+      let strong2Loc = document.createElement("strong");
+      strong2Loc.textContent = data.spaceTrack.RCS_SIZE !== null ? data.spaceTrack.RCS_SIZE : "No data available";
+      div2Loc.append(span2Loc, strong2Loc);
+  
+      let div3Loc = document.createElement("div");
+      let span3Loc = document.createElement("span");
+      span3Loc.textContent = "Country Code";
+      let strong3Loc = document.createElement("strong");
+      strong3Loc.textContent = data.spaceTrack.COUNTRY_CODE !== null ? data.spaceTrack.COUNTRY_CODE : "No data available";
+      div3Loc.append(span3Loc, strong3Loc);
+  
+      let div4Loc = document.createElement("div");
+      let span4Loc = document.createElement("span");
+      span4Loc.textContent = "Launch Date";
+      let strong4Loc = document.createElement("strong");
+      strong4Loc.textContent = data.spaceTrack.LAUNCH_DATE !== null ? data.spaceTrack.LAUNCH_DATE : "No data available";
+      div4Loc.append(span4Loc, strong4Loc);
+  
+      let div5Loc = document.createElement("div");
+      let span5Loc = document.createElement("span");
+      span5Loc.textContent = "Launch Site";
+      let strong5Loc = document.createElement("strong");
+      strong5Loc.textContent = data.spaceTrack.SITE !== null ? data.spaceTrack.SITE : "No data available";
+      div5Loc.append(span5Loc, strong5Loc);
+  
+      divLoc.append(div1Loc, div2Loc, div3Loc, div4Loc, div5Loc);
+      information__table__2.append(divLoc);
+    }
+  
+    // Llama a la función para crear la tabla information__table__2
+    await createLocationTable(starlink);
+  }
 
 
 
